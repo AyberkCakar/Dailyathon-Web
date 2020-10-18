@@ -44,6 +44,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 // Pages
 import {StatisticComponent} from './pages/statistic/statistic.component';
@@ -115,7 +117,8 @@ import {LoginComponent} from './pages/login/login.component';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
     TagInputModule,
-    TrendModule
+    TrendModule,
+    HttpClientModule
   ],
   providers: [ Title, {
     provide: PERFECT_SCROLLBAR_CONFIG,
