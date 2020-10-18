@@ -1,0 +1,37 @@
+<div class="login-cover">
+  <div class="login-cover-image" [ngStyle]="{ 'background-image': 'url(' + this.bg + ')' }"></div>
+  <div class="login-cover-bg"></div>
+</div>
+
+<!-- begin login -->
+<div class="login login-v2" data-pageload-addclass="animated fadeIn ">
+  <!-- begin brand -->
+  <div class="login-header"style="margin-top: 700px">
+    <div class="brand">
+      <img src="../../../favicon.ico" alt="" class="m-r-10"><b>Dailyathon</b> Login
+      <small>Dailyathon Admin Login</small>
+    </div>
+    <div class="icon">
+      <i class="fa fa-lock"></i>
+    </div>
+  </div>
+  <!-- end brand -->
+  <!-- begin login-content -->
+  <div class="login-content">
+    <form class="margin-bottom-0" >
+    <div class="form-group m-b-20">
+      <input type="text" class="form-control form-control-lg" placeholder="Username" #Username required />
+    </div>
+    <div class="form-group m-b-20">
+      <input type="password" class="form-control form-control-lg" placeholder="Password"  #Password required />
+    </div>
+    <br>
+
+    <div class="login-buttons">
+      <button type="submit" (click)="onLogin(Username.value,Password.value)"  class="btn btn-success btn-block btn-lg">Sign me in</button>
+    </div>
+    </form>
+  </div>
+  <!-- end login-content -->
+</div>
+<!-- end login -->

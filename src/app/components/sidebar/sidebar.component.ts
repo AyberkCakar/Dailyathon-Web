@@ -201,7 +201,14 @@ export class SidebarComponent implements AfterViewChecked {
     }
   }
 
+  AdminName;
+  AdminAuth;
+  AdminPosition;
   constructor(private eRef: ElementRef) {
+    this.AdminName = localStorage.getItem('AdminName');
+    this.AdminAuth = localStorage.getItem('AdminAuth');
+    this.AdminPosition = localStorage.getItem('AdminPosition');
+
     if (window.innerWidth <= 767) {
       this.mobileMode = true;
       this.desktopMode = false;
