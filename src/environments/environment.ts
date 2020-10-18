@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://dailyathon.herokuapp.com/'
+  apiUrl: 'https://dailyathon.herokuapp.com/'
 };
