@@ -1,40 +1,61 @@
 var pageMenus = [{
-  'icon': 'fa fa-th-large',
-  'title': 'Home',
-  'url': '/home'
+  'icon': 'fab fa-windows',
+  'title': 'Dashboard',
+  'url': '/dashboard'
 },{
-  'icon': 'fa fa-align-left',
-  'title': 'Menu Level',
-  'url': '',
+  'icon': 'fas fa-user-secret',
+  'title': 'Admin',
+  'url': '/admin'
+},{
+  'icon': 'fas fa-users',
+  'title': 'User',
+  'url': '/user'
+},{
+  'icon': 'far fa-chart-bar',
+  'title': 'Statistic',
+  'url': '/statistic'
+},{
+  'icon': 'fas fa-th-list',
+  'title': 'Category',
+  'url': '/category'
+},{
+  'icon': 'fas fa-hashtag',
+  'title': 'Tag',
+  'url': '/tag'
+},{
+  'icon': 'fas fa-bullhorn',
+  'title': 'Announcement',
+  'url': '/announcement'
+},{
+  'icon': 'fas fa-tasks',
+  'title': 'Survey',
+  'url': '/survey'
+},{
+  'icon': 'fas fa-futbol',
+  'title': 'Sport',
+  'url': '/sport'
+},{
+  'icon': 'far fa-smile',
+  'title': 'Event',
+  'url': '/event'
+},{
+  'icon': 'fas fa-newspaper',
+  'title': 'News',
+  'url': '/news'
+},{
+  'icon': 'fas fa-code',
+  'title': 'Admin Log List',
+  'url': '/adminlog'
+},{
+  'icon': 'far fa-file-code',
+  'title': 'Log',
   'caret': 'true',
   'submenu': [{
-    'url': '',
-    'title': 'Menu 1.1',
-    'caret': 'true',
-    'submenu': [{
-      'url': '',
-      'title': 'Menu 2.1',
-      'caret': 'true',
-      'submenu': [{
-        'url': '',
-        'title': 'Menu 3.1',
-      },{
-        'url': '',
-        'title': 'Menu 3.2'
-      }]
-    },{
-      'url': '',
-      'title': 'Menu 2.2'
-    },{
-      'url': '',
-      'title': 'Menu 2.3'
-    }]
+    'url': '/servelog',
+    'title': 'Serve Log List',
   },{
-    'url': '',
-    'title': 'Menu 1.2'
-  },{
-    'url': '',
-    'title': 'Menu 1.3'
+    'url': '/databotlog',
+    'title': 'Databot Log List'
   }]
 }];
 

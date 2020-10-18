@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "color-admin": {
+    "dailyathon-admin": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -49,18 +49,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "color-admin:build"
+            "browserTarget": "dailyathon-admin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "color-admin:build:production"
+              "browserTarget": "dailyathon-admin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "color-admin:build"
+            "browserTarget": "dailyathon-admin:build"
           }
         },
         "test": {
@@ -94,7 +94,7 @@
         }
       }
     },
-    "color-admin-e2e": {
+    "dailyathon-admin-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -103,7 +103,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "color-admin:serve"
+            "devServerTarget": "dailyathon-admin:serve"
           }
         },
         "lint": {
@@ -120,7 +120,7 @@
       }
     }
   },
-  "defaultProject": "color-admin",
+  "defaultProject": "dailyathon-admin",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
