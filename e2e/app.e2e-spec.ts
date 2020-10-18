@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('color-admin App', () => {
+describe('dailyathon-admin App', () => {
   let page: AppPage;
 
   beforeEach(() => {
