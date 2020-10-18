@@ -60,6 +60,7 @@ import {NewsComponent} from './pages/news/news.component';
 import {SportComponent} from './pages/sport/sport.component';
 import {SurveyComponent} from './pages/survey/survey.component';
 import {UserComponent} from './pages/user/user.component';
+import {LoginComponent} from './pages/login/login.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import {UserComponent} from './pages/user/user.component';
     NewsComponent,
     SportComponent,
     SurveyComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
