@@ -46,7 +46,21 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 
 // Pages
-import { HomePage }          from './pages/home/home';
+import {StatisticComponent} from './pages/statistic/statistic.component';
+import {AdminComponent} from './pages/admin/admin.component';
+import {AnnouncementComponent} from './pages/announcement/announcement.component';
+import {CategoryComponent} from './pages/category/category.component';
+import {TagComponent} from './pages/tag/tag.component';
+import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import {EventComponent} from './pages/event/event.component';
+import {AdminlogComponent} from './pages/log/adminlog/adminlog.component';
+import {ServelogComponent} from './pages/log/servelog/servelog.component';
+import {DatabotlogComponent} from './pages/log/databotlog/databotlog.component';
+import {NewsComponent} from './pages/news/news.component';
+import {SportComponent} from './pages/sport/sport.component';
+import {SurveyComponent} from './pages/survey/survey.component';
+import {UserComponent} from './pages/user/user.component';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +73,20 @@ import { HomePage }          from './pages/home/home';
     PanelComponent,
     FloatSubMenuComponent,
 
-    HomePage
+    StatisticComponent,
+    AdminComponent,
+    AnnouncementComponent,
+    CategoryComponent,
+    TagComponent,
+    DashboardComponent,
+    EventComponent,
+    AdminlogComponent,
+    ServelogComponent,
+    DatabotlogComponent,
+    NewsComponent,
+    SportComponent,
+    SurveyComponent,
+    UserComponent
   ],
   imports: [
     AppRoutingModule,

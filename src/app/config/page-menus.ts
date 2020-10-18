@@ -12,8 +12,8 @@ var pageMenus = [{
   'url': '/user'
 },{
   'icon': 'far fa-chart-bar',
-  'title': 'İstatistik',
-  'url': '/istatistik'
+  'title': 'Statistic',
+  'url': '/statistic'
 },{
   'icon': 'fas fa-th-list',
   'title': 'Category',
@@ -24,24 +24,28 @@ var pageMenus = [{
   'url': '/tag'
 },{
   'icon': 'fas fa-bullhorn',
-  'title': 'Duyuru',
-  'url': '/duyuru'
+  'title': 'Announcement',
+  'url': '/announcement'
 },{
   'icon': 'fas fa-tasks',
-  'title': 'Anket',
-  'url': '/anket'
+  'title': 'Survey',
+  'url': '/survey'
 },{
   'icon': 'fas fa-futbol',
-  'title': 'Spor',
-  'url': '/spor'
+  'title': 'Sport',
+  'url': '/sport'
 },{
   'icon': 'far fa-smile',
-  'title': 'Etkinlik',
-  'url': '/etkinlik'
+  'title': 'Event',
+  'url': '/event'
 },{
   'icon': 'fas fa-newspaper',
-  'title': 'Haber',
-  'url': '/haber'
+  'title': 'News',
+  'url': '/news'
+},{
+  'icon': 'fas fa-code',
+  'title': 'Admin Log List',
+  'url': '/adminlog'
 },{
   'icon': 'far fa-file-code',
   'title': 'Log',
@@ -53,10 +57,6 @@ var pageMenus = [{
     'url': '/databotlog',
     'title': 'Databot Log List'
   }]
-},{
-  'icon': 'fas fa-code',
-  'title': 'Admin Log List',
-  'url': '/home'
 }];
 
 export default pageMenus;
