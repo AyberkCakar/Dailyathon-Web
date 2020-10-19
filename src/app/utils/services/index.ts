@@ -5,3 +5,4 @@ export * from './admin/admin.service';
 export * from './tag/tag.service';
 export * from './category/category.service';
 export * from './survey/survey.service';
+export * from './announcement/announcement.service';
