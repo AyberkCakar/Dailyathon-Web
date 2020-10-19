@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 export class AdminComponent {
 
   model:Array<AdminModel>;
-  constructor(private router: Router, private _userService: AdminService )
+  constructor(private router: Router, private _adminService: AdminService )
   {
   }
   
   async ngOnInit(){
     try {
-      this.model = <Array<AdminModel>>await this._userService.listAsync()
+      this.model = <Array<AdminModel>>await this._adminService.listAsync()
       
     } catch (error) {
       

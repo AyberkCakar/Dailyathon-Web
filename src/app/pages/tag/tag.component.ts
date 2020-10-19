@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 export class TagComponent {
 
   model:Array<TagModel>;
-  constructor(private router: Router, private _userService: TagService )
+  constructor(private router: Router, private _tagService: TagService )
   {
   }
   
   async ngOnInit(){
     try {
-      this.model = <Array<TagModel>>await this._userService.listAsync()
+      this.model = <Array<TagModel>>await this._tagService.listAsync()
       
     } catch (error) {
       

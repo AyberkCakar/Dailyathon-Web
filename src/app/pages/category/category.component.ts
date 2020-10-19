@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 
 export class CategoryComponent {
   model:Array<CategoryModel>;
-  constructor(private router: Router, private _userService: CategoryService )
+  constructor(private router: Router, private _categoryService: CategoryService )
   {
   }
   
   async ngOnInit(){
     try {
-      this.model = <Array<CategoryModel>>await this._userService.listAsync()
+      this.model = <Array<CategoryModel>>await this._categoryService.listAsync()
       
     } catch (error) {
       
