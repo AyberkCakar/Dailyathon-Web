@@ -11,7 +11,7 @@ export class ApiFetchService {
   requestAsync(
     method: string,
     path: string,
-    data: object,
+    data: object = null,
     getToken: boolean = false
   ) {
     return new Promise((resolve, reject) => {
