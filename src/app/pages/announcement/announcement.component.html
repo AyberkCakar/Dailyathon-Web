@@ -5,3 +5,36 @@
 
 
 <h1 class="page-header">Announcement Page</h1>
+<br>
+<button type="submit" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Announcement Add</button>
+<div>
+  <panel title="Announcement Table">
+    <!-- begin table-responsive -->
+    <div class="table-responsive">
+      <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Date</th>
+          <th class="width-200">User List / Update / Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr role="row" *ngFor="let announcement of model">
+          <td>{{announcement.AnnouncementID}}</td>
+          <td >{{announcement.AnnouncementTitle}}</td>
+          <td>{{announcement.AnnouncementDate}}</td>
+
+          <td class="text-center">
+            <a  class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
+            <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
+            <a  class="btn btn-xs btn-warning">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </panel>
+</div>
