@@ -20,7 +20,7 @@
           <th>Start Date</th>
           <th>Due Date</th>
           <th>Url</th>
-          <th class="width-200">Update / Delete</th>
+          <th class="width-200">User List / Update / Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -30,8 +30,11 @@
           <td>{{survey.SurveyTableName}}</td>
           <td>{{survey.SurveyStartDate}}</td>
           <td >{{survey.SurveyDueDate}}</td>
-          <td>{{survey.SurveyUrl}}</td>
+          <td>
+            <a href="{{survey.SurveyUrl}}" class="btn btn-xs btn-info m-r-10 mb-0">Url</a>
+          </td>
           <td class="text-center">
+            <a  class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
             <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
             <a  class="btn btn-xs btn-warning">Delete</a>
           </td>
