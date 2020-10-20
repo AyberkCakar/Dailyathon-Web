@@ -25,6 +25,7 @@ export class AdminlogComponent {
   async logClear(){
     try {
       await this._adminlogService.logClearAsync()
+      await this.ngOnInit();
     }catch (error) {
     }
   }

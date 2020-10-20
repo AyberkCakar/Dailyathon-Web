@@ -25,6 +25,7 @@ export class ServelogComponent {
   async logClear(){
     try {
       await this._servelogService.logClearAsync()
+      await this.ngOnInit();
     }catch (error) {
     }
   }
