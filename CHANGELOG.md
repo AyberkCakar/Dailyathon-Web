@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v0.0.0...v1.2.0) (2020-10-20)
+
+
+### Features
+
+* added event list api connection ([8e05f22](https://github.com/AyberkCakar/Dailyathon-Web/commit/8e05f22ccad56f0c82131c0fefdff727d39809c6))
+* added event list page ([4df32ab](https://github.com/AyberkCakar/Dailyathon-Web/commit/4df32ab99d8202f11a4ec1590e8e9ccc90b22ebb))
+* added league list api connection ([c22d0d3](https://github.com/AyberkCakar/Dailyathon-Web/commit/c22d0d3c65643b075fa9d18798ba3515b3bc83ea))
+* added league list page ([1506944](https://github.com/AyberkCakar/Dailyathon-Web/commit/1506944db4c0fedad39607fffbbeefff18b0154a))
+* added news list api connection ([0c28d80](https://github.com/AyberkCakar/Dailyathon-Web/commit/0c28d80ae67145fd157c02377d1ca94e9f73ac33))
+* added news list page ([4ca643c](https://github.com/AyberkCakar/Dailyathon-Web/commit/4ca643cbd9a75590299847d95446e366aef24718))
+* added sport list api connection ([e0edaae](https://github.com/AyberkCakar/Dailyathon-Web/commit/e0edaae3e67133774f42a6825687bbdd6e722d3a))
+* added sport list page ([fa86d1b](https://github.com/AyberkCakar/Dailyathon-Web/commit/fa86d1b24f98639531425d396f0a8212d9a48f82))
+
+
+### Bug Fixes
+
+* admin list table ([928a471](https://github.com/AyberkCakar/Dailyathon-Web/commit/928a471859f440341fe49bc8eba6b5e3704d8f95))
+* event list table design ([8013921](https://github.com/AyberkCakar/Dailyathon-Web/commit/8013921a3b6648266ddfd82675f1b02f93eeeb2d))
+
 ## [1.1.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.0.0...v1.1.0) (2020-10-19)
 
 
