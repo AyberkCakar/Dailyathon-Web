@@ -13,4 +13,7 @@ async listAsync() {
     return await this._apiFetchService.requestAsync('GET','category');
   }
 
+  async insertAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','category',values,true);
+  }
 }

@@ -16,10 +16,12 @@ export class CategoryAddComponent {
   }
   async ngOnInit(){
   }
-  async categoryAdd()
+  async categoryAdd(categoryname:string)
   {
+    this.model.CategoryName = categoryname;
     try {
-
+      await this._categoryService.insertAsync(this.model)
+      await this.router.navigateByUrl('/category')
     } catch (error) {
 
     }
