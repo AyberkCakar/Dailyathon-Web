@@ -20,4 +20,12 @@ export class DatabotlogComponent {
 
     }
   };
+
+  async logClear(){
+    try {
+      await this._databotlogService.logClearAsync()
+      await this.ngOnInit();
+    }catch (error) {
+    }
+  }
 }

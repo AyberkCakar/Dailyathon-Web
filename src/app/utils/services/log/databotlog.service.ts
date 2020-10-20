@@ -13,4 +13,7 @@ export class DatabotlogService {
     return await this._apiFetchService.requestAsync('GET','databotlog');
   }
 
+  async logClearAsync() {
+    return await this._apiFetchService.requestAsync('DELETE','databotlog',null,true);
+  }
 }
