@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {AdminlogModel} from './adminlog.model';
-import {AdminlogService, TagService} from '../../../utils/services';
+import {AdminlogService} from '../../../utils/services';
 import { Router } from '@angular/router';
 
 @Component({
