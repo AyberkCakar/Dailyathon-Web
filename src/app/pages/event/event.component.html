@@ -17,26 +17,27 @@
           <th>#</th>
           <th>Event Name</th>
           <th>Performer</th>
-          <th>Event Date</th>
           <th>isFree</th>
           <th>City</th>
           <th>District</th>
-          <th class="width-100">Delete</th>
+          <th class="width-200">Event Date</th>
+          <th class="width-200">Details / Delete</th>
         </tr>
         </thead>
         <tbody>
-        <tr role="row" *ngFor="let sport of model">
-          <td>{{sport.EntertainmentID}}</td>
-          <td >{{sport.EntertainmentName}}</td>
-          <td>{{sport.EntertainmentPerformer}}</td>
-          <td>{{sport.EntertainmentStartDate}}
-          <td [ngSwitch]="sport.EntertainmentisFree">
+        <tr role="row" *ngFor="let event of model">
+          <td>{{event.EntertainmentID}}</td>
+          <td >{{event.EntertainmentName}}</td>
+          <td>{{event.EntertainmentPerformer}}</td>
+          <td [ngSwitch]="event.EntertainmentisFree">
             <span *ngSwitchCase=0>Ücretsiz</span>
             <span *ngSwitchCase=1>Ücretli</span>
           </td>
-          <td>{{sport.EntertainmentCity}}</td>
-          <td>{{sport.EntertainmentDistrict}}</td>
+          <td>{{event.EntertainmentCity}}</td>
+          <td>{{event.EntertainmentDistrict}}</td>
+          <td>{{event.EntertainmentStartDate}}
           <td class="text-center">
+            <a  class="btn btn-xs btn-info m-r-10 mb-0">Details</a>
             <a  class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>
