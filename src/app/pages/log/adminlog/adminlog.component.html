@@ -5,3 +5,42 @@
 
 
 <h1 class="page-header">Admin Log Page</h1>
+<br>
+<button type="submit" (click)="logClear()" class="btn btn-default m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Log Clear</button>
+<div>
+  <panel title="Admin Log Table">
+    <!-- begin table-responsive -->
+    <div class="table-responsive">
+      <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Admin Name</th>
+          <th>Auth</th>
+          <th>Position</th>
+          <th>Operation</th>
+          <th>isSuccess</th>
+          <th class="width-200">RegDate</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr role="row" *ngFor="let log of model">
+          <td>{{log.LogID}}</td>
+          <td >{{log.AdminName}}</td>
+          <td>{{log.AdminAuth}}</td>
+          <td>{{log.AdminPosition}}</td>
+          <td >{{log.Operation}}</td>
+          <td [ngSwitch]="log.isSuccess">
+            <span *ngSwitchCase="0">Başarısız</span>
+            <span *ngSwitchCase="1">Başarılı</span>
+          </td>
+          <td>{{log.RegDate}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </panel>
+</div>
+
