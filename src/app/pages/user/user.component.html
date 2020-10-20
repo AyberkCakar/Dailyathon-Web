@@ -10,7 +10,7 @@
   <panel title="User Table">
     <!-- begin table-responsive -->
     <div class="table-responsive">
-      <table id="data-table-buttons" class="table table-striped table-bordered table-td-valign-middle">        
+      <table id="data-table-buttons" class="table table-striped table-bordered table-td-valign-middle">
       <thead>
         <tr>
           <th>#</th>
@@ -18,7 +18,7 @@
           <th>Surname</th>
           <th>Profession</th>
           <th>City</th>
-          <th class="width-200">Update / Delete</th>
+          <th class="width-200">Update / Delete / Statistic</th>
         </tr>
         </thead>
         <tbody>
@@ -29,8 +29,9 @@
           <td>{{user.UserProfession}}</td>
           <td>{{user.UserCity}}</td>
           <td class="text-center">
+            <a  class="btn btn-xs btn-primary m-r-10 mb-0">Statistic</a>
             <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a  class="btn btn-xs btn-warning">Delete</a>
+            <a  class="btn btn-xs btn-warning  ">Delete</a>
           </td>
         </tr>
         </tbody>

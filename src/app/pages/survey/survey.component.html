@@ -17,9 +17,9 @@
           <th>#</th>
           <th>Survey Name</th>
           <th>Table Name</th>
-          <th>Start Date</th>
-          <th>Due Date</th>
-          <th>Url</th>
+          <th class="width-200">Start Date</th>
+          <th class="width-200">Due Date</th>
+          <th class="width-150">Url</th>
           <th class="width-200">User List / Update / Delete</th>
         </tr>
         </thead>
@@ -30,8 +30,8 @@
           <td>{{survey.SurveyTableName}}</td>
           <td>{{survey.SurveyStartDate}}</td>
           <td >{{survey.SurveyDueDate}}</td>
-          <td>
-            <a href="{{survey.SurveyUrl}}" class="btn btn-xs btn-info m-r-10 mb-0">Url</a>
+          <td class="text-center">
+            <a href="{{survey.SurveyUrl}}" class="btn btn-xs btn-info m-r-10 mb-0" style="padding:3px 25px;text-align: center"><span class="fab fa-google m-r-10"></span>Url</a>
           </td>
           <td class="text-center">
             <a  class="btn btn-xs btn-info m-r-10 mb-0">User List</a>

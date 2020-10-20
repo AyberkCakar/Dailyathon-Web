@@ -6,3 +6,7 @@ export * from './tag/tag.service';
 export * from './category/category.service';
 export * from './survey/survey.service';
 export * from './announcement/announcement.service';
+export * from './sport/sport.service';
+export * from './league/league.service';
+export * from './event/event.service';
+export * from './news/news.service';

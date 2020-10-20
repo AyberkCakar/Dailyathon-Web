@@ -35,6 +35,10 @@ var pageMenus = [{
   'title': 'Sport',
   'url': '/sport'
 },{
+  'icon': 'fab fa-dribbble',
+  'title': 'League',
+  'url': '/league'
+},{
   'icon': 'far fa-smile',
   'title': 'Event',
   'url': '/event'

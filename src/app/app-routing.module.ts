@@ -18,6 +18,7 @@ import {SportComponent} from './pages/sport/sport.component';
 import {SurveyComponent} from './pages/survey/survey.component';
 import {UserComponent} from './pages/user/user.component';
 import {LoginComponent} from './pages/login/login.component';
+import {LeagueComponent} from './pages/league/league.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'survey', component: SurveyComponent, data: { title: 'Survey'} },
   { path: 'user', component: UserComponent, data: { title: 'User'} },
   { path: 'login', component: LoginComponent, data: { title: 'Login'} },
+  { path: 'league', component: LeagueComponent, data: { title: 'League'} },
 ];
 
 @NgModule({
