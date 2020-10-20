@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.model.Username=_Username;
     this.model.Password=_password;
     this._authService.login(this.model);
-    console.log(this.model);
 
   }
 }

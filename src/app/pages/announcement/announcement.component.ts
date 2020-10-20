@@ -15,13 +15,18 @@ export class AnnouncementComponent {
   constructor(private router: Router, private _announcementService: AnnouncementService )
   {
   }
-  
+
   async ngOnInit(){
     try {
       this.model = <Array<AnnouncementModel>>await this._announcementService.listAsync()
-      
+
     } catch (error) {
-      
+
     }
+  };
+
+  goRouter()
+  {
+    this.router.navigateByUrl('/announcementAdd');
   }
 }

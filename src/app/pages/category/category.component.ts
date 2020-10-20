@@ -13,13 +13,18 @@ export class CategoryComponent {
   constructor(private router: Router, private _categoryService: CategoryService )
   {
   }
-  
+
   async ngOnInit(){
     try {
       this.model = <Array<CategoryModel>>await this._categoryService.listAsync()
-      
+
     } catch (error) {
-      
+
     }
+  };
+
+  goRouter()
+  {
+    this.router.navigateByUrl('/categoryAdd');
   }
 }

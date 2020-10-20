@@ -19,6 +19,12 @@ import {SurveyComponent} from './pages/survey/survey.component';
 import {UserComponent} from './pages/user/user.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LeagueComponent} from './pages/league/league.component';
+import { AuthGuard } from './utils/guards/';
+
+import {CategoryAddComponent} from './pages/category/category-add/category-add.component';
+import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
+import {AnnouncementAddComponent} from './pages/announcement/announcement-add/announcement-add.component';
+import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component';
 
 
 const routes: Routes = [
@@ -28,7 +34,7 @@ const routes: Routes = [
   { path: 'announcement', component: AnnouncementComponent, data: { title: 'Announcement'} },
   { path: 'category', component: CategoryComponent, data: { title: 'Category'} },
   { path: 'tag', component: TagComponent, data: { title: 'Tag'} },
-  { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard'} },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard], data: { title: 'Dashboard'} },
   { path: 'event', component: EventComponent, data: { title: 'Event'} },
   { path: 'adminlog', component: AdminlogComponent, data: { title: 'Admin Log'} },
   { path: 'servelog', component: ServelogComponent, data: { title: 'Serve Log'} },
@@ -39,6 +45,12 @@ const routes: Routes = [
   { path: 'user', component: UserComponent, data: { title: 'User'} },
   { path: 'login', component: LoginComponent, data: { title: 'Login'} },
   { path: 'league', component: LeagueComponent, data: { title: 'League'} },
+
+  { path: 'categoryAdd', component: CategoryAddComponent, data: { title: 'Category Add'} },
+  { path: 'tagAdd', component: TagAddComponent, data: { title: 'Tag Add'} },
+  { path: 'announcementAdd', component: AnnouncementAddComponent, data: { title: 'Announcement Add'} },
+  { path: 'surveyAdd', component: SurveyAddComponent, data: { title: 'Survey Add'} },
+
 ];
 
 @NgModule({

@@ -13,14 +13,20 @@ export class SurveyComponent {
   constructor(private router: Router, private _surveyService: SurveyService )
   {
   }
-  
+
   async ngOnInit(){
     try {
       this.model = <Array<SurveyModel>>await this._surveyService.listAsync()
-      
+
     } catch (error) {
-      
+
     }
+  };
+
+  goRouter()
+  {
+    this.router.navigateByUrl('/surveyAdd');
   }
+
 }
 
