@@ -20,7 +20,9 @@ import {UserComponent} from './pages/user/user.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LeagueComponent} from './pages/league/league.component';
 import { AuthGuard } from './utils/guards/';
+
 import {CategoryAddComponent} from './pages/category/category-add/category-add.component';
+import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -41,7 +43,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, data: { title: 'Login'} },
   { path: 'league', component: LeagueComponent, data: { title: 'League'} },
 
-  { path: 'categoryadd', component: CategoryAddComponent, data: { title: 'Category Add'} },
+  { path: 'categoryAdd', component: CategoryAddComponent, data: { title: 'Category Add'} },
+  { path: 'tagAdd', component: TagAddComponent, data: { title: 'Tag Add'} },
 
 ];
 

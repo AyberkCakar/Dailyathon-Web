@@ -65,6 +65,7 @@ import {UserComponent} from './pages/user/user.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LeagueComponent} from './pages/league/league.component';
 import {CategoryAddComponent} from './pages/category/category-add/category-add.component';
+import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import {CategoryAddComponent} from './pages/category/category-add/category-add.c
     LoginComponent,
     LeagueComponent,
 
-    CategoryAddComponent
+    CategoryAddComponent,
+    TagAddComponent
   ],
   imports: [
     AppRoutingModule,

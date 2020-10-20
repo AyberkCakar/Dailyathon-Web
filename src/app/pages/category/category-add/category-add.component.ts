@@ -4,7 +4,7 @@ import { CategoryService } from '../../../utils/services';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'category',
+  selector: 'category-add',
   templateUrl: './category-add.component.html'
 })
 

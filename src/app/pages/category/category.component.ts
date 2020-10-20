@@ -25,6 +25,6 @@ export class CategoryComponent {
 
   goRouter()
   {
-    this.router.navigateByUrl('/categoryadd');
+    this.router.navigateByUrl('/categoryAdd');
   }
 }

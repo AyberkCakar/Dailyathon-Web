@@ -14,13 +14,18 @@ export class TagComponent {
   constructor(private router: Router, private _tagService: TagService )
   {
   }
-  
+
   async ngOnInit(){
     try {
       this.model = <Array<TagModel>>await this._tagService.listAsync()
-      
+
     } catch (error) {
-      
+
     }
+  };
+
+  goRouter()
+  {
+    this.router.navigateByUrl('/tagAdd');
   }
 }
