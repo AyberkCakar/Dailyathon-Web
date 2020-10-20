@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.2.0...v1.3.0) (2020-10-20)
+
+
+### Features
+
+* added adminlog delete api connection ([b7dc56d](https://github.com/AyberkCakar/Dailyathon-Web/commit/b7dc56dd084ec2cf68a43193ed61cc30cb2890a2))
+* added adminlog list api connection ([0ff8cc2](https://github.com/AyberkCakar/Dailyathon-Web/commit/0ff8cc20975f2f1d769609cc77d7c1c9a7659e95))
+* added adminlog list page ([77d041f](https://github.com/AyberkCakar/Dailyathon-Web/commit/77d041fd7d5d827884fe1e461bdbf7619b938e5a))
+* added databotlog list api connection ([1f2b376](https://github.com/AyberkCakar/Dailyathon-Web/commit/1f2b3765ae3593b1fb862ac9549f3423a866b80a))
+* added databotlog list api connection ([318fb89](https://github.com/AyberkCakar/Dailyathon-Web/commit/318fb89d1eb7fd112458c5db0221730c0fdfc0ca))
+* added databotlog list page ([055406a](https://github.com/AyberkCakar/Dailyathon-Web/commit/055406a4e499ef5cbf3a1f021bf9d76f8465a84d))
+* added servelog delete api connection ([2d614f2](https://github.com/AyberkCakar/Dailyathon-Web/commit/2d614f2ad1c488aba8ff8684d5a6d2b823517556))
+* added servelog list api connection ([023d108](https://github.com/AyberkCakar/Dailyathon-Web/commit/023d1084fe72f6af40ceaec04fec6d99f761439a))
+* added servelog list page ([f20d7e3](https://github.com/AyberkCakar/Dailyathon-Web/commit/f20d7e3ac1bb380c5767812020bf600d5686f5fd))
+
+
+### Bug Fixes
+
+* table refresh after deletion ([5115721](https://github.com/AyberkCakar/Dailyathon-Web/commit/5115721f3d2b5796e388e8f9a6e5aab436fbc6ce))
+
 ## [1.2.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v0.0.0...v1.2.0) (2020-10-20)
 
 
