@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {SportModel} from './sport.model';
-import {SportService,} from '../../utils/services';
+import {SportService} from '../../utils/services';
 import { Router } from '@angular/router';
 
 @Component({
