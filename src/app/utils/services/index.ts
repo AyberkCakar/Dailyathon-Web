@@ -12,3 +12,4 @@ export * from './event/event.service';
 export * from './news/news.service';
 export * from './log/adminlog.service';
 export * from './log/servelog.service';
+export * from './log/databotlog.service';
