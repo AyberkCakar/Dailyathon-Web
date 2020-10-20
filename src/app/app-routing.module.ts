@@ -19,7 +19,7 @@ import {SurveyComponent} from './pages/survey/survey.component';
 import {UserComponent} from './pages/user/user.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LeagueComponent} from './pages/league/league.component';
-
+import { AuthGuard } from './utils/guards/';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'announcement', component: AnnouncementComponent, data: { title: 'Announcement'} },
   { path: 'category', component: CategoryComponent, data: { title: 'Category'} },
   { path: 'tag', component: TagComponent, data: { title: 'Tag'} },
-  { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard'} },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard], data: { title: 'Dashboard'} },
   { path: 'event', component: EventComponent, data: { title: 'Event'} },
   { path: 'adminlog', component: AdminlogComponent, data: { title: 'Admin Log'} },
   { path: 'servelog', component: ServelogComponent, data: { title: 'Serve Log'} },
