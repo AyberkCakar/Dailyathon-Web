@@ -64,6 +64,7 @@ import {SurveyComponent} from './pages/survey/survey.component';
 import {UserComponent} from './pages/user/user.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LeagueComponent} from './pages/league/league.component';
+import {CategoryAddComponent} from './pages/category/category-add/category-add.component';
 
 
 @NgModule({
@@ -92,7 +93,9 @@ import {LeagueComponent} from './pages/league/league.component';
     SurveyComponent,
     UserComponent,
     LoginComponent,
-    LeagueComponent
+    LeagueComponent,
+
+    CategoryAddComponent
   ],
   imports: [
     AppRoutingModule,

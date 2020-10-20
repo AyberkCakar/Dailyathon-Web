@@ -20,6 +20,7 @@ import {UserComponent} from './pages/user/user.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LeagueComponent} from './pages/league/league.component';
 import { AuthGuard } from './utils/guards/';
+import {CategoryAddComponent} from './pages/category/category-add/category-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -39,6 +40,9 @@ const routes: Routes = [
   { path: 'user', component: UserComponent, data: { title: 'User'} },
   { path: 'login', component: LoginComponent, data: { title: 'Login'} },
   { path: 'league', component: LeagueComponent, data: { title: 'League'} },
+
+  { path: 'categoryadd', component: CategoryAddComponent, data: { title: 'Category Add'} },
+
 ];
 
 @NgModule({
