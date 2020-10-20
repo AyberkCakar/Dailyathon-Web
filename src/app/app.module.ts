@@ -66,6 +66,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {LeagueComponent} from './pages/league/league.component';
 import {CategoryAddComponent} from './pages/category/category-add/category-add.component';
 import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
+import {AnnouncementAddComponent} from './pages/announcement/announcement-add/announcement-add.component';
 
 
 @NgModule({
@@ -97,7 +98,8 @@ import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
     LeagueComponent,
 
     CategoryAddComponent,
-    TagAddComponent
+    TagAddComponent,
+    AnnouncementAddComponent
   ],
   imports: [
     AppRoutingModule,

@@ -23,6 +23,7 @@ import { AuthGuard } from './utils/guards/';
 
 import {CategoryAddComponent} from './pages/category/category-add/category-add.component';
 import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
+import {AnnouncementAddComponent} from './pages/announcement/announcement-add/announcement-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -45,6 +46,7 @@ const routes: Routes = [
 
   { path: 'categoryAdd', component: CategoryAddComponent, data: { title: 'Category Add'} },
   { path: 'tagAdd', component: TagAddComponent, data: { title: 'Tag Add'} },
+  { path: 'announcementAdd', component: AnnouncementAddComponent, data: { title: 'Announcement Add'} },
 
 ];
 
