@@ -24,4 +24,15 @@ export class TagAddComponent {
     } catch (error) {
     }
   }
+  async tagAdd(tagname:string,categoryID:number)
+  {
+    this.model.TagName = tagname;
+    this.model.CategoryID = categoryID
+    try {
+      await this._tagService.insertAsync(this.model)
+      await this.router.navigateByUrl('/tag')
+    } catch (error) {
+
+    }
+  }
 }
