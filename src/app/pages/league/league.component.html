@@ -1,0 +1,44 @@
+<ol class="breadcrumb pull-right">
+  <li class="breadcrumb-item"><a href="javascript:;">League</a></li>
+  <li class="breadcrumb-item"><a href="javascript:;">List</a></li>
+</ol>
+
+
+<h1 class="page-header">League Page</h1>
+<br>
+<button type="submit" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">League Add</button>
+<div>
+  <panel title="League Table">
+    <!-- begin table-responsive -->
+    <div class="table-responsive">
+      <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>League Name</th>
+          <th>League Country</th>
+          <th>Sport Name</th>
+          <th class="width-150">League Url</th>
+          <th class="width-150">Update / Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr role="row" *ngFor="let league of model">
+          <td>{{league.LeagueID}}</td>
+          <td>{{league.LeagueName}}</td>
+          <td>{{league.LeagueCountry}}</td>
+          <td>{{league.SportName}}</td>
+          <td class="text-center">
+            <a href="{{league.LeagueUrl}}" class="btn btn-xs btn-info m-r-10 mb-0" style="padding:3px 25px;text-align: center"><span class="fab fa-google m-r-10"></span>Url</a>
+          </td>
+          <td class="text-center">
+            <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
+            <a  class="btn btn-xs btn-warning">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </panel>
+</div>
