@@ -67,6 +67,7 @@ import {LeagueComponent} from './pages/league/league.component';
 import {CategoryAddComponent} from './pages/category/category-add/category-add.component';
 import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
 import {AnnouncementAddComponent} from './pages/announcement/announcement-add/announcement-add.component';
+import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component';
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import {AnnouncementAddComponent} from './pages/announcement/announcement-add/an
 
     CategoryAddComponent,
     TagAddComponent,
-    AnnouncementAddComponent
+    AnnouncementAddComponent,
+    SurveyAddComponent
   ],
   imports: [
     AppRoutingModule,
