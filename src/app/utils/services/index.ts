@@ -11,3 +11,4 @@ export * from './league/league.service';
 export * from './event/event.service';
 export * from './news/news.service';
 export * from './log/adminlog.service';
+export * from './log/servelog.service';
