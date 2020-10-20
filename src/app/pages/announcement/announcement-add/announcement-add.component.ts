@@ -17,6 +17,17 @@ export class AnnouncementAddComponent {
   {
   }
 
+  async announcementAdd(title:string , content:string)
+  {
+    this.model.AnnouncementTitle = title;
+    this.model.AnnouncementContent = content;
+    this.model.AnnouncementDate = this.date;
+    try {
+      await this._announcementService.insertAsync(this.model);
+      await this.router.navigateByUrl('/announcement');
+    } catch (error) {
 
+    }
+  }
 
 }
