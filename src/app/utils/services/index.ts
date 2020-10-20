@@ -8,3 +8,4 @@ export * from './survey/survey.service';
 export * from './announcement/announcement.service';
 export * from './sport/sport.service';
 export * from './league/league.service';
+export * from './event/event.service';
