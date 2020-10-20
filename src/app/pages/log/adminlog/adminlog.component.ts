@@ -20,5 +20,12 @@ export class AdminlogComponent {
     } catch (error) {
 
     }
+  };
+
+  async logClear(){
+    try {
+      await this._adminlogService.logClearAsync()
+    }catch (error) {
+    }
   }
 }

@@ -13,4 +13,8 @@ export class AdminlogService {
     return await this._apiFetchService.requestAsync('GET','adminlog');
   }
 
+  async logClearAsync() {
+    return await this._apiFetchService.requestAsync('DELETE','adminlog',null,true);
+  }
+
 }
