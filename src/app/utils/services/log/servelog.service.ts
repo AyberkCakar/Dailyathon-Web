@@ -13,4 +13,7 @@ export class ServelogService {
     return await this._apiFetchService.requestAsync('GET','servelog');
   }
 
+  async logClearAsync() {
+    return await this._apiFetchService.requestAsync('DELETE','servelog',null,true);
+  }
 }

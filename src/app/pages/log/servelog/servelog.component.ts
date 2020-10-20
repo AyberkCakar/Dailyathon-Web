@@ -21,4 +21,11 @@ export class ServelogComponent {
 
     }
   };
+
+  async logClear(){
+    try {
+      await this._servelogService.logClearAsync()
+    }catch (error) {
+    }
+  }
 }
