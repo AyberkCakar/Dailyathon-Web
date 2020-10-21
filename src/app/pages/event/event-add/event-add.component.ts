@@ -36,7 +36,6 @@ export class EventAddComponent {
       await this._eventService.insertAsync(this.model);
       await this.router.navigateByUrl('/event');
     } catch (error) {
-
     }
   }
 }

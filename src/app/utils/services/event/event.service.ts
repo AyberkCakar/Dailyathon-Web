@@ -13,4 +13,7 @@ export class EventService {
     return await this._apiFetchService.requestAsync('GET','entertainment');
   }
 
+  async insertAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','entertainment',values,true);
+  }
 }
