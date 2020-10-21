@@ -16,10 +16,13 @@ export class EventComponent {
 
   async ngOnInit(){
     try {
-      this.model = <Array<EventModel>>await this._eventService.listAsync()
-
+      this.model = <Array<EventModel>>await this._eventService.listAsync();
     } catch (error) {
-
     }
+  }
+
+  goRouter()
+  {
+    this.router.navigateByUrl('/eventAdd');
   }
 }

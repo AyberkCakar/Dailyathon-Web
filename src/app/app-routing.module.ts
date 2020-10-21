@@ -27,6 +27,7 @@ import {AnnouncementAddComponent} from './pages/announcement/announcement-add/an
 import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component';
 import {SportAddComponent} from './pages/sport/sport-add/sport-add.component';
 import {LeagueAddComponent} from './pages/league/league-add/league-add.component';
+import {EventAddComponent} from './pages/event/event-add/event-add.component';
 
 
 const routes: Routes = [
@@ -53,7 +54,7 @@ const routes: Routes = [
   { path: 'announcementAdd', component: AnnouncementAddComponent, data: { title: 'Announcement Add'} },
   { path: 'surveyAdd', component: SurveyAddComponent, data: { title: 'Survey Add'} },
   { path: 'sportAdd', component: SportAddComponent, data: { title: 'Sport Add'} },
-  { path: 'leagueAdd', component: LeagueAddComponent, data: { title: 'League Add'} },
+  { path: 'eventAdd', component: EventAddComponent, data: { title: 'Event Add'} },
 
 ];
 
