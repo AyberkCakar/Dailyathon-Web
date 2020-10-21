@@ -25,6 +25,7 @@ import {CategoryAddComponent} from './pages/category/category-add/category-add.c
 import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
 import {AnnouncementAddComponent} from './pages/announcement/announcement-add/announcement-add.component';
 import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component';
+import {SportAddComponent} from './pages/sport/sport-add/sport-add.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'tagAdd', component: TagAddComponent, data: { title: 'Tag Add'} },
   { path: 'announcementAdd', component: AnnouncementAddComponent, data: { title: 'Announcement Add'} },
   { path: 'surveyAdd', component: SurveyAddComponent, data: { title: 'Survey Add'} },
+  { path: 'sportAdd', component: SportAddComponent, data: { title: 'Sport Add'} },
 
 ];
 
