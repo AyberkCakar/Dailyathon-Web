@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.3.0...v1.4.0) (2020-10-21)
+
+
+### Features
+
+* added admin insert api connection ([c318cd0](https://github.com/AyberkCakar/Dailyathon-Web/commit/c318cd02b002d3290d560cb0727499166839a3cb))
+* added admin insert page ([e626215](https://github.com/AyberkCakar/Dailyathon-Web/commit/e62621576e1863b940c7cba17ab5c2ba3c4ee263))
+* added announcement add page ([a70e1c8](https://github.com/AyberkCakar/Dailyathon-Web/commit/a70e1c813ebd1970a39a5ec334d0b71d1f9d169e))
+* added category insert api connection ([6fc0a6a](https://github.com/AyberkCakar/Dailyathon-Web/commit/6fc0a6a74c0a8c96458644b5d2b3fbd6006f882c))
+* added category insert page ([03b8b09](https://github.com/AyberkCakar/Dailyathon-Web/commit/03b8b0957b15b51909964603c686ca67f9b3db1f))
+* added event insert api connection ([0e973a2](https://github.com/AyberkCakar/Dailyathon-Web/commit/0e973a263d946c5a990c8123979667558ba83427))
+* added event insert page ([56148d6](https://github.com/AyberkCakar/Dailyathon-Web/commit/56148d6a1de800d91bd12175c37aec166949316d))
+* added league insert api connection ([0e9d578](https://github.com/AyberkCakar/Dailyathon-Web/commit/0e9d57841932c9037fc0e7a86617f0ad15ee9e3f))
+* added league insert page ([cf61f96](https://github.com/AyberkCakar/Dailyathon-Web/commit/cf61f96e47310d40704606a3f897b8df44c6fce4))
+* added sport insert api connection ([d4707cc](https://github.com/AyberkCakar/Dailyathon-Web/commit/d4707cc16ff35e51208cdbdaad043216ddc912d5))
+* added sport insert page ([18cb859](https://github.com/AyberkCakar/Dailyathon-Web/commit/18cb859adc1942e88124701dd7c503154e4fcd1b))
+* added survey insert page ([4f29f2d](https://github.com/AyberkCakar/Dailyathon-Web/commit/4f29f2d62832ce9a9509ee644e15839a8c86a0fb))
+* added tag insert api connection ([16308eb](https://github.com/AyberkCakar/Dailyathon-Web/commit/16308ebca83a5654ddf4109fc2f6d2cf3f341440))
+* added tag insert page ([6b5c7da](https://github.com/AyberkCakar/Dailyathon-Web/commit/6b5c7dad6d9f85dd504ed6d5f817f72f4bc232ca))
+
+
+### Bug Fixes
+
+* authguard token verification ([3a21e44](https://github.com/AyberkCakar/Dailyathon-Web/commit/3a21e440559ad370cbec01743703ce396afa5daf))
+* table filter added for tag table ([637a8c9](https://github.com/AyberkCakar/Dailyathon-Web/commit/637a8c9f9995ac471d4a74dbaf0704ec691f99cb))
+
 ## [1.3.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.2.0...v1.3.0) (2020-10-20)
 
 
