@@ -1,0 +1,62 @@
+<ol class="breadcrumb pull-right">
+  <li class="breadcrumb-item"><a href="javascript:;">Admin</a></li>
+  <li class="breadcrumb-item"><a href="javascript:;">Add</a></li>
+</ol>
+
+
+<h1 class="page-header">Admin Add Page</h1>
+<br>
+<div class="row">
+  <div class="col-xl-6">
+    <!-- begin panel -->
+    <panel title=" ">
+      <form >
+        <fieldset>
+          <legend class="m-b-15">Admin Add</legend>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Username</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #username placeholder="Username" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Password</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #password placeholder="Password" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Name</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #name placeholder="Name" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Auth</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #auth placeholder="Auth" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Position</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #position placeholder="Position" />
+            </div>
+          </div>
+          <br>
+          <div class="form-group row">
+            <div class="col-md-7 offset-md-3">
+              <button type="submit" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px"
+                      (click)="adminAdd(username.value,password.value,name.value,auth.value,position.value)">
+                Add</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+    </panel>
+    <!-- end panel -->
+  </div>
+
+</div>
+
