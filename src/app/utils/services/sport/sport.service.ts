@@ -13,4 +13,7 @@ export class SportService {
     return await this._apiFetchService.requestAsync('GET','sport');
   }
 
+  async insertAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','sport',values,true);
+  }
 }

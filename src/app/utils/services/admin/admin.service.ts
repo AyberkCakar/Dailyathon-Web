@@ -13,4 +13,7 @@ async listAsync() {
     return await this._apiFetchService.requestAsync('GET','admin');
   }
 
+  async insertAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','sign-up/admin',values);
+  }
 }

@@ -22,4 +22,9 @@ export class SportComponent {
 
     }
   }
+
+  goRouter()
+  {
+    this.router.navigateByUrl('/sportAdd');
+  }
 }

@@ -1,0 +1,125 @@
+<ol class="breadcrumb pull-right">
+  <li class="breadcrumb-item"><a href="javascript:;">Event</a></li>
+  <li class="breadcrumb-item"><a href="javascript:;">Add</a></li>
+</ol>
+
+
+<h1 class="page-header">Event Add Page</h1>
+<br>
+
+<div class="row">
+  <div class="col-xl-6">
+    <!-- begin panel -->
+    <panel title=" ">
+      <form>
+        <fieldset>
+          <legend class="m-b-15">Event Add</legend>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Event Name</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #eventname placeholder="Event Name" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Event Content</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #content placeholder="Event Content" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Start Date</label>
+            <div class="col-md-7">
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="d1" #c1 ngbDatepicker #d1="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+                    <i class="fa fa-calendar"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row m-b-15" >
+            <label class="col-md-3 col-form-label">Due Date</label>
+            <div class="col-md-7">
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="d2" #c2 ngbDatepicker #d2="ngbDatepicker" >
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
+                    <i class="fa fa-calendar"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">isFree</label>
+            <div class="col-md-7">
+              <select #isFree class="form-control" style="background-color: #636363" >
+                <option value="0">Ücretsiz</option>
+                <option value="1">Ücretli</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Poster Url</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #posterurl placeholder="Poster Url" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Ticket Url</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #ticketurl placeholder="Ticket Url" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">City</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #city placeholder="City" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">District</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #district placeholder="District" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Venue</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #venue placeholder="Venue" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Performer</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" #performer placeholder="Performer" />
+            </div>
+          </div>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Event Category</label>
+            <div class="col-md-7">
+              <select #category class="form-control" style="background-color: #636363" >
+                <option value="1">Tiyatro</option>
+                <option value="11">Konser</option>
+                <option value="21">Stand-up</option>
+              </select>
+            </div>
+          </div>
+
+          <br>
+          <div class="form-group row">
+            <div class="col-md-7 offset-md-3">
+              <button type="submit"  class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px"
+                      (click)="eventAdd(eventname.value,content.value,c1.value,c2.value,isFree.value,posterurl.value
+                      ,ticketurl.value,city.value,district.value,venue.value,performer.value,category.value)">
+                Add</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </panel>
+    <!-- end panel -->
+  </div>
+</div>

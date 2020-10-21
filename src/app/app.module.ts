@@ -68,6 +68,10 @@ import {CategoryAddComponent} from './pages/category/category-add/category-add.c
 import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
 import {AnnouncementAddComponent} from './pages/announcement/announcement-add/announcement-add.component';
 import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component';
+import {SportAddComponent} from './pages/sport/sport-add/sport-add.component';
+import {LeagueAddComponent} from './pages/league/league-add/league-add.component';
+import {EventAddComponent} from './pages/event/event-add/event-add.component';
+import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
 
 
 @NgModule({
@@ -101,7 +105,11 @@ import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component
     CategoryAddComponent,
     TagAddComponent,
     AnnouncementAddComponent,
-    SurveyAddComponent
+    SurveyAddComponent,
+    SportAddComponent,
+    LeagueAddComponent,
+    EventAddComponent,
+    AdminAddComponent
   ],
   imports: [
     AppRoutingModule,

@@ -14,13 +14,16 @@ export class AdminComponent {
   constructor(private router: Router, private _adminService: AdminService )
   {
   }
-  
+
   async ngOnInit(){
     try {
-      this.model = <Array<AdminModel>>await this._adminService.listAsync()
-      
+      this.model = <Array<AdminModel>>await this._adminService.listAsync();
     } catch (error) {
-      
     }
+  }
+
+  goRouter()
+  {
+    this.router.navigateByUrl('/adminAdd');
   }
 }

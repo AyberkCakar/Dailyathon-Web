@@ -25,6 +25,10 @@ import {CategoryAddComponent} from './pages/category/category-add/category-add.c
 import {TagAddComponent} from './pages/tag/tag-add/tag-add.component';
 import {AnnouncementAddComponent} from './pages/announcement/announcement-add/announcement-add.component';
 import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component';
+import {SportAddComponent} from './pages/sport/sport-add/sport-add.component';
+import {LeagueAddComponent} from './pages/league/league-add/league-add.component';
+import {EventAddComponent} from './pages/event/event-add/event-add.component';
+import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
 
 
 const routes: Routes = [
@@ -50,6 +54,10 @@ const routes: Routes = [
   { path: 'tagAdd', component: TagAddComponent, data: { title: 'Tag Add'} },
   { path: 'announcementAdd', component: AnnouncementAddComponent, data: { title: 'Announcement Add'} },
   { path: 'surveyAdd', component: SurveyAddComponent, data: { title: 'Survey Add'} },
+  { path: 'sportAdd', component: SportAddComponent, data: { title: 'Sport Add'} },
+  { path: 'leagueAdd', component: LeagueAddComponent, data: { title: 'League Add'} },
+  { path: 'eventAdd', component: EventAddComponent, data: { title: 'Event Add'} },
+  { path: 'adminAdd', component: AdminAddComponent, data: { title: 'Admin Add'} },
 
 ];
 

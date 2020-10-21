@@ -4,7 +4,7 @@ import { LeagueService } from '../../utils/services';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'category',
+  selector: 'league',
   templateUrl: './league.component.html'
 })
 
@@ -21,5 +21,10 @@ export class LeagueComponent {
     } catch (error) {
 
     }
+  }
+
+  goRouter()
+  {
+    this.router.navigateByUrl('/leagueAdd');
   }
 }
