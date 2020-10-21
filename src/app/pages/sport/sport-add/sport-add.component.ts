@@ -20,10 +20,10 @@ export class SportAddComponent {
   async sportAdd(sportname:string,tablename:string)
   {
     this.model.SportName = sportname;
-    this.model.LeagueTableName = tablename
+    this.model.LeagueTableName = tablename;
     try {
-      await this._sportService.insertAsync(this.model)
-      await this.router.navigateByUrl('/sport')
+      await this._sportService.insertAsync(this.model);
+      await this.router.navigateByUrl('/sport');
     } catch (error) {
 
     }
