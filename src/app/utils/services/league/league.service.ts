@@ -13,4 +13,8 @@ export class LeagueService {
     return await this._apiFetchService.requestAsync('GET','league');
   }
 
+  async insertAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','league',values,true);
+  }
+
 }

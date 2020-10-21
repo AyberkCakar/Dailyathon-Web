@@ -23,7 +23,7 @@ export class LeagueAddComponent {
 
     }
   }
-  async leagueAdd(leaguename:string,leagueCountry:string,url:string,sportID:number)
+  async leagueAdd(leaguename: string , leagueCountry: string, url: string, sportID: number)
   {
     this.model.LeagueName = leaguename;
     this.model.LeagueCountry = leagueCountry;
@@ -33,7 +33,6 @@ export class LeagueAddComponent {
       await this._leagueService.insertAsync(this.model);
       await this.router.navigateByUrl('/league');
     } catch (error) {
-
     }
   }
 }
