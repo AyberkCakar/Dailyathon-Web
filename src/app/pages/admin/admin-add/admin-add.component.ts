@@ -24,8 +24,8 @@ export class AdminAddComponent {
     this.model.Password = password;
     this.model.AdminName = name;
     this.model.AdminAuth = auth;
-    this.model.AdminPosition = string;
-    this.model.RegDate = date;
+    this.model.AdminPosition = position;
+    this.model.RegDate = this.date;
     try {
       await this._adminService.insertAsync(this.model);
       await this.router.navigateByUrl('/admin');
