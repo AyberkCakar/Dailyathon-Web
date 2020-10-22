@@ -38,3 +38,19 @@
     <!-- end table-responsive -->
   </panel>
 </div>
+
+<ng-template #modalDialog let-c="close" let-d="dismiss">
+  <div class="modal-header" >
+    <h4 class="modal-title">Admin Delete</h4>
+    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
+  </div>
+  <div class="modal-body">
+    <p>
+      You have made a admin deletion request. Are you sure you want to continue.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-white" (click)="c('Close click')">Close</button>
+    <a (click)="deleteAdmin()" class="btn btn-danger">Delete</a>
+  </div>
+</ng-template>
