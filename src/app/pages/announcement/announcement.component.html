@@ -29,7 +29,7 @@
           <td class="text-center">
             <a  class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
             <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a  class="btn btn-xs btn-warning">Delete</a>
+            <a (click)="open(modalDialog, announcement.AnnouncementID)" class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>
         </tbody>
@@ -38,3 +38,19 @@
     <!-- end table-responsive -->
   </panel>
 </div>
+
+<ng-template #modalDialog let-c="close" let-d="dismiss">
+  <div class="modal-header" >
+    <h4 class="modal-title">Announcement Delete</h4>
+    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
+  </div>
+  <div class="modal-body">
+    <p style="font-size: 14px">
+      You have made a Announcement deletion request. Are you sure you want to continue ?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-white" (click)="c('Close click')">Close</button>
+    <a (click)="deleteAnnouncement()" class="btn btn-danger">Delete</a>
+  </div>
+</ng-template>
