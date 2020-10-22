@@ -29,6 +29,18 @@ export class SportComponent {
     this.router.navigateByUrl('/sportAdd');
   }
 
+  async deleteSport()
+  {
+    this.sport.SportID = this.deleteID;
+    try {
+      await this._sportService.deleteAsync(this.sport);
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }catch (e) {
+      console.log(e);
+    };
+  };
+
   open(content, ID) {
     this.deleteID = ID;
     this.modalService.open(content).result.then((result) => {
