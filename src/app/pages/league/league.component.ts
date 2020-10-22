@@ -41,8 +41,8 @@ export class LeagueComponent {
     };
   };
 
-  open(content, ID) {
-    this.deleteID = ID;
+  open(content, Email) {
+    this.deleteID = Email;
     this.modalService.open(content).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

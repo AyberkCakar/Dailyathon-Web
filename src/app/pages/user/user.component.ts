@@ -24,6 +24,17 @@ export class UserComponent {
     }
   }
 
+  async deleteUser()
+  {
+    this.user.UserID = this.deleteID;
+    try {
+      await this._userService.deleteAsync(this.user);
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }catch (e) {
+    };
+  };
+
   open(content, ID) {
     this.deleteID = ID;
     this.modalService.open(content).result.then((result) => {
