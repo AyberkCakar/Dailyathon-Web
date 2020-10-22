@@ -29,6 +29,18 @@ export class SurveyComponent {
     this.router.navigateByUrl('/surveyAdd');
   }
 
+  async deleteSurvey()
+  {
+    this.survey.SurveyListID = this.deleteID;
+    try {
+      await this._surveyService.deleteAsync(this.survey);
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }catch (e) {
+      console.log(e);
+    };
+  };
+
   open(content, ID) {
     this.deleteID = ID;
     this.modalService.open(content).result.then((result) => {
