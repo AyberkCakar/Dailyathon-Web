@@ -18,7 +18,7 @@
           <th>Name</th>
           <th>Auth</th>
           <th>Position</th>
-          <th class="width-200">Update / Delete</th>
+          <th class="width-200">Update</th>
         </tr>
         </thead>
         <tbody>
@@ -29,7 +29,6 @@
           <td>{{admin.AdminPosition}}</td>
           <td class="text-center">
             <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a  class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>
         </tbody>
@@ -38,19 +37,3 @@
     <!-- end table-responsive -->
   </panel>
 </div>
-
-<ng-template #modalDialog let-c="close" let-d="dismiss">
-  <div class="modal-header" >
-    <h4 class="modal-title">Admin Delete</h4>
-    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
-  </div>
-  <div class="modal-body">
-    <p>
-      You have made a admin deletion request. Are you sure you want to continue.
-    </p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-white" (click)="c('Close click')">Close</button>
-    <a (click)="deleteAdmin()" class="btn btn-danger">Delete</a>
-  </div>
-</ng-template>
