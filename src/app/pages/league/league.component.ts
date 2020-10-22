@@ -29,6 +29,18 @@ export class LeagueComponent {
     this.router.navigateByUrl('/leagueAdd');
   }
 
+  async deleteLeague()
+  {
+    this.league.LeagueID = this.deleteID;
+    try {
+      await this._leagueService.deleteAsync(this.league);
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }catch (e) {
+      console.log(e);
+    };
+  };
+
   open(content, ID) {
     this.deleteID = ID;
     this.modalService.open(content).result.then((result) => {
