@@ -11,11 +11,11 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 export class CategoryComponent {
   model:Array<CategoryModel>;
+  category: CategoryModel = new CategoryModel();
   closeResult: string;
   deleteID: number;
   constructor(private router: Router, private _categoryService: CategoryService , private modalService: NgbModal)
-  {
-  }
+  {}
 
   async ngOnInit(){
     try {
@@ -29,10 +29,15 @@ export class CategoryComponent {
     this.router.navigateByUrl('/categoryAdd');
   };
 
-  deleteCategory()
+  async deleteCategory()
   {
-    console.log(this.deleteID);
-    this.modalService.dismissAll();
+    this.category.CategoryID = this.deleteID;
+    try {
+        await this._categoryService.deleteAsync(this.category);
+        this.ngOnInit();
+        this.modalService.dismissAll();
+    }catch (e) {
+    };
   }
 
   open(content, ID) {
@@ -53,5 +58,4 @@ export class CategoryComponent {
       return  `with: ${reason}`;
     }
   }
-
 }

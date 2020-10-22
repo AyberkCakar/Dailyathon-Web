@@ -36,9 +36,9 @@
 </div>
 
 <ng-template #modalDialog let-c="close" let-d="dismiss">
-  <div class="modal-header">
+  <div class="modal-header" >
     <h4 class="modal-title">Category Delete</h4>
-    <button type="button" class="close" (click)="d('Cross click')">×</button>
+    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
   </div>
   <div class="modal-body">
     <p>
@@ -47,6 +47,6 @@
   </div>
   <div class="modal-footer">
     <button class="btn btn-white" (click)="c('Close click')">Close</button>
-    <a (click)="(deleteCategory())" class="btn btn-danger">Delete</a>
+    <a (click)="deleteCategory()" class="btn btn-danger">Delete</a>
   </div>
 </ng-template>
