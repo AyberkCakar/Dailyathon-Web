@@ -21,11 +21,11 @@
         </thead>
         <tbody>
         <tr role="row" *ngFor="let category of model">
-          <td>{{category.CategoryID}}</td>
+          <td >{{category.CategoryID}}</td>
           <td>{{category.CategoryName}}</td>
           <td class="text-center">
             <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a  class="btn btn-xs btn-warning">Delete</a>
+            <a (click)="open(modalDialog,category.CategoryID)"  class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>
         </tbody>
@@ -34,3 +34,19 @@
     <!-- end table-responsive -->
   </panel>
 </div>
+
+<ng-template #modalDialog let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Category Delete</h4>
+    <button type="button" class="close" (click)="d('Cross click')">×</button>
+  </div>
+  <div class="modal-body">
+    <p>
+      You have made a category deletion request. Are you sure you want to continue.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-white" (click)="c('Close click')">Close</button>
+    <a (click)="(deleteCategory())" class="btn btn-danger">Delete</a>
+  </div>
+</ng-template>
