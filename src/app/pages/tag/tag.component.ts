@@ -37,6 +37,7 @@ export class TagComponent {
     {title: 'Name', name: 'TagName'},
     {title: 'Category Name', name: 'CategoryName'},
   ];
+
   public page:number = 1;
   public itemsPerPage:number = 10;
   public maxSize:number = 5;

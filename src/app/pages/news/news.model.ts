@@ -3,6 +3,6 @@ export class NewsModel {
   NewsTitle: string;
   NewsDescription: string;
   NewsImage: string;
-  NewsCategoryID: number;
-  NewsCategoryName: string;
+  TagID: number;
+  TagName: string;
 }

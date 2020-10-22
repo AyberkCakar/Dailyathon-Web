@@ -10,6 +10,7 @@ export class EventModel{
   EntertainmentCity: string;
   EntertainmentDistrict: string;
   EntertainmentVenue: string;
-  EntertainmentCategoryID: number;
   EntertainmentPerformer: string;
+  TagID: number;
+  TagName: string;
 }

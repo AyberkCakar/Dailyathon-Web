@@ -31,7 +31,7 @@ export class EventAddComponent {
     this.model.EntertainmentDistrict = district;
     this.model.EntertainmentVenue = venue;
     this.model.EntertainmentPerformer = performer;
-    this.model.EntertainmentCategoryID = categoryID;
+    this.model.TagID = categoryID;
     try {
       await this._eventService.insertAsync(this.model);
       await this.router.navigateByUrl('/event');
