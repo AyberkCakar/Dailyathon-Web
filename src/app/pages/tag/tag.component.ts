@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {TagModel} from './tag.model';
 import { TagService } from '../../utils/services';
 import { Router } from '@angular/router';
-
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'tag',
@@ -10,26 +10,46 @@ import { Router } from '@angular/router';
 })
 
 export class TagComponent {
-
   data:Array<TagModel>;
-  public constructor(private router: Router, private _tagService: TagService )
-  {
-  }
+  tag: TagModel = new TagModel();
+  closeResult: string;
+  deleteID: number;
+  public constructor(private router: Router, private _tagService: TagService , private modalService: NgbModal  )
+  {}
 
   async ngOnInit(){
-
     try {
       this.data = <Array<TagModel>>await this._tagService.listAsync()
       await this.onChangeTable(this.config);
-
     } catch (error) {
-
     }
   };
+
   goRouter()
   {
     this.router.navigateByUrl('/tagAdd');
   }
+
+  open(content, ID) {
+    this.deleteID = ID;
+    this.modalService.open(content).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
+
   public rows:Array<any> = [
   ];
   public columns:Array<any> = [
