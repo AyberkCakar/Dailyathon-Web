@@ -3,13 +3,11 @@
   <li class="breadcrumb-item"><a href="javascript:;">List</a></li>
 </ol>
 
-
 <h1 class="page-header">Survey Page</h1>
 <br>
 <button type="submit" (click)="goRouter()" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Survey Add</button>
 <div>
   <panel title="Survey Table">
-    <!-- begin table-responsive -->
     <div class="table-responsive">
       <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
         <thead>
@@ -36,12 +34,27 @@
           <td class="text-center">
             <a  class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
             <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a  class="btn btn-xs btn-warning">Delete</a>
+            <a (click)="open(modalDialog, survey.SurveyListID )" class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
-    <!-- end table-responsive -->
   </panel>
 </div>
+
+<ng-template #modalDialog let-c="close" let-d="dismiss">
+  <div class="modal-header" >
+    <h4 class="modal-title">Survey Delete</h4>
+    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
+  </div>
+  <div class="modal-body">
+    <p style="font-size: 14px">
+      You have made a Survey deletion request. Are you sure you want to continue ?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-white" (click)="c('Close click')">Close</button>
+    <button (click)="deleteSurvey()" class="btn btn-danger">Delete</button>
+  </div>
+</ng-template>
