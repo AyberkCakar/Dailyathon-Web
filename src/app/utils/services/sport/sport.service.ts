@@ -16,4 +16,8 @@ export class SportService {
   async insertAsync(values) {
     return await this._apiFetchService.requestAsync('POST','sport',values,true);
   }
+
+  async deleteAsync(values) {
+    return await this._apiFetchService.requestAsync('DELETE','sport',values,true);
+  }
 }

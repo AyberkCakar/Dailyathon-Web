@@ -13,4 +13,8 @@ async listAsync() {
     return await this._apiFetchService.requestAsync('GET','user');
   }
 
+  async deleteAsync(values) {
+    return await this._apiFetchService.requestAsync('DELETE','user-delete',values,true);
+  }
+
 }

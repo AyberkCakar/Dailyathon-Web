@@ -34,7 +34,7 @@
           <td class="text-center">
             <a  class="btn btn-xs btn-indigo m-r-10 mb-0">Score Table</a>
             <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a  class="btn btn-xs btn-warning">Delete</a>
+            <a (click)="open(modalDialog, league.LeagueID )"  class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>
         </tbody>
@@ -43,3 +43,19 @@
     <!-- end table-responsive -->
   </panel>
 </div>
+
+<ng-template #modalDialog let-c="close" let-d="dismiss">
+  <div class="modal-header" >
+    <h4 class="modal-title">League Delete</h4>
+    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
+  </div>
+  <div class="modal-body">
+    <p style="font-size: 14px">
+      You have made a League deletion request. Are you sure you want to continue ?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-white" (click)="c('Close click')">Close</button>
+    <button (click)="deleteLeague()" class="btn btn-danger">Delete</button>
+  </div>
+</ng-template>

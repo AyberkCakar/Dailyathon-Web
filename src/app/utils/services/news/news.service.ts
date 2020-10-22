@@ -13,4 +13,7 @@ export class NewsService {
     return await this._apiFetchService.requestAsync('GET','news');
   }
 
+  async deleteAsync(vaues) {
+    return await this._apiFetchService.requestAsync('DELETE','news',vaues,true);
+  }
 }

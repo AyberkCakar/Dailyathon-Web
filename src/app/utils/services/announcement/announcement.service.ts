@@ -17,4 +17,8 @@ async listAsync() {
     return await this._apiFetchService.requestAsync('POST','announcement',values,true);
   }
 
+  async deleteAsync(values) {
+    return await this._apiFetchService.requestAsync('DELETE','announcement',values,true);
+  }
+
 }
