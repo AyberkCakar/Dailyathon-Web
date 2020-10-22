@@ -15,8 +15,7 @@ export class NewsComponent {
   closeResult: string;
   deleteID: number;
   constructor(private router: Router, private _newsService: NewsService , private modalService: NgbModal)
-  {
-  }
+  {}
 
   async ngOnInit(){
     try {
@@ -24,6 +23,18 @@ export class NewsComponent {
     } catch (error) {
     }
   }
+
+  async deleteNews()
+  {
+    this.news.NewsID = this.deleteID;
+    try {
+      await this._newsService.deleteAsync(this.news);
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }catch (e) {
+      console.log(e);
+    };
+  };
 
   open(content, ID) {
     this.deleteID = ID;
