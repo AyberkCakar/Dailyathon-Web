@@ -11,7 +11,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 export class EventComponent {
   model:Array<EventModel>;
-  announcement: EventModel = new EventModel();
+  event: EventModel = new EventModel();
   closeResult: string;
   deleteID: number;
   constructor(private router: Router, private _eventService: EventService , private modalService: NgbModal )
@@ -28,6 +28,17 @@ export class EventComponent {
   {
     this.router.navigateByUrl('/eventAdd');
   }
+
+  async deleteEvent()
+  {
+    this.event.EntertainmentID = this.deleteID;
+    try {
+      await this._eventService.deleteAsync(this.event);
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }catch (e) {
+    };
+  };
 
   open(content, ID) {
     this.deleteID = ID;
