@@ -19,7 +19,7 @@ export class TagComponent {
 
   async ngOnInit(){
     try {
-      this.data = <Array<TagModel>>await this._tagService.listAsync()
+      this.data = <Array<TagModel>>await this._tagService.listAsync();
       await this.onChangeTable(this.config);
     } catch (error) {
     }
@@ -34,7 +34,7 @@ export class TagComponent {
   {
     this.tag.TagID = this.deleteID;
     try {
-      await this._tagService.deleteAsync(this.tg);
+      await this._tagService.deleteAsync(this.tag);
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (e) {
