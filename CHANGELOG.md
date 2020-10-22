@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.4.0...v1.5.0) (2020-10-22)
+
+
+### Features
+
+* added  UI Modal for category deletion ([3f89ecb](https://github.com/AyberkCakar/Dailyathon-Web/commit/3f89ecbe9ea9b9646d847f844b81bae0f5dba821))
+* added announcement delete api connection ([e9ae7c4](https://github.com/AyberkCakar/Dailyathon-Web/commit/e9ae7c4e6111a7d24439c2815bb3a724799a898e))
+* added category event api connection ([9e6c76a](https://github.com/AyberkCakar/Dailyathon-Web/commit/9e6c76a3ae87ca5c100899bfb8f5ec0fcca96ace))
+* added league delete api connection ([6718377](https://github.com/AyberkCakar/Dailyathon-Web/commit/6718377ec4f83c75849cea72f21bbb753aa0fbd2))
+* added news delete api connection ([a352753](https://github.com/AyberkCakar/Dailyathon-Web/commit/a3527535f3cd72510c9e13f63936ab4b68426949))
+* added sport delete api connection ([a3a33be](https://github.com/AyberkCakar/Dailyathon-Web/commit/a3a33beea093dd1690be1391a58559f7c33374b1))
+* added survey delete api connection ([da70563](https://github.com/AyberkCakar/Dailyathon-Web/commit/da705634acfec839956a42cbda7b2be2fd2951a6))
+* added UI Modal for admin deletion ([2387620](https://github.com/AyberkCakar/Dailyathon-Web/commit/23876209f6cd5d37db3245285c5f30010fe49133))
+* added UI Modal for announcement deletion ([76f3bf2](https://github.com/AyberkCakar/Dailyathon-Web/commit/76f3bf25f2c247ed41b9aa321798c18e08688872))
+* added UI Modal for event deletion ([06b2687](https://github.com/AyberkCakar/Dailyathon-Web/commit/06b26870c12dfd35bc653d5e751054fc15a49701))
+* added UI Modal for league deletion ([3e0445f](https://github.com/AyberkCakar/Dailyathon-Web/commit/3e0445f67e65bc609989f4226f75186d112355e8))
+* added UI Modal for news deletion ([97c4d52](https://github.com/AyberkCakar/Dailyathon-Web/commit/97c4d528d86a5be271ae890309180afd1b6c79d7))
+* added UI Modal for sport deletion ([2d278a3](https://github.com/AyberkCakar/Dailyathon-Web/commit/2d278a3bebb3b151b90d10b4c85eb55048ddc84c))
+* added UI Modal for survey deletion ([bbf269f](https://github.com/AyberkCakar/Dailyathon-Web/commit/bbf269ffc6c986bf4564d6c5d0f72aa33016e6f1))
+* added UI Modal for tag deletion ([d29675b](https://github.com/AyberkCakar/Dailyathon-Web/commit/d29675bb8b3953415f28c37fe48a87ff87414a3f))
+* added UI Modal for user deletion ([b0e89f1](https://github.com/AyberkCakar/Dailyathon-Web/commit/b0e89f1bf529c3a1bc98346e8505655958ec6f6d))
+* added user delete api connection ([5f3e03b](https://github.com/AyberkCakar/Dailyathon-Web/commit/5f3e03b3f190d227de42efc30c49641f57789441))
+
+
+### Bug Fixes
+
+* admin delete removed ([b94fef4](https://github.com/AyberkCakar/Dailyathon-Web/commit/b94fef43ca5c0142d383a17e2f20a9859495eadc))
+* datetime picker color bug fix ([654d71e](https://github.com/AyberkCakar/Dailyathon-Web/commit/654d71e3e29b330fb184c317274921312eff0cbc))
+* news and event categoryID change ([e222e85](https://github.com/AyberkCakar/Dailyathon-Web/commit/e222e8559d3c8db75a2426804117dc9214618b57))
+* UI Modal Design ([de2ba19](https://github.com/AyberkCakar/Dailyathon-Web/commit/de2ba19ad9133108c04e54d96d44ee12643f943d))
+
 ## [1.4.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.3.0...v1.4.0) (2020-10-21)
 
 
