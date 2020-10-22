@@ -30,6 +30,18 @@ export class TagComponent {
     this.router.navigateByUrl('/tagAdd');
   }
 
+  async deleteTag()
+  {
+    this.tag.TagID = this.deleteID;
+    try {
+      await this._tagService.deleteAsync(this.tg);
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }catch (e) {
+      console.log(e);
+    };
+  };
+
   open(content, ID) {
     this.deleteID = ID;
     this.modalService.open(content).result.then((result) => {
