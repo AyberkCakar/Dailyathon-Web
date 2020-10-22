@@ -33,6 +33,17 @@ export class AnnouncementComponent {
     this.router.navigateByUrl('/announcementAdd');
   };
 
+  async deleteAnnouncement()
+  {
+    this.announcement.AnnouncementID = this.deleteID;
+    try {
+      await this._announcementService.deleteAsync(this.announcement);
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }catch (e) {
+    };
+  };
+
   open(content, ID) {
     this.deleteID = ID;
     this.modalService.open(content).result.then((result) => {
