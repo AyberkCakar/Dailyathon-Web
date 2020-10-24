@@ -75,6 +75,7 @@ import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
 import {CategoryUpdateComponent} from './pages/category/category-update/category-update.component';
 import {SurveyUpdateComponent} from './pages/survey/survey-update/survey-update.component';
 import {AnnouncementUpdateComponent} from './pages/announcement/announcement-update/announcement-update.component';
+import {LeagueUpdateComponent} from './pages/league/league-update/league-update.component';
 
 
 @NgModule({
@@ -116,7 +117,8 @@ import {AnnouncementUpdateComponent} from './pages/announcement/announcement-upd
 
     CategoryUpdateComponent,
     SurveyUpdateComponent,
-    AnnouncementUpdateComponent
+    AnnouncementUpdateComponent,
+    LeagueUpdateComponent
   ],
   imports: [
     AppRoutingModule,
