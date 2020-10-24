@@ -25,4 +25,19 @@ export class SurveyUpdateComponent {
     }
   }
 
+  async categoryUpdate(ID: number, name:string, tablename:string, startdate: Date, duedate: Date, url:string)
+  {
+    this.model.SurveyListID = ID;
+    this.model.SurveyName = name;
+    this.model.SurveyTableName = tablename;
+    this.model.SurveyStartDate = startdate;
+    this.model.SurveyDueDate = duedate;
+    this.model.SurveyUrl = url;
+    try {
+      await this._surveyService.updateAsync(this.model);
+      await this.router.navigateByUrl('/survey');
+    } catch (error) {
+
+    }
+  }
 }
