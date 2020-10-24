@@ -63,6 +63,7 @@ export class TagComponent {
 
 
   public rows:Array<any> = [
+    {title: 'Update', name:'TagID', className:['btn-xs', 'btn-warning']}
   ];
   public columns:Array<any> = [
     {title: 'ID', name: 'TagID'},

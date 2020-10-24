@@ -72,6 +72,7 @@ import {SportAddComponent} from './pages/sport/sport-add/sport-add.component';
 import {LeagueAddComponent} from './pages/league/league-add/league-add.component';
 import {EventAddComponent} from './pages/event/event-add/event-add.component';
 import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
+import {CategoryUpdateComponent} from './pages/category/category-update/category-update.component';
 
 
 @NgModule({
@@ -109,7 +110,9 @@ import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
     SportAddComponent,
     LeagueAddComponent,
     EventAddComponent,
-    AdminAddComponent
+    AdminAddComponent,
+
+    CategoryUpdateComponent
   ],
   imports: [
     AppRoutingModule,
