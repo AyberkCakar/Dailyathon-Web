@@ -19,7 +19,7 @@
           <th>League Country</th>
           <th>Sport Name</th>
           <th class="width-150">League Url</th>
-          <th class="width-250">Update / Delete</th>
+          <th class="width-200">Update / Delete</th>
         </tr>
         </thead>
         <tbody >
@@ -33,7 +33,6 @@
           </td>
           <td class="text-center">
             <a  class="btn btn-xs btn-indigo m-r-10 mb-0">Score Table</a>
-            <a routerLink="/leagueDetails/{{league.LeagueID}}" class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
             <a (click)="open(modalDialog, league.LeagueID )"  class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>

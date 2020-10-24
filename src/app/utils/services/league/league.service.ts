@@ -17,10 +17,6 @@ export class LeagueService {
     return await this._apiFetchService.requestAsync('POST','league',values,true);
   }
 
-  async findAsync(values) {
-    return await this._apiFetchService.requestAsync('POST','league-find',values,true);
-  }
-
   async deleteAsync(values) {
     return await this._apiFetchService.requestAsync('DELETE','league',values,true);
   }
