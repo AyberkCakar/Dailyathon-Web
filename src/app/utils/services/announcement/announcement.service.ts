@@ -28,5 +28,4 @@ async listAsync() {
   async deleteAsync(values) {
     return await this._apiFetchService.requestAsync('DELETE','announcement',values,true);
   }
-
 }

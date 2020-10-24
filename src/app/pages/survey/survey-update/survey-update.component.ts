@@ -25,7 +25,7 @@ export class SurveyUpdateComponent {
     }
   }
 
-  async categoryUpdate(ID: number, name:string, tablename:string, startdate: Date, duedate: Date, url:string)
+  async surveyUpdate(ID: number, name:string, tablename:string, startdate: Date, duedate: Date, url:string)
   {
     this.model.SurveyListID = ID;
     this.model.SurveyName = name;
