@@ -2,6 +2,7 @@ import { Component   } from '@angular/core';
 import {SurveyModel} from '../survey.model';
 import { SurveyService } from '../../../utils/services';
 import { Router,ActivatedRoute } from '@angular/router';
+import {CategoryModel} from '../../category/category.model';
 
 @Component({
   selector: 'survey-update',
@@ -18,7 +19,8 @@ export class SurveyUpdateComponent {
   async ngOnInit(){
     try {
       this.survey.SurveyListID = +this._router.snapshot.paramMap.get('id');
-      }
+      this.model = <SurveyModel>await this._surveyService.findAsync(this.survey);
+    }
     catch (e) {
     }
   }
