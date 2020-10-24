@@ -3,6 +3,7 @@ import {LeagueModel} from '../league.model';
 import {SportModel} from '../../sport/sport.model';
 import { LeagueService, SportService } from '../../../utils/services';
 import {ActivatedRoute, Router} from '@angular/router';
+import {CategoryModel} from '../../category/category.model';
 
 @Component({
   selector: 'league-update',
@@ -20,6 +21,9 @@ export class LeagueUpdateComponent {
   async ngOnInit(){
     try {
       this.sportModel = <Array<SportModel>>await this._sportService.listAsync();
+      this.league.LeagueID = +this._router.snapshot.paramMap.get('id');
+      this.model = <LeagueModel>await this._leagueService.findAsync(this.league);
+
     } catch (error) {
 
     }
