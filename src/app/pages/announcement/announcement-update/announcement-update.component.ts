@@ -24,4 +24,17 @@ export class AnnouncementUpdateComponent {
     catch (e) {
     }
   }
+
+  async announcementUpdate(id: number , title: string, content: string)
+  {
+    this.model.AnnouncementID = id;
+    this.model.AnnouncementTitle = title;
+    this.model.AnnouncementContent = content;
+    try {
+      await this._announcementService.updateAsync(this.model);
+      await this.router.navigateByUrl('/announcement');
+    } catch (error) {
+
+    }
+  }
 }
