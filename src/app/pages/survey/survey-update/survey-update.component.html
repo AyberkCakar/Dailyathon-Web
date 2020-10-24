@@ -1,36 +1,41 @@
 <ol class="breadcrumb pull-right">
   <li class="breadcrumb-item"><a href="javascript:;">Survey</a></li>
-  <li class="breadcrumb-item"><a href="javascript:;">List</a></li>
+  <li class="breadcrumb-item"><a href="javascript:;">Update</a></li>
 </ol>
 
 
-<h1 class="page-header">Survey Add Page</h1>
+<h1 class="page-header">Survey Update Page</h1>
 <br>
 <div class="row">
   <div class="col-xl-6">
     <!-- begin panel -->
     <panel title=" ">
-      <form >
+      <form>
         <fieldset>
-          <legend class="m-b-15">Survey Add</legend>
-
+          <legend class="m-b-15">Survey Update</legend>
+          <div class="form-group row m-b-15">
+            <label class="col-md-3 col-form-label">Survey ID</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" value="{{model.SurveyListID}}"  #surveyID placeholder="Survey ID" disabled/>
+            </div>
+          </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #surveyname placeholder="Survey Name" />
+              <input type="text" class="form-control" value="{{model.SurveyName}}"  #surveyname placeholder="Survey Name" />
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey TableName</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #tablename placeholder="Survey TableName" />
+              <input type="text" class="form-control" value="{{model.SurveyTableName}}"  #tablename placeholder="Survey TableName" />
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Start Date</label>
             <div class="col-md-7">
               <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="d1" #c1 ngbDatepicker #d1="ngbDatepicker">
+                <input class="form-control" placeholder="yyyy-mm-dd" value="{{model.SurveyStartDate}}"  name="d1" #c1 ngbDatepicker #d1="ngbDatepicker">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
                     <i class="fa fa-calendar"></i>
@@ -43,7 +48,7 @@
             <label class="col-md-3 col-form-label">Due Date</label>
             <div class="col-md-7">
               <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="d2" #c2 ngbDatepicker #d2="ngbDatepicker" >
+                <input class="form-control" placeholder="yyyy-mm-dd"  value="{{model.SurveyDueDate}}" name="d2" #c2 ngbDatepicker #d2="ngbDatepicker" >
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
                     <i class="fa fa-calendar"></i>
@@ -56,20 +61,20 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey Url</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #url placeholder="Survey Url" />
+              <input type="text" class="form-control" value="{{model.SurveyUrl}}"  #url placeholder="Survey Url" />
             </div>
           </div>
-
           <br>
           <div class="form-group row">
             <div class="col-md-7 offset-md-3">
-              <button type="submit" (click)="surveyAdd(surveyname.value,tablename.value,c1.value,c2.value,url.value)"
-                      class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Add</button>
+              <button type="submit" (click)="surveyUpdate(surveyID.value,surveyname.value,tablename.value,c1.value,c2.value,url.value)" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Update</button>
             </div>
           </div>
         </fieldset>
       </form>
+
     </panel>
     <!-- end panel -->
   </div>
+
 </div>
