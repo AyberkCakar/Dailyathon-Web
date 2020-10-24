@@ -31,6 +31,7 @@ import {EventAddComponent} from './pages/event/event-add/event-add.component';
 import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
 
 import {CategoryUpdateComponent} from './pages/category/category-update/category-update.component';
+import {SurveyUpdateComponent} from './pages/survey/survey-update/survey-update.component';
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
   { path: 'adminAdd', component: AdminAddComponent, data: { title: 'Admin Add'} },
 
   { path: 'categoryDetails/:id', component: CategoryUpdateComponent, data: { title: 'Category Update'} },
+  { path: 'surveyDetails/:id', component: SurveyUpdateComponent, data: { title: 'Survey Update'} },
 
 
 ];
