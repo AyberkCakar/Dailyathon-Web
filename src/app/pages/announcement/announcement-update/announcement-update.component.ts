@@ -19,6 +19,7 @@ export class AnnouncementUpdateComponent {
   async ngOnInit(){
     try {
       this.announcement.AnnouncementID = +this._router.snapshot.paramMap.get('id');
+      this.model = <AnnouncementModel>await this._announcementService.findAsync(this.announcement);
     }
     catch (e) {
     }
