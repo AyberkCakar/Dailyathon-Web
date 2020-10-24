@@ -20,7 +20,7 @@ async listAsync() {
   async findAsync(values) {
     return await this._apiFetchService.requestAsync('POST','survey-find',values,true);
   }
-  
+
   async updateAsync(values) {
     return await this._apiFetchService.requestAsync('PUT','survey',values,true);
   }

@@ -74,6 +74,7 @@ import {EventAddComponent} from './pages/event/event-add/event-add.component';
 import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
 import {CategoryUpdateComponent} from './pages/category/category-update/category-update.component';
 import {SurveyUpdateComponent} from './pages/survey/survey-update/survey-update.component';
+import {AnnouncementUpdateComponent} from './pages/announcement/announcement-update/announcement-update.component';
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import {SurveyUpdateComponent} from './pages/survey/survey-update/survey-update.
     AdminAddComponent,
 
     CategoryUpdateComponent,
-    SurveyUpdateComponent
+    SurveyUpdateComponent,
+    AnnouncementUpdateComponent
   ],
   imports: [
     AppRoutingModule,
