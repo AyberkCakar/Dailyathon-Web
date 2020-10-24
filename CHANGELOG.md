@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.5.0...v1.6.0) (2020-10-24)
+
+
+### Features
+
+* added announcement find api connection ([798f3c0](https://github.com/AyberkCakar/Dailyathon-Web/commit/798f3c085947815b4b16392b75996146f7338f57))
+* added announcement update api connection ([5026d94](https://github.com/AyberkCakar/Dailyathon-Web/commit/5026d9478af101d20232b1222cb1c006eacabf19))
+* added announcement update page ([0432d44](https://github.com/AyberkCakar/Dailyathon-Web/commit/0432d4479fdc500b3e2850fc98e66c541417cbf4))
+* added category update api connection ([0e115c0](https://github.com/AyberkCakar/Dailyathon-Web/commit/0e115c0935aa04eab25955e2ee5098ced85725ea))
+* added category update page ([d69afc6](https://github.com/AyberkCakar/Dailyathon-Web/commit/d69afc6f91e11f4fbf94c7dd930c5d093241978e))
+* added league find api connection ([9264a89](https://github.com/AyberkCakar/Dailyathon-Web/commit/9264a894eaa8ad93580344b7ab1bd38deb9e516d))
+* added league update page ([eab5807](https://github.com/AyberkCakar/Dailyathon-Web/commit/eab58078ba03434c6f830b7b150532c7b5444166))
+* added survey find api connection ([f16bc47](https://github.com/AyberkCakar/Dailyathon-Web/commit/f16bc479a91c5de6c5fcf9756b168262126a045c))
+* added survey update api connection ([b63683c](https://github.com/AyberkCakar/Dailyathon-Web/commit/b63683c11a5e1b3bba6dba272271dfcb963a3bdf))
+* added survey update page ([0633c1c](https://github.com/AyberkCakar/Dailyathon-Web/commit/0633c1c8ff6fd8692840ecb07395473a97f387ec))
+
+
+### Bug Fixes
+
+* admin rank ([16bb88a](https://github.com/AyberkCakar/Dailyathon-Web/commit/16bb88a68e26e56e750493e48308c9adc215c6ef))
+* league update deleted. ([39d977f](https://github.com/AyberkCakar/Dailyathon-Web/commit/39d977f745cd87e7be407085c4c67fa91ba8cf23))
+
 ## [1.5.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.4.0...v1.5.0) (2020-10-22)
 
 
