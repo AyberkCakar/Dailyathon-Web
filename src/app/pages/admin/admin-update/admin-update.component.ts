@@ -30,14 +30,9 @@ export class AdminUpdateComponent {
     this.admin.AdminAuth = auth;
     this.admin.AdminPosition = position;
     try {
-      console.log(this.model);
-
-      var response = await this._adminService.updateAsync(this.admin);
-      console.log(response);
+      await this._adminService.updateAsync(this.admin);
       await this.router.navigateByUrl('/admin');
     } catch (error) {
-      console.log(error);
-
     }
   }
 }
