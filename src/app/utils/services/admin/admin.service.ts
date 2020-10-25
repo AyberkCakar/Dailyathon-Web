@@ -10,7 +10,7 @@ export class AdminService {
   }
 
 async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','admin');
+    return await this._apiFetchService.requestAsync('GET','admin',null,true);
   }
 
   async insertAsync(values) {
