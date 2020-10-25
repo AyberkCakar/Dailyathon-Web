@@ -33,6 +33,7 @@ import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
 import {CategoryUpdateComponent} from './pages/category/category-update/category-update.component';
 import {SurveyUpdateComponent} from './pages/survey/survey-update/survey-update.component';
 import {AnnouncementUpdateComponent} from './pages/announcement/announcement-update/announcement-update.component';
+import {AdminUpdateComponent} from './pages/admin/admin-update/admin-update.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ const routes: Routes = [
   { path: 'categoryDetails/:id', component: CategoryUpdateComponent, data: { title: 'Category Update'} },
   { path: 'surveyDetails/:id', component: SurveyUpdateComponent, data: { title: 'Survey Update'} },
   { path: 'announcementDetails/:id', component: AnnouncementUpdateComponent, data: { title: 'Announcement Update'} },
+  { path: 'adminDetails/:id', component: AdminUpdateComponent, data: { title: 'Admin Update'} },
 
 ];
 
