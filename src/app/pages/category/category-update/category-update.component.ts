@@ -1,4 +1,4 @@
-import { Component ,Input  } from '@angular/core';
+import { Component } from '@angular/core';
 import {CategoryModel} from '../category.model';
 import { CategoryService } from '../../../utils/services';
 import { Router,ActivatedRoute } from '@angular/router';

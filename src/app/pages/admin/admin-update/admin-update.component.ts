@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AdminModel} from '../admin.model';
 import { AdminService } from '../../../utils/services';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'admin-update',
@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
 })
 
 export class AdminUpdateComponent {
-  date: Date = new Date();
   model: AdminModel = new AdminModel();
-  constructor(private router: Router, private _adminService: AdminService )
+  admin: AdminModel = new AdminModel();
+  constructor(private router: Router, private _adminService: AdminService , private _router: ActivatedRoute)
   {}
 
   async ngOnInit(){
+    try {
+      this.admin.AdminID = +this._router.snapshot.paramMap.get('id');
+      this.model = <AdminModel>await this._adminService.findAsync(this.admin);
+    }
+    catch (e) {
+    }
   }
 }
