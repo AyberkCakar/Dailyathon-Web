@@ -22,4 +22,22 @@ export class AdminUpdateComponent {
     catch (e) {
     }
   }
+
+  async adminUpdate(id: number, name: string, auth: string, position: string)
+  {
+    this.admin.AdminID = id;
+    this.admin.AdminName = name;
+    this.admin.AdminAuth = auth;
+    this.admin.AdminPosition = position;
+    try {
+      console.log(this.model);
+
+      var response = await this._adminService.updateAsync(this.admin);
+      console.log(response);
+      await this.router.navigateByUrl('/admin');
+    } catch (error) {
+      console.log(error);
+
+    }
+  }
 }
