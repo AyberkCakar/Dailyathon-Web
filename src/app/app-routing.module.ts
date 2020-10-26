@@ -34,6 +34,7 @@ import {CategoryUpdateComponent} from './pages/category/category-update/category
 import {SurveyUpdateComponent} from './pages/survey/survey-update/survey-update.component';
 import {AnnouncementUpdateComponent} from './pages/announcement/announcement-update/announcement-update.component';
 import {AdminUpdateComponent} from './pages/admin/admin-update/admin-update.component';
+import {LeagueUpdateComponent} from './pages/league/league-update/league-update.component';
 
 
 const routes: Routes = [
@@ -68,6 +69,7 @@ const routes: Routes = [
   { path: 'surveyDetails/:id', component: SurveyUpdateComponent, data: { title: 'Survey Update'} },
   { path: 'announcementDetails/:id', component: AnnouncementUpdateComponent, data: { title: 'Announcement Update'} },
   { path: 'adminDetails/:id', component: AdminUpdateComponent, data: { title: 'Admin Update'} },
+  { path: 'leagueDetails/:id', component: LeagueUpdateComponent, data: { title: 'League Update'} },
 
 ];
 
