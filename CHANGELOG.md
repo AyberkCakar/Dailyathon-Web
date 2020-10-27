@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.7.0...v1.8.0) (2020-10-27)
+
+
+### Features
+
+* added admin add and update pages cancel buttons ([1ea99de](https://github.com/AyberkCakar/Dailyathon-Web/commit/1ea99de2ff9147c4938ceb4ed495973e54ee3cf4))
+* added announcement pages cancel buttons ([0e15fb5](https://github.com/AyberkCakar/Dailyathon-Web/commit/0e15fb5f5c0589e02386c88462ca19bf0ebee91a))
+* added announcement statistic api connection ([f8db95d](https://github.com/AyberkCakar/Dailyathon-Web/commit/f8db95d89a6725be07a7eef38ecb738b48f03730))
+* added announcement statistic page ([f9883b3](https://github.com/AyberkCakar/Dailyathon-Web/commit/f9883b3fcc40c4dc055c485537f72e003f6ee6c0))
+* added category add and update pages cancel buttons ([f23ba83](https://github.com/AyberkCakar/Dailyathon-Web/commit/f23ba83e390ae6873b72372ab6be87cd6d7a7d78))
+* added event add page cancel button ([e2e0a04](https://github.com/AyberkCakar/Dailyathon-Web/commit/e2e0a043a6da9a273663d787e0d46aea74de6d94))
+* added for league pages cancel buttons ([523a3f4](https://github.com/AyberkCakar/Dailyathon-Web/commit/523a3f414e137a89be6a3f6c8613507c287096d3))
+* added sport add page cancel buttons ([4516196](https://github.com/AyberkCakar/Dailyathon-Web/commit/451619636fbef5b3eb2e66231ad4b9c85279b69a))
+* added survey statistic api connection ([37b00de](https://github.com/AyberkCakar/Dailyathon-Web/commit/37b00dedf22c1244ab97cdd87265731f1d9e59b8))
+* added survey statistic page ([4eaa695](https://github.com/AyberkCakar/Dailyathon-Web/commit/4eaa695ee532475669fd1633af22472583da40bb))
+* added tag add page cancel buttons ([3b95751](https://github.com/AyberkCakar/Dailyathon-Web/commit/3b95751f8219cc7d7b208ab1dafbc63e930cfcda))
+
 ## [1.7.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.6.0...v1.7.0) (2020-10-27)
 
 
