@@ -21,6 +21,10 @@ export class LeagueService {
     return await this._apiFetchService.requestAsync('POST','league-find',values,true);
   }
 
+  async scoreAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','standings-find',values,true);
+  }
+
   async updateAsync(values) {
     return await this._apiFetchService.requestAsync('PUT','league',values,true);
   }

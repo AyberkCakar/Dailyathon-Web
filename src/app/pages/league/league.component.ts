@@ -13,9 +13,10 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class LeagueComponent {
   model:Array<LeagueModel>;
   league: LeagueModel = new LeagueModel();
-  score: ScoreModel = new ScoreModel();
+  scoreReq: LeagueModel = new LeagueModel();
+  scores: Array<ScoreModel>;
   closeResult: string;
-  deleteID: number;
+  leagueID: number;
   constructor(private router: Router, private _leagueService: LeagueService , private modalService: NgbModal )
   {}
 
@@ -33,7 +34,7 @@ export class LeagueComponent {
 
   async deleteLeague()
   {
-    this.league.LeagueID = this.deleteID;
+    this.league.LeagueID = this.leagueID;
     try {
       await this._leagueService.deleteAsync(this.league);
       this.ngOnInit();
@@ -43,8 +44,8 @@ export class LeagueComponent {
     };
   };
 
-  open(content, Email) {
-    this.deleteID = Email;
+  open(content, ID) {
+    this.leagueID = ID;
     this.modalService.open(content).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -61,4 +62,21 @@ export class LeagueComponent {
       return  `with: ${reason}`;
     }
   }
+
+  async score(content, ID, sportID)
+  {
+    this.scoreReq.LeagueID = ID;
+    this.scoreReq.SportID = sportID;
+
+    try {
+      this.scores = <Array<ScoreModel>>await this._leagueService.scoreAsync(this.scoreReq);
+      await  this.modalService.open(content).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }catch (e) {
+      console.log(e);
+    };
+  };
 }

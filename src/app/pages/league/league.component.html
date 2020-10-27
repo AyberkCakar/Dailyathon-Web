@@ -32,7 +32,7 @@
             <a href="{{league.LeagueUrl}}" class="btn btn-xs btn-info m-r-10 mb-0" style="padding:3px 25px;text-align: center"><span class="fab fa-google m-r-10"></span>Url</a>
           </td>
           <td class="text-center">
-            <a (click)="score(modalDialog2, league.LeagueID )"  class="btn btn-xs btn-indigo m-r-10 mb-0">Score Table</a>
+            <a (click)="score(modalDialog2, league.LeagueID,league.SportID )"  class="btn btn-xs btn-indigo m-r-10 mb-0">Score Table</a>
             <a routerLink="/leagueDetails/{{league.LeagueID}}" class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
             <a (click)="open(modalDialog, league.LeagueID )"  class="btn btn-xs btn-warning">Delete</a>
           </td>
@@ -69,25 +69,26 @@
   <table id="data-table-default1" class="table table-striped table-bordered table-td-valign-middle">
     <thead>
     <tr>
-      <th>Sequence No</th>
-      <th>Team Name</th>
+      <th>No</th>
       <th>Logo</th>
+      <th>Team Name</th>
       <th>O</th>
       <th>G</th>
       <th>B</th>
       <th>M</th>
       <th>A</th>
       <th>Y</th>
-      <th>V</th>
       <th>AV</th>
       <th>P</th>
     </tr>
     </thead>
     <tbody >
-    <tr role="row" *ngFor="let sc of score">
+    <tr role="row" *ngFor="let sc of scores">
       <td>{{sc.SequenceNo}}</td>
+      <td>
+        <img src={{sc.TeamLogoUrl}} style="width: 25px;height: 25px">
+      </td>
       <td>{{sc.TeamName}}</td>
-      <td>{{sc.TeamLogoUrl}}</td>
       <td>{{sc.O}}</td>
       <td>{{sc.G}}</td>
       <td>{{sc.B}}</td>
