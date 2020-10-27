@@ -32,7 +32,7 @@
             <a href="{{survey.SurveyUrl}}" class="btn btn-xs btn-info m-r-10 mb-0" style="padding:3px 25px;text-align: center"><span class="fab fa-google m-r-10"></span>Url</a>
           </td>
           <td class="text-center">
-            <a  class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
+            <a routerLink="/surveyStatistic/{{survey.SurveyListID}}" class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
             <a routerLink="/surveyDetails/{{survey.SurveyListID}}"  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
             <a (click)="open(modalDialog, survey.SurveyListID )" class="btn btn-xs btn-warning">Delete</a>
           </td>

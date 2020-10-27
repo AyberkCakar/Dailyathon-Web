@@ -3,7 +3,6 @@ import {EventModel} from './event.model';
 import {EventService} from '../../utils/services';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import {ScoreModel} from '../league/score.model';
 
 @Component({
   selector: 'event',
