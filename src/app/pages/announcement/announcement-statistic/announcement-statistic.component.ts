@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
 import {UserModel} from '../../user/user.model';
-import {SurveyModel} from '../survey.model';
-import { SurveyService } from '../../../utils/services';
+import {AnnouncementModel} from '../announcement.model';
+import { AnnouncementService } from '../../../utils/services';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'survey-statistic',
-  templateUrl: './survey-statistic.component.html'
+  selector: 'announcement-statistic',
+  templateUrl: './announcement-statistic.component.html'
 })
 
-export class SurveyStatisticComponent {
+export class AnnouncementStatisticComponent {
   data:Array<UserModel>;
   user: UserModel = new UserModel();
-  survey: SurveyModel = new SurveyModel();
+  announcement: AnnouncementModel = new AnnouncementModel();
   count;
-  public constructor(private router: Router, private _surveyService: SurveyService , private _router: ActivatedRoute  )
+  public constructor(private router: Router, private _announcementService: AnnouncementService , private _router: ActivatedRoute  )
   {}
 
   async ngOnInit(){
     try {
-      this.survey.SurveyListID = +this._router.snapshot.paramMap.get('id');
-      this.data = <Array<UserModel>>await this._surveyService.statisticAsync(this.survey);
+      this.announcement.AnnouncementID = +this._router.snapshot.paramMap.get('id');
+      this.data = <Array<UserModel>>await this._announcementService.statisticAsync(this.announcement);
       this.count = this.data.length;
       await this.onChangeTable(this.config);
     } catch (error) {
@@ -48,6 +48,7 @@ export class SurveyStatisticComponent {
     filtering: {filterString: ''},
     className: ['table-striped', 'table-bordered', 'm-b-0']
   };
+
 
   public changePage(page:any, data:Array<any> = this.data):Array<any> {
     this.numPages = (page.itemsPerPage) ? page.itemsPerPage : this.numPages;
@@ -113,6 +114,7 @@ export class SurveyStatisticComponent {
       }
     });
     filteredData = tempArray;
+
     return filteredData;
   }
 
@@ -127,6 +129,8 @@ export class SurveyStatisticComponent {
     }
 
     let filteredData = this.changeFilter(this.data, this.config);
+
+
     let sortedData = this.changeSort(filteredData, this.config);
 
     this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
