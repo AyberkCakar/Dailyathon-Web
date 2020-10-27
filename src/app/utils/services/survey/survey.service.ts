@@ -17,6 +17,10 @@ async listAsync() {
     return await this._apiFetchService.requestAsync('POST','survey',values,true);
   }
 
+  async statisticAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','survey-statistic',values,true);
+  }
+
   async findAsync(values) {
     return await this._apiFetchService.requestAsync('POST','survey-find',values,true);
   }
