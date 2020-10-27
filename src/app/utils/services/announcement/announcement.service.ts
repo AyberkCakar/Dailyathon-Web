@@ -21,6 +21,10 @@ async listAsync() {
     return await this._apiFetchService.requestAsync('POST','announcement-find',values,true);
   }
 
+  async statisticAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','announcement-statistic',values,true);
+  }
+
   async updateAsync(values) {
     return await this._apiFetchService.requestAsync('PUT','announcement',values,true);
   }
