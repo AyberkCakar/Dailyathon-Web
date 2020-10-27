@@ -32,7 +32,7 @@
             <a href="{{league.LeagueUrl}}" class="btn btn-xs btn-info m-r-10 mb-0" style="padding:3px 25px;text-align: center"><span class="fab fa-google m-r-10"></span>Url</a>
           </td>
           <td class="text-center">
-            <a  class="btn btn-xs btn-indigo m-r-10 mb-0">Score Table</a>
+            <a (click)="score(modalDialog2, league.LeagueID,league.SportID )"  class="btn btn-xs btn-indigo m-r-10 mb-0">Score Table</a>
             <a routerLink="/leagueDetails/{{league.LeagueID}}" class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
             <a (click)="open(modalDialog, league.LeagueID )"  class="btn btn-xs btn-warning">Delete</a>
           </td>
@@ -58,4 +58,46 @@
     <button class="btn btn-white" (click)="c('Close click')">Close</button>
     <button (click)="deleteLeague()" class="btn btn-danger">Delete</button>
   </div>
+</ng-template>
+
+
+<ng-template #modalDialog2 let-c="close" let-d="dismiss">
+  <div class="modal-header" >
+    <h4 class="modal-title">Score Table</h4>
+    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
+  </div>
+  <table id="data-table-default1" class="table table-striped table-bordered table-td-valign-middle">
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>Logo</th>
+      <th>Team Name</th>
+      <th>O</th>
+      <th>G</th>
+      <th>B</th>
+      <th>M</th>
+      <th>A</th>
+      <th>Y</th>
+      <th>AV</th>
+      <th>P</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr role="row" *ngFor="let sc of scores">
+      <td>{{sc.SequenceNo}}</td>
+      <td>
+        <img src={{sc.TeamLogoUrl}} style="width: 25px;height: 25px">
+      </td>
+      <td>{{sc.TeamName}}</td>
+      <td>{{sc.O}}</td>
+      <td>{{sc.G}}</td>
+      <td>{{sc.B}}</td>
+      <td>{{sc.M}}</td>
+      <td>{{sc.A}}</td>
+      <td>{{sc.Y}}</td>
+      <td>{{sc.AV}}</td>
+      <td>{{sc.P}}</td>
+    </tr>
+    </tbody>
+  </table>
 </ng-template>

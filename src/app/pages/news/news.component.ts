@@ -54,4 +54,20 @@ export class NewsComponent {
       return  `with: ${reason}`;
     }
   }
+
+  async details(content, ID)
+  {
+    this.news.NewsID = ID;
+
+    try {
+      this.news = <NewsModel>await this._newsService.detailsAsync(this.news);
+      await  this.modalService.open(content).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }catch (e) {
+      console.log(e);
+    };
+  };
 }

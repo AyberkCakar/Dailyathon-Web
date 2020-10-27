@@ -3,6 +3,7 @@ import {EventModel} from './event.model';
 import {EventService} from '../../utils/services';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {ScoreModel} from '../league/score.model';
 
 @Component({
   selector: 'event',
@@ -58,4 +59,20 @@ export class EventComponent {
       return  `with: ${reason}`;
     }
   }
+
+  async details(content, ID)
+  {
+    this.event.EntertainmentID = ID;
+
+    try {
+      this.event = <EventModel>await this._eventService.detailsAsync(this.event);
+      await  this.modalService.open(content).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }catch (e) {
+      console.log(e);
+    };
+  };
 }

@@ -25,7 +25,7 @@
           <td >{{news.NewsTitle}}</td>
           <td>{{news.TagName}}
           <td class="text-center">
-          <a  class="btn btn-xs btn-info m-r-10 mb-0">Details</a>
+          <a (click)="details(modalDialog2, news.NewsID )" class="btn btn-xs btn-info m-r-10 mb-0">Details</a>
           <a (click)="open(modalDialog, news.NewsID )" class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>
@@ -49,5 +49,49 @@
   <div class="modal-footer">
     <button class="btn btn-white" (click)="c('Close click')">Close</button>
     <button (click)="deleteNews()" class="btn btn-danger">Delete</button>
+  </div>
+</ng-template>
+
+
+<ng-template #modalDialog2 let-c="close" let-d="dismiss">
+  <div class="modal-header" >
+    <h4 class="modal-title">News Details</h4>
+    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
+  </div>
+  <div class="m-l-25 m-t-20">
+    <form>
+      <fieldset>
+        <div class="form-group row m-b-15">
+          <label class="col-md-3 col-form-label">News ID</label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" value="{{news.NewsID}}" placeholder="News ID"  disabled/>
+          </div>
+        </div>
+        <div class="form-group row m-b-15">
+          <label class="col-md-3 col-form-label">News Title</label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" value="{{news.NewsTitle}}" placeholder="News Title"  disabled/>
+          </div>
+        </div>
+        <div class="form-group row m-b-15">
+          <label class="col-md-3 col-form-label">News Description</label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" value="{{news.NewsDescription}}" placeholder="News Description"  disabled/>
+          </div>
+        </div>
+        <div class="form-group row m-b-15">
+          <label class="col-md-3 col-form-label">News Image</label>
+          <div class="col-md-7">
+            <img src={{news.NewsImage}} style="height: 150px;width: 150px">
+          </div>
+        </div>
+        <div class="form-group row m-b-15" >
+          <label class="col-md-3 col-form-label">News Category</label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" value="{{news.TagName}}" placeholder="News Category"  disabled/>
+          </div>
+        </div>
+      </fieldset>
+    </form>
   </div>
 </ng-template>
