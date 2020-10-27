@@ -64,3 +64,88 @@
     <button (click)="deleteEvent()" class="btn btn-danger">Delete</button>
   </div>
 </ng-template>
+
+
+<ng-template #modalDialog2 let-c="close" let-d="dismiss">
+  <div class="modal-header" >
+    <h4 class="modal-title">Event Details</h4>
+    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
+  </div>
+  <form>
+    <fieldset>
+      <legend class="m-b-15">Event Add</legend>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">Event Name</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentID}}" placeholder="Event Name"  disabled/>
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">Event Content</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentContent}}" placeholder="Event Content"  disabled/>
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">Start Date</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentStartDate}}" placeholder="Due Date"  disabled/>
+        </div>
+      </div>
+      <div class="form-group row m-b-15" >
+        <label class="col-md-3 col-form-label">Due Date</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentDueDate}}" placeholder="Due Date"  disabled/>
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">isFree</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentisFree}}" placeholder="isFree"  disabled/>
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">Poster Url</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentPosterUrl}}" placeholder="Poster Url" disabled />
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">Ticket Url</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentTicketUrl}}" placeholder="Ticket Url"  disabled/>
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">City</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentCity}}" placeholder="City"  disabled/>
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">District</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentDistrict}}" placeholder="District"  disabled/>
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">Venue</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentVenue}}" placeholder="Venue" disabled />
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">Performer</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.EntertainmentPerformer}}" placeholder="Performer" disabled />
+        </div>
+      </div>
+      <div class="form-group row m-b-15">
+        <label class="col-md-3 col-form-label">Event Category</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" value="{{event.TagName}}" placeholder="Event Category" disabled/>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</ng-template>
