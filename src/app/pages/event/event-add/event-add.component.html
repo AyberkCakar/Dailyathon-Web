@@ -9,7 +9,6 @@
 
 <div class="row">
   <div class="col-xl-6">
-    <!-- begin panel -->
     <panel title=" ">
       <form>
         <fieldset>
@@ -107,7 +106,6 @@
               </select>
             </div>
           </div>
-
           <br>
           <div class="form-group row">
             <div class="col-md-7 offset-md-3">
@@ -115,11 +113,11 @@
                       (click)="eventAdd(eventname.value,content.value,c1.value,c2.value,isFree.value,posterurl.value
                       ,ticketurl.value,city.value,district.value,venue.value,performer.value,category.value)">
                 Add</button>
+              <button type="submit" class="btn btn-sm btn-default m-r-5" style="padding: 5px 20px" routerLink="/event"> Cancel</button>
             </div>
           </div>
         </fieldset>
       </form>
     </panel>
-    <!-- end panel -->
   </div>
 </div>
