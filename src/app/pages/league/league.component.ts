@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {LeagueModel} from './league.model';
+import {ScoreModel} from './score.model';
 import { LeagueService } from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +13,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class LeagueComponent {
   model:Array<LeagueModel>;
   league: LeagueModel = new LeagueModel();
+  score: ScoreModel = new ScoreModel();
   closeResult: string;
   deleteID: number;
   constructor(private router: Router, private _leagueService: LeagueService , private modalService: NgbModal )
@@ -19,7 +21,7 @@ export class LeagueComponent {
 
   async ngOnInit(){
     try {
-      this.model = <Array<LeagueModel>>await this._leagueService.listAsync()
+      this.model = <Array<LeagueModel>>await this._leagueService.listAsync();
     } catch (error) {
     }
   }
