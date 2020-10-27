@@ -13,7 +13,11 @@ export class NewsService {
     return await this._apiFetchService.requestAsync('GET','news');
   }
 
-  async deleteAsync(vaues) {
-    return await this._apiFetchService.requestAsync('DELETE','news',vaues,true);
+  async detailsAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','news-find',values,true);
+  }
+
+  async deleteAsync(values) {
+    return await this._apiFetchService.requestAsync('DELETE','news',values,true);
   }
 }
