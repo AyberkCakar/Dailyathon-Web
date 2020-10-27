@@ -25,9 +25,8 @@
           <td>{{announcement.AnnouncementID}}</td>
           <td >{{announcement.AnnouncementTitle}}</td>
           <td>{{announcement.AnnouncementDate}}</td>
-
           <td class="text-center">
-            <a  class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
+            <a routerLink="/announcementStatistic/{{announcement.AnnouncementID}}" class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
             <a routerLink="/announcementDetails/{{announcement.AnnouncementID}}"  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
             <a (click)="open(modalDialog, announcement.AnnouncementID)" class="btn btn-xs btn-warning">Delete</a>
           </td>
@@ -35,7 +34,6 @@
         </tbody>
       </table>
     </div>
-    <!-- end table-responsive -->
   </panel>
 </div>
 
