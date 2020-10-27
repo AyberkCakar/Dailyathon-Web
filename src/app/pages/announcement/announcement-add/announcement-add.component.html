@@ -9,7 +9,6 @@
 <br>
 <div class="row">
   <div class="col-xl-6">
-    <!-- begin panel -->
     <panel title=" ">
       <form >
         <fieldset>
@@ -30,13 +29,11 @@
           <div class="form-group row">
             <div class="col-md-7 offset-md-3">
               <button type="submit" (click)="announcementAdd(title.value,content.value)" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Add</button>
+              <button type="submit" class="btn btn-sm btn-default m-r-5" style="padding: 5px 20px" routerLink="/announcement"> Cancel</button>
             </div>
           </div>
         </fieldset>
       </form>
-
     </panel>
-    <!-- end panel -->
   </div>
-
 </div>
