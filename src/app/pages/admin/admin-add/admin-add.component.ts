@@ -32,4 +32,8 @@ export class AdminAddComponent {
     } catch (error) {
     }
   }
+
+  getRequired(id: number): string {
+   return (id == 1 ? "is-valid" : "is-invalid")+"form-control"
+  }
 }

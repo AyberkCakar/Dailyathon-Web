@@ -16,31 +16,46 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Username</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #username placeholder="Username" />
+              <input type="text" class="form-control input"  required  [(ngModel)]="model.Username" name="username" #username="ngModel"  placeholder="Username"/>
+              <div class="m-t-4" *ngIf="!username.valid && username.touched" >
+                <div *ngIf="username.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Password</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #password placeholder="Password" />
+              <input type="text" class="form-control input"  required [(ngModel)]="model.Password" name="password" #password="ngModel" placeholder="Password" />
+              <div class="m-t-4" *ngIf="!password.valid && password.touched" >
+                <div *ngIf="password.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #name placeholder="Name" />
+              <input type="text" class="form-control input" required  [(ngModel)]="model.AdminName" name="name" #name="ngModel"  placeholder="Name" />
+              <div class="m-t-4" *ngIf="!name.valid && name.touched" >
+                <div *ngIf="name.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Auth</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #auth placeholder="Auth" />
+              <input type="text" class="form-control input" required  [(ngModel)]="model.AdminAuth" name="auth" #auth="ngModel"  placeholder="Auth" />
+              <div class="m-t-4" *ngIf="!auth.valid && auth.touched" >
+                <div *ngIf="auth.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Position</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #position placeholder="Position" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.AdminPosition" name="position" #position="ngModel"  placeholder="Position" />
+              <div class="m-t-4" *ngIf="!position.valid && position.touched" >
+                <div *ngIf="position.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <br>
