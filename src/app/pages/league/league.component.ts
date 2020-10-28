@@ -4,6 +4,7 @@ import {ScoreModel} from './score.model';
 import { LeagueService } from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'league',
@@ -17,19 +18,19 @@ export class LeagueComponent {
   scores: Array<ScoreModel>;
   closeResult: string;
   leagueID: number;
-  constructor(private router: Router, private _leagueService: LeagueService , private modalService: NgbModal )
+  constructor(private router: Router, private _leagueService: LeagueService , private modalService: NgbModal , private notifier: NotifierService )
   {}
 
   async ngOnInit(){
     try {
       this.model = <Array<LeagueModel>>await this._leagueService.listAsync();
     } catch (error) {
+      this.showNotification( 'error', error.message );
     }
   }
 
-  goRouter()
-  {
-    this.router.navigateByUrl('/leagueAdd');
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
   }
 
   async deleteLeague()
@@ -39,8 +40,8 @@ export class LeagueComponent {
       await this._leagueService.deleteAsync(this.league);
       this.ngOnInit();
       this.modalService.dismissAll();
-    }catch (e) {
-      console.log(e);
+    }catch (error) {
+      this.showNotification( 'error', error.message );
     };
   };
 
@@ -67,7 +68,6 @@ export class LeagueComponent {
   {
     this.scoreReq.LeagueID = ID;
     this.scoreReq.SportID = sportID;
-
     try {
       this.scores = <Array<ScoreModel>>await this._leagueService.scoreAsync(this.scoreReq);
       await  this.modalService.open(content).result.then((result) => {
@@ -75,8 +75,8 @@ export class LeagueComponent {
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
-    }catch (e) {
-      console.log(e);
+    }catch (error) {
+      this.showNotification( 'error', error.message );
     };
   };
 }

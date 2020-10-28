@@ -21,26 +21,34 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">League Name</label>
             <div class="col-md-7">
-              <input type="text" value="{{model.LeagueName}}" class="form-control" #leaguename placeholder="League Name" />
-            </div>
+              <input type="text" class="form-control input" required [(ngModel)]="model.LeagueName" name="leaguename" #leaguename="ngModel"  placeholder="League Name" />
+              <div class="m-t-4" *ngIf="!leaguename.valid && leaguename.touched" >
+                <div *ngIf="leaguename.errors.required;"  style="color: crimson" >Required !</div>
+              </div>            </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">League Country</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" value="{{model.LeagueCountry}}" #country placeholder="League Country" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.LeagueCountry" name="country" #country="ngModel"  placeholder="League Country" />
+              <div class="m-t-4" *ngIf="!country.valid && country.touched" >
+                <div *ngIf="country.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">League Url</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" value="{{model.LeagueUrl}}" #url placeholder="League Url" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.LeagueUrl" name="url" #url="ngModel"  placeholder="League Url" />
+              <div class="m-t-4" *ngIf="!url.valid && url.touched" >
+                <div *ngIf="url.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Sport Name</label>
             <div class="col-md-7">
               <select #sportID class="form-control" style="background-color: #636363" >
-                <option *ngFor="let sport of sportModel" >{{sport.SportName}}</option>
+                <option *ngFor="let sport of sportModel" value="{{sport.SportID}}">{{sport.SportName}}</option>
               </select>
             </div>
           </div>
@@ -56,3 +64,5 @@
     </panel>
   </div>
 </div>
+
+<notifier-container></notifier-container>
