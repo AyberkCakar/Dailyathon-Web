@@ -5,7 +5,7 @@
 
 <h1 class="page-header">Survey Page</h1>
 <br>
-<button type="submit" (click)="goRouter()" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Survey Add</button>
+<button type="submit" routerLink="/surveyAdd" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Survey Add</button>
 <div>
   <panel title="Survey Table">
     <div class="table-responsive">
@@ -58,3 +58,5 @@
     <button (click)="deleteSurvey()" class="btn btn-danger">Delete</button>
   </div>
 </ng-template>
+
+<notifier-container></notifier-container>

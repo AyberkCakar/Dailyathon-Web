@@ -8,29 +8,33 @@
 <br>
 <div class="row">
   <div class="col-xl-6">
-    <!-- begin panel -->
     <panel title=" ">
       <form >
         <fieldset>
           <legend class="m-b-15">Survey Add</legend>
-
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #surveyname placeholder="Survey Name" />
+              <input type="text" class="form-control input"  required [(ngModel)]="model.SurveyName" name="surveyname" #surveyname="ngModel"  placeholder="Survey Name" />
+              <div class="m-t-4" *ngIf="!surveyname.valid && surveyname.touched" >
+                <div *ngIf="surveyname.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey TableName</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #tablename placeholder="Survey TableName" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.SurveyTableName" name="tablename" #tablename="ngModel"  placeholder="Survey TableName" />
+              <div class="m-t-4" *ngIf="!tablename.valid && tablename.touched" >
+                <div *ngIf="tablename.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Start Date</label>
             <div class="col-md-7">
               <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="d1" #c1 ngbDatepicker #d1="ngbDatepicker">
+                <input class="form-control input" required [(ngModel)]="model.SurveyStartDate"  placeholder="yyyy-mm-dd" name="d1" #c1 ngbDatepicker #d1="ngbDatepicker">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
                     <i class="fa fa-calendar"></i>
@@ -43,7 +47,7 @@
             <label class="col-md-3 col-form-label">Due Date</label>
             <div class="col-md-7">
               <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="d2" #c2 ngbDatepicker #d2="ngbDatepicker" >
+                <input class="form-control input"  required [(ngModel)]="model.SurveyDueDate"  placeholder="yyyy-mm-dd" name="d2" #c2 ngbDatepicker #d2="ngbDatepicker" >
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
                     <i class="fa fa-calendar"></i>
@@ -56,7 +60,10 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey Url</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #url placeholder="Survey Url" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.SurveyUrl" name="url" #url="ngModel"  placeholder="Survey Url" />
+              <div class="m-t-4" *ngIf="!url.valid && url.touched" >
+                <div *ngIf="url.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
 
@@ -70,6 +77,7 @@
         </fieldset>
       </form>
     </panel>
-    <!-- end panel -->
   </div>
 </div>
+
+<notifier-container></notifier-container>

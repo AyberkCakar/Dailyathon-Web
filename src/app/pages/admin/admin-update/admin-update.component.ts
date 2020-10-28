@@ -12,7 +12,7 @@ import {NotifierService} from 'angular-notifier';
 export class AdminUpdateComponent {
   model: AdminModel = new AdminModel();
   admin: AdminModel = new AdminModel();
-  constructor(private router: Router, private _adminService: AdminService , private _router: ActivatedRoute , private notifier: NotifierService)
+  constructor(private router: Router, private _adminService: AdminService , private _router: ActivatedRoute , private notifier: NotifierService )
   {}
 
   public showNotification( type: string, message: string ): void {
