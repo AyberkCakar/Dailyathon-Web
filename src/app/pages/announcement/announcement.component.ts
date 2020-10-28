@@ -26,7 +26,11 @@ export class AnnouncementComponent {
 
   async ngOnInit(){
     try {
-      this.model = <Array<AnnouncementModel>>await this._announcementService.listAsync()
+      this.model = <Array<AnnouncementModel>>await this._announcementService.listAsync();
+      if (this.model == null)
+      {
+        this.showNotification( 'error', this.model['message'] );
+      }
     } catch (error) {
       this.showNotification( 'error', error.message );
     }

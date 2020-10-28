@@ -18,6 +18,10 @@ export class AdminComponent {
   async ngOnInit(){
     try {
       this.model = <Array<AdminModel>>await this._adminService.listAsync();
+      if (this.model == null)
+      {
+        this.showNotification( 'error', this.model['message'] );
+      }
     } catch (error) {
       this.showNotification( 'error', error.message );
     }

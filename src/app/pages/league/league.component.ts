@@ -24,6 +24,10 @@ export class LeagueComponent {
   async ngOnInit(){
     try {
       this.model = <Array<LeagueModel>>await this._leagueService.listAsync();
+      if (this.model == null)
+      {
+        this.showNotification( 'error', this.model['message'] );
+      }
     } catch (error) {
       this.showNotification( 'error', error.message );
     }

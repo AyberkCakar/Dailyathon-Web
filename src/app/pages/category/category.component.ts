@@ -24,7 +24,11 @@ export class CategoryComponent {
 
   async ngOnInit(){
     try {
-      this.model = <Array<CategoryModel>>await this._categoryService.listAsync()
+      this.model = <Array<CategoryModel>>await this._categoryService.listAsync();
+      if (this.model == null)
+      {
+        this.showNotification( 'error', this.model['message'] );
+      }
     } catch (error) {
       this.showNotification( 'error', error.message );
     }
