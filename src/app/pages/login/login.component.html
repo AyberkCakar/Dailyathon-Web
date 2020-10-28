@@ -3,9 +3,7 @@
   <div class="login-cover-bg"></div>
 </div>
 
-<!-- begin login -->
 <div class="login login-v2" data-pageload-addclass="animated fadeIn ">
-  <!-- begin brand -->
   <div class="login-header"style="margin-top: 700px">
     <div class="brand">
       <img src="../../../favicon.ico" alt="" class="m-r-10"><b>Dailyathon</b> Login
@@ -15,15 +13,19 @@
       <i class="fa fa-lock"></i>
     </div>
   </div>
-  <!-- end brand -->
-  <!-- begin login-content -->
   <div class="login-content">
     <form class="margin-bottom-0" >
     <div class="form-group m-b-20">
-      <input type="text" class="form-control form-control-lg" placeholder="Username" #Username required />
+      <input type="text" class="form-control form-control-lg input" placeholder="Username" required [(ngModel)]="model.Username" name="Username" #Username="ngModel" />
+      <div class="m-t-4" *ngIf="!Username.valid && Username.touched" >
+        <div *ngIf="Username.errors.required;"  style="color: crimson" >Required !</div>
+      </div>
     </div>
     <div class="form-group m-b-20">
-      <input type="password" class="form-control form-control-lg" placeholder="Password"  #Password required />
+      <input type="password" class="form-control form-control-lg input" placeholder="Password" required [(ngModel)]="model.Password" name="Password" #Password="ngModel" />
+      <div class="m-t-4" *ngIf="!Password.valid && Password.touched" >
+        <div *ngIf="Password.errors.required;"  style="color: crimson" >Required !</div>
+      </div>
     </div>
     <br>
 
@@ -32,6 +34,6 @@
     </div>
     </form>
   </div>
-  <!-- end login-content -->
 </div>
-<!-- end login -->
+
+<notifier-container></notifier-container>

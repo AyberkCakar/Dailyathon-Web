@@ -6,10 +6,9 @@
 
 <h1 class="page-header">League Page</h1>
 <br>
-<button type="submit" (click)="goRouter()" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">League Add</button>
+<button type="submit" routerLink="/leagueAdd" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">League Add</button>
 <div>
   <panel title="League Table">
-    <!-- begin table-responsive -->
     <div class="table-responsive">
       <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
         <thead>
@@ -40,7 +39,6 @@
         </tbody>
       </table>
     </div>
-    <!-- end table-responsive -->
   </panel>
 </div>
 
@@ -101,3 +99,5 @@
     </tbody>
   </table>
 </ng-template>
+
+<notifier-container></notifier-container>

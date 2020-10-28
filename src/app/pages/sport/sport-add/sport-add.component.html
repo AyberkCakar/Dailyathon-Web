@@ -8,7 +8,6 @@
 <br>
 <div class="row">
   <div class="col-xl-6">
-    <!-- begin panel -->
     <panel title=" ">
       <form >
         <fieldset>
@@ -16,13 +15,19 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Sport Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #sportname placeholder="Sport Name" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.SportName" name="sportname" #sportname="ngModel" placeholder="Sport Name" />
+              <div class="m-t-4" *ngIf="!sportname.valid && sportname.touched" >
+                <div *ngIf="sportname.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">League Table Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #tablename placeholder="League Table Name" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.LeagueTableName" name="tablename" #tablename="ngModel" placeholder="League Table Name" />
+              <div class="m-t-4" *ngIf="!tablename.valid && tablename.touched" >
+                <div *ngIf="tablename.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <br>
@@ -34,9 +39,8 @@
           </div>
         </fieldset>
       </form>
-
     </panel>
-    <!-- end panel -->
   </div>
-
 </div>
+
+<notifier-container></notifier-container>

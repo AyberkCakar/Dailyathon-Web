@@ -24,7 +24,9 @@ export class AuthService {
       localStorage.setItem('AdminAuth', respone.userInformation.AdminAuth);
       localStorage.setItem('AdminPosition', respone.userInformation.AdminPosition);
       this._router.navigateByUrl('dashboard');
+      return respone;
     } catch (error) {
+      return error;
     }
   }
 

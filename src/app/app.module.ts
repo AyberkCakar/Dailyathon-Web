@@ -8,6 +8,8 @@ import { NgModule }                              from '@angular/core';
 import { FormsModule, ReactiveFormsModule }      from '@angular/forms';
 import { MatSortModule, MatTableModule }         from '@angular/material';
 import * as global                               from './config/globals';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+
 
 // Main Component
 import { AppComponent }                    from './app.component';
@@ -80,6 +82,47 @@ import {LeagueUpdateComponent} from './pages/league/league-update/league-update.
 import {SurveyStatisticComponent} from './pages/survey/survey-statistic/survey-statistic.component';
 import {AnnouncementStatisticComponent} from './pages/announcement/announcement-statistic/announcement-statistic.component';
 
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'left',
+      distance: 12
+    },
+    vertical: {
+      position: 'bottom',
+      distance: 12,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -128,6 +171,7 @@ import {AnnouncementStatisticComponent} from './pages/announcement/announcement-
   imports: [
     AppRoutingModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyC5gJ5x8Yw7qP_DqvNq3IdZi2WUSiDjskk' }),
+    NotifierModule.withConfig(customNotifierOptions),
     BrowserAnimationsModule,
     BrowserModule,
     CalendarModule.forRoot({

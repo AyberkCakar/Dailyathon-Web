@@ -3,6 +3,7 @@ import {EventModel} from './event.model';
 import {EventService} from '../../utils/services';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'event',
@@ -14,19 +15,23 @@ export class EventComponent {
   event: EventModel = new EventModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _eventService: EventService , private modalService: NgbModal )
+  constructor(private router: Router, private _eventService: EventService , private modalService: NgbModal , private notifier: NotifierService )
   {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
+  }
 
   async ngOnInit(){
     try {
       this.model = <Array<EventModel>>await this._eventService.listAsync();
+      if (this.model == null)
+      {
+        this.showNotification( 'error', this.model['message'] );
+      }
     } catch (error) {
+      this.showNotification( 'error', error.message );
     }
-  }
-
-  goRouter()
-  {
-    this.router.navigateByUrl('/eventAdd');
   }
 
   async deleteEvent()
@@ -36,7 +41,8 @@ export class EventComponent {
       await this._eventService.deleteAsync(this.event);
       this.ngOnInit();
       this.modalService.dismissAll();
-    }catch (e) {
+    }catch (error) {
+      this.showNotification( 'error', error.message );
     };
   };
 
@@ -62,7 +68,6 @@ export class EventComponent {
   async details(content, ID)
   {
     this.event.EntertainmentID = ID;
-
     try {
       this.event = <EventModel>await this._eventService.detailsAsync(this.event);
       await  this.modalService.open(content).result.then((result) => {
@@ -70,8 +75,8 @@ export class EventComponent {
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
-    }catch (e) {
-      console.log(e);
+    }catch (error) {
+      this.showNotification( 'error', error.message );
     };
   };
 }

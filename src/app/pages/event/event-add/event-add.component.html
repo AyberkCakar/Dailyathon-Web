@@ -16,20 +16,29 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Event Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #eventname placeholder="Event Name" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.EntertainmentName" name="eventname" #eventname="ngModel"  placeholder="Event Name" />
+              <div class="m-t-4" *ngIf="!eventname.valid && eventname.touched" >
+                <div *ngIf="eventname.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Event Content</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #content placeholder="Event Content" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.EntertainmentContent" name="content" #content="ngModel"  placeholder="Event Content" />
+              <div class="m-t-4" *ngIf="!content.valid && content.touched" >
+                <div *ngIf="content.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Start Date</label>
             <div class="col-md-7">
               <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="d1" #c1 ngbDatepicker #d1="ngbDatepicker">
+                <input class="form-control input" required [(ngModel)]="model.EntertainmentStartDate" placeholder="yyyy-mm-dd" name="d1" #c1 ngbDatepicker #d1="ngbDatepicker">
+                <div class="m-t-4" *ngIf="!c1.valid && c1.touched" >
+                  <div *ngIf="c1.errors.required;"  style="color: crimson" >Required !</div>
+                </div>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
                     <i class="fa fa-calendar"></i>
@@ -42,7 +51,10 @@
             <label class="col-md-3 col-form-label">Due Date</label>
             <div class="col-md-7">
               <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="d2" #c2 ngbDatepicker #d2="ngbDatepicker" >
+                <input class="form-control input" required [(ngModel)]="model.EntertainmentDueDate" placeholder="yyyy-mm-dd" name="d2" #c2 ngbDatepicker #d2="ngbDatepicker" >
+                <div class="m-t-4" *ngIf="!c2.valid && c2.touched" >
+                  <div *ngIf="c2.errors.required;"  style="color: crimson" >Required !</div>
+                </div>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
                     <i class="fa fa-calendar"></i>
@@ -63,37 +75,55 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Poster Url</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #posterurl placeholder="Poster Url" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.EntertainmentPosterUrl" name="posterurl" #posterurl="ngModel" placeholder="Poster Url" />
+              <div class="m-t-4" *ngIf="!posterurl.valid && posterurl.touched" >
+                <div *ngIf="posterurl.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Ticket Url</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #ticketurl placeholder="Ticket Url" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.EntertainmentTicketUrl" name="ticketurl" #ticketurl="ngModel" placeholder="Ticket Url" />
+              <div class="m-t-4" *ngIf="!ticketurl.valid && ticketurl.touched" >
+                <div *ngIf="ticketurl.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">City</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #city placeholder="City" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.EntertainmentCity" name="city" #city="ngModel"  placeholder="City" />
+              <div class="m-t-4" *ngIf="!city.valid && city.touched" >
+                <div *ngIf="city.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">District</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #district placeholder="District" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.EntertainmentDistrict" name="district" #district="ngModel"  placeholder="District" />
+              <div class="m-t-4" *ngIf="!district.valid && district.touched" >
+                <div *ngIf="district.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Venue</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #venue placeholder="Venue" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.EntertainmentVenue" name="venue" #venue="ngModel" placeholder="Venue" />
+              <div class="m-t-4" *ngIf="!venue.valid && venue.touched" >
+                <div *ngIf="venue.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Performer</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #performer placeholder="Performer" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.EntertainmentPerformer" name="performer" #performer="ngModel"  placeholder="Performer" />
+              <div class="m-t-4" *ngIf="!performer.valid && performer.touched" >
+                <div *ngIf="performer.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
@@ -121,3 +151,5 @@
     </panel>
   </div>
 </div>
+
+<notifier-container></notifier-container>

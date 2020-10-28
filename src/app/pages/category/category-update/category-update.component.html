@@ -8,7 +8,6 @@
 <br>
 <div class="row">
   <div class="col-xl-6">
-    <!-- begin panel -->
     <panel title=" ">
       <form>
         <fieldset>
@@ -22,7 +21,10 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Category Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #cateogoryname value="{{model.CategoryName}}" placeholder="Category Name" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.CategoryName" name="cateogoryname" #cateogoryname="ngModel"  placeholder="Category Name" />
+              <div class="m-t-4" *ngIf="!cateogoryname.valid && cateogoryname.touched" >
+                <div *ngIf="cateogoryname.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <br>
@@ -34,9 +36,8 @@
           </div>
         </fieldset>
       </form>
-
     </panel>
-    <!-- end panel -->
   </div>
-
 </div>
+
+<notifier-container></notifier-container>

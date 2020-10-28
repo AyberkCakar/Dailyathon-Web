@@ -8,7 +8,6 @@
 <br>
 <div class="row">
   <div class="col-xl-6">
-    <!-- begin panel -->
     <panel title=" ">
       <form>
         <fieldset>
@@ -22,13 +21,19 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" value="{{model.SurveyName}}"  #surveyname placeholder="Survey Name" />
+              <input type="text" class="form-control input"  required [(ngModel)]="model.SurveyName" name="surveyname" #surveyname="ngModel"  placeholder="Survey Name" />
+              <div class="m-t-4" *ngIf="!surveyname.valid && surveyname.touched" >
+                <div *ngIf="surveyname.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey TableName</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" value="{{model.SurveyTableName}}"  #tablename placeholder="Survey TableName" />
+              <input type="text" class="form-control" required [(ngModel)]="model.SurveyTableName" name="tablename" #tablename="ngModel"  placeholder="Survey TableName" />
+              <div class="m-t-4" *ngIf="!tablename.valid && tablename.touched" >
+                <div *ngIf="tablename.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
@@ -61,20 +66,22 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Survey Url</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" value="{{model.SurveyUrl}}"  #url placeholder="Survey Url" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.SurveyUrl" name="url" #url="ngModel"  placeholder="Survey Url" />
+              <div class="m-t-4" *ngIf="!url.valid && url.touched" >
+                <div *ngIf="url.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <br>
           <div class="form-group row">
             <div class="col-md-7 offset-md-3">
-              <button type="submit" (click)="surveyUpdate(surveyID.value,surveyname.value,tablename.value,c1.value,c2.value,url.value)" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Update</button>
+              <button type="submit" (click)="surveyUpdate( surveyID.value,surveyname.value,tablename.value,c1.value,c2.value,url.value)" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Update</button>
             </div>
           </div>
         </fieldset>
       </form>
-
     </panel>
-    <!-- end panel -->
   </div>
-
 </div>
+
+<notifier-container></notifier-container>

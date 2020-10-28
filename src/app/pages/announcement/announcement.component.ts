@@ -3,6 +3,7 @@ import {AnnouncementModel} from './announcement.model';
 import { AnnouncementService } from '../../utils/services';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {NotifierService} from 'angular-notifier';
 
 
 @Component({
@@ -16,22 +17,21 @@ export class AnnouncementComponent {
   announcement: AnnouncementModel = new AnnouncementModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _announcementService: AnnouncementService , private modalService: NgbModal)
+  constructor(private router: Router, private _announcementService: AnnouncementService , private modalService: NgbModal , private notifier: NotifierService)
   {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
+  }
 
   async ngOnInit(){
     try {
       this.model = <Array<AnnouncementModel>>await this._announcementService.listAsync()
-
     } catch (error) {
-
+      this.showNotification( 'error', error.message );
     }
   };
 
-  goRouter()
-  {
-    this.router.navigateByUrl('/announcementAdd');
-  };
 
   async deleteAnnouncement()
   {
@@ -40,7 +40,8 @@ export class AnnouncementComponent {
       await this._announcementService.deleteAsync(this.announcement);
       this.ngOnInit();
       this.modalService.dismissAll();
-    }catch (e) {
+    }catch (error) {
+      this.showNotification( 'error', error.message );
     };
   };
 

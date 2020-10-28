@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {SportModel} from '../sport.model';
 import {SportService} from '../../../utils/services';
 import { Router } from '@angular/router';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'sport-add',
@@ -10,14 +11,17 @@ import { Router } from '@angular/router';
 
 export class SportAddComponent {
   model: SportModel = new SportModel();
-  constructor(private router: Router, private _sportService: SportService )
-  {
+  constructor(private router: Router, private _sportService: SportService , private notifier: NotifierService )
+  {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
   }
 
   async ngOnInit(){
   }
 
-  async sportAdd(sportname:string,tablename:string)
+  async sportAdd( sportname: string , tablename: string)
   {
     this.model.SportName = sportname;
     this.model.LeagueTableName = tablename;
@@ -25,7 +29,7 @@ export class SportAddComponent {
       await this._sportService.insertAsync(this.model);
       await this.router.navigateByUrl('/sport');
     } catch (error) {
-
+      this.showNotification( 'error', error.message );
     }
   }
 }

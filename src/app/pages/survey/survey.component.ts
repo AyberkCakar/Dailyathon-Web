@@ -3,6 +3,7 @@ import {SurveyModel} from './survey.model';
 import { SurveyService } from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'survey',
@@ -14,20 +15,24 @@ export class SurveyComponent {
   survey: SurveyModel = new SurveyModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _surveyService: SurveyService , private modalService: NgbModal )
+  constructor(private router: Router, private _surveyService: SurveyService , private modalService: NgbModal , private notifier: NotifierService )
   {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
+  }
 
   async ngOnInit(){
     try {
-      this.model = <Array<SurveyModel>>await this._surveyService.listAsync()
+      this.model = <Array<SurveyModel>>await this._surveyService.listAsync();
+      if (this.model == null)
+      {
+        this.showNotification( 'error', this.model['message'] );
+      }
     } catch (error) {
+      this.showNotification( 'error', error.message );
     }
   };
-
-  goRouter()
-  {
-    this.router.navigateByUrl('/surveyAdd');
-  }
 
   async deleteSurvey()
   {
@@ -36,8 +41,8 @@ export class SurveyComponent {
       await this._surveyService.deleteAsync(this.survey);
       this.ngOnInit();
       this.modalService.dismissAll();
-    }catch (e) {
-      console.log(e);
+    }catch (error) {
+      this.showNotification( 'error', error.message );
     };
   };
 
