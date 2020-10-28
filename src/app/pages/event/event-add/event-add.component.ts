@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {EventModel} from '../event.model';
 import {EventService} from '../../../utils/services';
 import { Router } from '@angular/router';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'event-add',
@@ -10,8 +11,11 @@ import { Router } from '@angular/router';
 
 export class EventAddComponent {
   model: EventModel = new EventModel();
-  constructor(private router: Router, private _eventService: EventService )
-  {
+  constructor(private router: Router, private _eventService: EventService , private notifier: NotifierService )
+  {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
   }
 
   async ngOnInit(){
@@ -36,6 +40,7 @@ export class EventAddComponent {
       await this._eventService.insertAsync(this.model);
       await this.router.navigateByUrl('/event');
     } catch (error) {
+      this.showNotification( 'error', error.message );
     }
   }
 }
