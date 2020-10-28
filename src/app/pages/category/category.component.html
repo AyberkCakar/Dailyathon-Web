@@ -6,10 +6,9 @@
 
 <h1 class="page-header">Category Page</h1>
 <br>
-<button type="submit" (click)="goRouter()"  class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Category Add</button>
+<button type="submit" routerLink="/categoryAdd"  class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Category Add</button>
 <div>
   <panel title="Category Table">
-    <!-- begin table-responsive -->
     <div class="table-responsive">
       <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
         <thead>
@@ -31,7 +30,6 @@
         </tbody>
       </table>
     </div>
-    <!-- end table-responsive -->
   </panel>
 </div>
 
@@ -50,3 +48,5 @@
     <button (click)="deleteCategory()" class="btn btn-danger">Delete</button>
   </div>
 </ng-template>
+
+<notifier-container></notifier-container>

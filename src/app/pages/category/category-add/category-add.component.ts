@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {CategoryModel} from '../category.model';
 import { CategoryService } from '../../../utils/services';
 import { Router } from '@angular/router';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'category-add',
@@ -9,22 +10,24 @@ import { Router } from '@angular/router';
 })
 
 export class CategoryAddComponent {
-
   model: CategoryModel = new CategoryModel();
-  constructor(private router: Router, private _categoryService: CategoryService )
-  {
-  }
+  constructor(private router: Router, private _categoryService: CategoryService , private notifier: NotifierService )
+  {}
   async ngOnInit(){
   }
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
+  }
+
   async categoryAdd(categoryname:string)
   {
     this.model.CategoryName = categoryname;
     try {
-      await this._categoryService.insertAsync(this.model)
-      await this.router.navigateByUrl('/category')
+      await this._categoryService.insertAsync(this.model);
+      await this.router.navigateByUrl('/category');
     } catch (error) {
-
+      this.showNotification( 'error', error.message );
     }
   }
-
 }

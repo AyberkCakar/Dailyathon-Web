@@ -3,6 +3,7 @@ import {CategoryModel} from './category.model';
 import { CategoryService } from '../../utils/services';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'category',
@@ -14,19 +15,19 @@ export class CategoryComponent {
   category: CategoryModel = new CategoryModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _categoryService: CategoryService , private modalService: NgbModal)
+  constructor(private router: Router, private _categoryService: CategoryService , private modalService: NgbModal , private notifier: NotifierService )
   {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
+  }
 
   async ngOnInit(){
     try {
       this.model = <Array<CategoryModel>>await this._categoryService.listAsync()
     } catch (error) {
+      this.showNotification( 'error', error.message );
     }
-  };
-
-  goRouter()
-  {
-    this.router.navigateByUrl('/categoryAdd');
   };
 
   async deleteCategory()
@@ -36,7 +37,8 @@ export class CategoryComponent {
         await this._categoryService.deleteAsync(this.category);
         this.ngOnInit();
         this.modalService.dismissAll();
-    }catch (e) {
+    }catch (error) {
+      this.showNotification( 'error', error.message );
     };
   }
 
