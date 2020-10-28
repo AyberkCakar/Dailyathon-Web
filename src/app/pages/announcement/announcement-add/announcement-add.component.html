@@ -16,13 +16,19 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Announcement Title</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #title placeholder="Announcement Title" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.AnnouncementTitle" name="title" #title="ngModel"  placeholder="Announcement Title" />
+              <div class="m-t-4" *ngIf="!title.valid && title.touched" >
+                <div *ngIf="title.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-form-label col-md-3">Announcement Content</label>
             <div class="col-md-7">
-              <textarea class="form-control" rows="3" #content placeholder="Announcement Content"></textarea>
+              <textarea class="form-control input" rows="3" required [(ngModel)]="model.AnnouncementContent" name="content" #content="ngModel" placeholder="Announcement Content"></textarea>
+              <div class="m-t-4" *ngIf="!content.valid && content.touched" >
+                <div *ngIf="content.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <br>
@@ -37,3 +43,5 @@
     </panel>
   </div>
 </div>
+
+<notifier-container></notifier-container>

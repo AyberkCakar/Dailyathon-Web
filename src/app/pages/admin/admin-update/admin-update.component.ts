@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AdminModel} from '../admin.model';
 import { AdminService } from '../../../utils/services';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {NotifierService} from 'angular-notifier';
 
 @Component({

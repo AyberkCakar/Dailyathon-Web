@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AnnouncementModel} from '../announcement.model';
 import { AnnouncementService } from '../../../utils/services';
 import { Router } from '@angular/router';
+import {NotifierService} from 'angular-notifier';
 
 
 @Component({
@@ -13,8 +14,11 @@ export class AnnouncementAddComponent {
 
   model: AnnouncementModel = new AnnouncementModel();
   date = new Date();
-  constructor(private router: Router, private _announcementService: AnnouncementService )
-  {
+  constructor(private router: Router, private _announcementService: AnnouncementService , private notifier: NotifierService)
+  {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
   }
 
   async announcementAdd(title:string , content:string)
@@ -26,7 +30,7 @@ export class AnnouncementAddComponent {
       await this._announcementService.insertAsync(this.model);
       await this.router.navigateByUrl('/announcement');
     } catch (error) {
-
+      this.showNotification( 'error', error.message );
     }
   }
 
