@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.8.0...v1.9.0) (2020-10-28)
+
+
+### Features
+
+* added admin add error notifications ([ba3588a](https://github.com/AyberkCakar/Dailyathon-Web/commit/ba3588a2adcd37e5f055cf28eaeaee6ad6c4ad59))
+* added admin add validators ([10b8fae](https://github.com/AyberkCakar/Dailyathon-Web/commit/10b8fae6cba5d128674acdc53779652e95e04b82))
+* added admin list error notification ([965663e](https://github.com/AyberkCakar/Dailyathon-Web/commit/965663e02f5f9b74b2c9bcbd775ac727af6cd579))
+* added admin update validators and error notification ([63574e7](https://github.com/AyberkCakar/Dailyathon-Web/commit/63574e74d674ffd548790a765e818331a5e0ba41))
+* added validators and error notifications for announcement pages ([b098052](https://github.com/AyberkCakar/Dailyathon-Web/commit/b0980526433e55dc7ec97faf91d1f2b1347947a5))
+* added validators and error notifications for category pages ([98a8342](https://github.com/AyberkCakar/Dailyathon-Web/commit/98a8342b23d0b4eb2e3a79e3618055a6ebe76a74))
+* added validators and error notifications for event pages ([75b8173](https://github.com/AyberkCakar/Dailyathon-Web/commit/75b8173a2a1bee8a3f5526af6efd87b916cf2f68))
+* added validators and error notifications for league pages ([7ac155a](https://github.com/AyberkCakar/Dailyathon-Web/commit/7ac155ac16fb5e87441b47d109546877422b2f88))
+* added validators and error notifications for login pages ([039205c](https://github.com/AyberkCakar/Dailyathon-Web/commit/039205ca1bea5dc80488782c18bf4987bb9c8ac3))
+* added validators and error notifications for news pages ([5212390](https://github.com/AyberkCakar/Dailyathon-Web/commit/5212390f113646f50ae7bc2ddf31f5480e38813c))
+* added validators and error notifications for sport pages ([2a2f500](https://github.com/AyberkCakar/Dailyathon-Web/commit/2a2f5001a08e294624cc997d1b2d2ab62013b7aa))
+* added validators and error notifications for survey pages ([904f5e8](https://github.com/AyberkCakar/Dailyathon-Web/commit/904f5e829fc05865b0fba9ac98a950a73328b6ac))
+
+
+### Bug Fixes
+
+* fix admin form inputs ([2ac8f02](https://github.com/AyberkCakar/Dailyathon-Web/commit/2ac8f02b271e53d87d7f05d701cf0d0b49450479))
+
 ## [1.8.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.7.0...v1.8.0) (2020-10-27)
 
 
