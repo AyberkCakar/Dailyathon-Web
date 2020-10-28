@@ -3,6 +3,7 @@ import {SportModel} from './sport.model';
 import {SportService} from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'sport',
@@ -14,19 +15,22 @@ export class SportComponent {
   sport: SportModel = new SportModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _sportService: SportService , private modalService: NgbModal )
+  constructor(private router: Router, private _sportService: SportService , private modalService: NgbModal , private notifier: NotifierService )
   {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
+  }
 
   async ngOnInit(){
     try {
       this.model = <Array<SportModel>>await this._sportService.listAsync();
+      if (this.model == null) {
+        this.showNotification( 'error', this.model['message'] );
+      }
     } catch (error) {
+      this.showNotification( 'error', error.message );
     }
-  }
-
-  goRouter()
-  {
-    this.router.navigateByUrl('/sportAdd');
   }
 
   async deleteSport()
@@ -36,8 +40,8 @@ export class SportComponent {
       await this._sportService.deleteAsync(this.sport);
       this.ngOnInit();
       this.modalService.dismissAll();
-    }catch (e) {
-      console.log(e);
+    }catch (error) {
+      this.showNotification( 'error', error.message );
     };
   };
 

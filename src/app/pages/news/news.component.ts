@@ -26,7 +26,7 @@ export class NewsComponent {
     try {
       this.model = <Array<NewsModel>>await this._newsService.listAsync();
       if(this.model == null){
-        this.showNotification( 'error', this.model.message );
+        this.showNotification( 'error', this.model['message'] );
       }
     } catch (error) {
       this.showNotification( 'error', error.message );

@@ -15,16 +15,16 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Category Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control input" required [(ngModel)]="model.CategoryName" name="cateogoryname" #cateogoryname="ngModel"  placeholder="Category Name" />
-              <div class="m-t-4" *ngIf="!cateogoryname.valid && cateogoryname.touched" >
-                <div *ngIf="cateogoryname.errors.required;"  style="color: crimson" >Required !</div>
+              <input type="text" class="form-control input" required [(ngModel)]="model.CategoryName" name="categoryname" #categoryname="ngModel"  placeholder="Category Name" />
+              <div class="m-t-4" *ngIf="!categoryname.valid && categoryname.touched" >
+                <div *ngIf="categoryname.errors.required;"  style="color: crimson" >Required !</div>
               </div>
             </div>
           </div>
           <br>
           <div class="form-group row">
             <div class="col-md-7 offset-md-3">
-              <button type="submit" (click)="categoryAdd(cateogoryname.value)" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Add</button>
+              <button type="submit" (click)="categoryAdd(categoryname.value)" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Add</button>
               <button type="submit" class="btn btn-sm btn-default m-r-5" style="padding: 5px 20px"
                       routerLink="/category"> Cancel</button>
             </div>
