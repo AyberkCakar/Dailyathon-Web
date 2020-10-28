@@ -12,12 +12,9 @@ import { NotifierService } from 'angular-notifier';
 export class AdminAddComponent {
   date: Date = new Date();
   model: AdminModel = new AdminModel();
-  private notifier: NotifierService;
 
-  constructor(private router: Router, private _adminService: AdminService , notifier: NotifierService)
-  {
-    this.notifier = notifier;
-  }
+  constructor(private router: Router, private _adminService: AdminService , private notifier: NotifierService)
+  {}
   public showNotification( type: string, message: string ): void {
     this.notifier.notify( type, message );
   }
