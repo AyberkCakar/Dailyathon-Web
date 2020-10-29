@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as global from '../../config/globals';
-
+import {DashboardService} from '../../utils/services';
+import {DashboardModel} from './dashboard.model'
 @Component({
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,13 +15,18 @@ export class DashboardComponent {
   barChartData;
   global = global;
   chartColor;
+  dashboard: DashboardModel = new DashboardModel();
 
-  constructor(){}
+  constructor(private _dashboard: DashboardService){}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.chartColor = { domain: [global.COLOR_BLUE, global.COLOR_GREEN, global.COLOR_PURPLE,global.COLOR_YELLOW_TRANSPARENT_1 ,  global.COLOR_BLACK, global.COLOR_RED, global.COLOR_RED_TRANSPARENT_1 , global.COLOR_ORANGE_LIGHTER] };
 
     this.barChartData = [{name:"Spor",value:5},{name:"Ekonomi",value:10},{name:"Süper Lig",value:1},{name:"Müzik",value:3},{name:"Futbol",value:15},{name:"E-Spor",value:15},{name:"Teknoloji",value:6},{name:"Konser",value:6}];
 
+    try {
+      this.dashboard =   <DashboardModel>await this._dashboard.dashboardAsync();
+    }catch (error) {
+    }
   }
 }
