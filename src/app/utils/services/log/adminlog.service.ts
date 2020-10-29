@@ -10,7 +10,7 @@ export class AdminlogService {
   }
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','adminlog');
+    return await this._apiFetchService.requestAsync('GET','adminlog',null,true);
   }
 
   async logClearAsync() {

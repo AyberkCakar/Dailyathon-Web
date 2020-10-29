@@ -10,7 +10,7 @@ export class SportService {
   }
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','sport');
+    return await this._apiFetchService.requestAsync('GET','sport',null,true);
   }
 
   async insertAsync(values) {

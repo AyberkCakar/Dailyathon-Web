@@ -10,7 +10,7 @@ export class TagService {
   }
 
 async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','category-tag');
+    return await this._apiFetchService.requestAsync('GET','category-tag',null,true);
   }
 
   async insertAsync(values) {

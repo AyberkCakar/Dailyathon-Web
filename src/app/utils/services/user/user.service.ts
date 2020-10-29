@@ -10,7 +10,7 @@ export class UserService {
   }
 
 async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','user');
+    return await this._apiFetchService.requestAsync('GET','user',null,true);
   }
 
   async deleteAsync(values) {

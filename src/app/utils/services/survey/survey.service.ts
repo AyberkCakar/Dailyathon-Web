@@ -10,7 +10,7 @@ export class SurveyService {
   }
 
 async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','survey');
+    return await this._apiFetchService.requestAsync('GET','survey',null,true);
   }
 
   async insertAsync(values) {

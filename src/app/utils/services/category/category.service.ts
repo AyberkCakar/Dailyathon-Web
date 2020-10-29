@@ -10,7 +10,7 @@ export class CategoryService {
   }
 
 async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','category');
+    return await this._apiFetchService.requestAsync('GET','category',null,true);
   }
 
   async insertAsync(values) {

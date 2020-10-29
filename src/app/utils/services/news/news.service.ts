@@ -10,7 +10,7 @@ export class NewsService {
   }
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','news');
+    return await this._apiFetchService.requestAsync('GET','news',null,true);
   }
 
   async detailsAsync(values) {

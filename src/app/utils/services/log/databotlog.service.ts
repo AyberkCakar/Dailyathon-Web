@@ -10,7 +10,7 @@ export class DatabotlogService {
   }
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','databotlog');
+    return await this._apiFetchService.requestAsync('GET','databotlog',null,true);
   }
 
   async logClearAsync() {

@@ -10,7 +10,7 @@ export class ServelogService {
   }
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','servelog');
+    return await this._apiFetchService.requestAsync('GET','servelog',null,true);
   }
 
   async logClearAsync() {

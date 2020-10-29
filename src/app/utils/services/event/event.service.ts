@@ -10,7 +10,7 @@ export class EventService {
   }
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','entertainment');
+    return await this._apiFetchService.requestAsync('GET','entertainment',null,true);
   }
 
   async insertAsync(values) {
