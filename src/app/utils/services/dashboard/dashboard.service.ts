@@ -12,4 +12,7 @@ export class DashboardService {
   async dashboardAsync() {
     return await this._apiFetchService.requestAsync('GET','dashboard',null,true);
   }
+  async thisweekTagAsync() {
+    return await this._apiFetchService.requestAsync('GET','thisweektag',null,true);
+  }
 }
