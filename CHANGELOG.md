@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.9.0...v1.10.0) (2020-10-29)
+
+
+### Features
+
+* added dashboard api connection ([519f11a](https://github.com/AyberkCakar/Dailyathon-Web/commit/519f11a1608d2d490eae05d5c894eb54ae62617b))
+* added dashboard page design ([5ca8245](https://github.com/AyberkCakar/Dailyathon-Web/commit/5ca8245af9ec8c360d90895d73988d80f64634ac))
+* added dashboard thisweektag api connection ([270e328](https://github.com/AyberkCakar/Dailyathon-Web/commit/270e32887865902c13008f8238cea13868191a45))
+
+
+### Bug Fixes
+
+* fix dashboard page design ([620caac](https://github.com/AyberkCakar/Dailyathon-Web/commit/620caac1603815ed46ee79fcd0694cdfd862ec64))
+* fix list pages error notification ([a88310d](https://github.com/AyberkCakar/Dailyathon-Web/commit/a88310df97efe2f10a74fcb20ff801cc6c298944))
+
 ## [1.9.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.8.0...v1.9.0) (2020-10-28)
 
 
