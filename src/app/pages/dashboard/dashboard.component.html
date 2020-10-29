@@ -4,4 +4,227 @@
 </ol>
 
 
-<h1 class="page-header">Dashboard Page</h1>
+<h1 class="page-header m-b-40">Dashboard Page</h1>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="card border-0 bg-darker text-white mb-3" style="height: 250px">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-7 col-lg-8">
+            <div class="mb-3 text-grey">
+              <b>WEEKLY INCOMING USERS</b>
+            </div>
+            <div class="d-flex align-items-center mb-1 m-t-20">
+              <h4 class="text-white m-l-30 m-t-40 ">Count of Users This Week:</h4>
+            </div>
+            <div class="mb-4 text-grey m-l-40 m-t-15 text-yellow" style="font-size: 35px;font-weight: bold">
+              <i class="fas fa-user-plus"></i>    {{dashboard.thisweekUser}}
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-4 align-items-center d-flex justify-content-center">
+            <img src="../assets/img/svg/img-1.svg" height="280px" class="d-none d-lg-block" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card border-0 bg-darker text-white mb-3">
+          <div class="card-body" style="height: 250px">
+            <div class="mb-3 text-grey">
+              <b class="mb-3">TOTAL USER</b>
+            </div>
+            <div class="d-flex align-items-center mb-1 m-t-20">
+              <h4 class="text-white mb-0">Total User Count:</h4>
+            </div>
+            <div class="mb-4 text-grey m-l-15 m-t-5 text-cyan-lighter" style="font-size: 30px;font-weight: bold ">
+              <i class="fas fa-users"></i>  {{dashboard.totalUser}}
+            </div>
+            <hr>
+            <div class="d-flex align-items-center mb-1 m-t-10">
+              <h4 class="text-white mb-0">Total Admin Count:</h4>
+            </div>
+            <div class="mb-4 text-grey m-l-15 m-t-5 text-cyan-lighter" style="font-size: 30px;font-weight: bold">
+              <i class="fas fa-user-secret"></i>  {{dashboard.totalAdmin}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card border-0 bg-darker text-white mb-3">
+          <div class="card-body" style="height: 250px">
+            <div class="mb-3 text-grey">
+              <b class="mb-3">TOTAL CATEGORY - TAG</b>
+            </div>
+            <div class="d-flex align-items-center mb-1 m-t-20">
+              <h4 class="text-white mb-0">Total Category Count:</h4>
+            </div>
+            <div class="mb-4 text-grey m-l-15 m-t-5 text-cyan-lighter" style="font-size: 30px;font-weight: bold">
+              <i class="fas fa-th-list"></i>  {{dashboard.totalCategory}}
+            </div>
+            <hr>
+            <div class="d-flex align-items-center mb-1 m-t-10">
+              <h4 class="text-white mb-0">Total Tag Count:</h4>
+            </div>
+            <div class="mb-4 text-grey m-l-15 m-t-5 text-cyan-lighter" style="font-size: 30px;font-weight: bold">
+              <i class="fas fa-hashtag"></i>  {{dashboard.totalTag}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-7 col-lg-6" >
+    <div class="card bg-darker border-0 text-white mb-3 " style="height: 500px;">
+      <div class="card-body">
+        <div class="mb-3 text-grey"><b>THE EIGHT MOST USED TAGS OF THE WEEKS</b></div>
+
+        <div class="height-sm m-b-30" style="color: white;margin-top: 50px">
+          <ngx-charts-bar-vertical
+            style="width: 500px; "
+            [scheme]="chartColor"
+            [results]="chartData"
+            [xAxis]="false"
+            [yAxis]="true"
+            [legend]="true"
+            [barPadding]="10"
+            [showXAxisLabel]="false"
+            [showYAxisLabel]="false">
+          </ngx-charts-bar-vertical>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-5 col-lg-6">
+    <div class="card bg-darker border-0 text-white mb-3"  style="height: 500px;">
+      <div class="card-body bg-darker" >
+        <div class="mb-3 text-grey">
+          <b>TOTAL STATISTIC</b>
+        </div>
+        <div class="widget-list widget-list-rounded inverse-mode">
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="fas fa-tasks bg-aqua-darker text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total Survey:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.totalSurvey}}
+            </div>
+          </a>
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="fas fa-tasks bg-aqua-darker text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total Active Survey:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.totalActiveSurvey}}
+            </div>
+          </a>
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="fas fa-bullhorn bg-info text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total Announcement:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.totalAnnouncement}}
+            </div>
+          </a>
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="fas fa-bullhorn bg-info text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total Active Announcement:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.totalActiveAnnouncement}}
+            </div>
+          </a>
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="far fa-smile bg-yellow-darker text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total Event:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.totalEvent}}
+            </div>
+          </a>
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="far fa-smile bg-yellow-darker text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total Active Event:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.totalActiveEvent}}
+            </div>
+          </a>
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="fas fa-newspaper bg-red-lighter text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total News:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.TotalNews}}
+            </div>
+          </a>
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="fas fa-futbol bg-indigo text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total Sport:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.totalSport}}
+            </div>
+          </a>
+          <a  class="widget-list-item rounded-0 p-t-3">
+            <div class="widget-list-media icon">
+              <i class="fab fa-dribbble bg-orange-lighter text-white"></i>
+            </div>
+            <div class="widget-list-content">
+              <div class="widget-list-title">Total League:</div>
+            </div>
+            <div class="widget-list-action text-nowrap text-grey" style="font-size: 16px">
+              {{dashboard.totalLeague}}
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card bg-darker border-0 text-white mb-3">
+      <div class="card-body">
+        <div class="mb-2 text-grey">
+          <b>MAPS</b>
+        </div>
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="6" [styles]="mapStyles" style="height: 400px;">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
