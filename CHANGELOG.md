@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.11.0...v1.12.0) (2020-11-07)
+
+
+### Features
+
+* added statistic page ([4c6f9e9](https://github.com/AyberkCakar/Dailyathon-Web/commit/4c6f9e9fbf0043bc72274f8abc0530bdf8ddf59d))
+* added statistic service ([62d9aae](https://github.com/AyberkCakar/Dailyathon-Web/commit/62d9aae086afcf791fb14d9aa3a4412bde4ba9f6))
+* added survey read user list api connection ([0d85314](https://github.com/AyberkCakar/Dailyathon-Web/commit/0d85314071f458816ef36cc2f311699d77cd7067))
+* added user find api connection ([79bda24](https://github.com/AyberkCakar/Dailyathon-Web/commit/79bda24a388f0fd13f772b5a55144224446f58ff))
+* added user statistic page ([0fbedcc](https://github.com/AyberkCakar/Dailyathon-Web/commit/0fbedccac618074c0b7af37956fa1f424ff4d314))
+* added user tags api connection ([d6387d0](https://github.com/AyberkCakar/Dailyathon-Web/commit/d6387d0896a9163dfe379e3b89c53f3e8a7fcb05))
+
 ## [1.11.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.10.0...v1.11.0) (2020-11-07)
 
 
