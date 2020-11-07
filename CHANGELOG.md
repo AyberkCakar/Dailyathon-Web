@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.10.0...v1.11.0) (2020-11-07)
+
+
+### Features
+
+* added dashboard tag statistic ([fa693c0](https://github.com/AyberkCakar/Dailyathon-Web/commit/fa693c05d60e280f5ba5fc950cd1f6861a1fb5b5))
+* added survey datable syncfusion spreadsheet page ([a1605e6](https://github.com/AyberkCakar/Dailyathon-Web/commit/a1605e6b9429f83bf8d9083da2822c19fd44db90))
+* added survey datatable service ([a7cb351](https://github.com/AyberkCakar/Dailyathon-Web/commit/a7cb35144ebce468b664c9cf3a4a15298fb4506c))
+* added tag add notification ([f3f4cf4](https://github.com/AyberkCakar/Dailyathon-Web/commit/f3f4cf45b5926275704baafb68e2de4c8c2e74ff))
+* added tag add validator ([f2c7025](https://github.com/AyberkCakar/Dailyathon-Web/commit/f2c7025c67abf01abe15394e7c73e9607ffcd9f3))
+* added tag delete modal ([e28d78d](https://github.com/AyberkCakar/Dailyathon-Web/commit/e28d78d7c6f3fdc992732f0a528add786e3af8f7))
+* added tag update api connection ([fa7cf50](https://github.com/AyberkCakar/Dailyathon-Web/commit/fa7cf50be8fea654f5d4ad5b8955ada344f21281))
+* added tag update form page ([21e0396](https://github.com/AyberkCakar/Dailyathon-Web/commit/21e0396178af24a16e779e9ae8876dea78336ba8))
+* added tag update notification ([456aaf4](https://github.com/AyberkCakar/Dailyathon-Web/commit/456aaf44f7823d8c4bfeaa66ea45b9bf5c785853))
+
+
+### Bug Fixes
+
+* fix api connections ([34461f9](https://github.com/AyberkCakar/Dailyathon-Web/commit/34461f927a9a6bc2d3e51985696bed282aa0ac81))
+* fix app routing module ([855efe1](https://github.com/AyberkCakar/Dailyathon-Web/commit/855efe146a440db5dbf77e3bd64f007b8a843139))
+* fix app routing module ([3639462](https://github.com/AyberkCakar/Dailyathon-Web/commit/3639462d6cf76007f611d18daa685624a4117e71))
+* fix tag statistic service ([e3d9d20](https://github.com/AyberkCakar/Dailyathon-Web/commit/e3d9d205a21473e263530b002b507931abcec289))
+* fix tag table design ([4f10ce6](https://github.com/AyberkCakar/Dailyathon-Web/commit/4f10ce6eb05e587a4ce2303d3df66db2e708b978))
+
 ## [1.10.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.9.0...v1.10.0) (2020-10-29)
 
 
