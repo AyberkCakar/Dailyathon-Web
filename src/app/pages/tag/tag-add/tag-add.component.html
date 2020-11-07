@@ -12,10 +12,14 @@
       <form >
         <fieldset>
           <legend class="m-b-15">Tag Add</legend>
+          
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Tag Name</label>
             <div class="col-md-7">
-              <input type="text" class="form-control" #tagname placeholder="Tag Name" />
+              <input type="text" class="form-control input" required [(ngModel)]="model.TagName" name="tagname" #tagname="ngModel"  placeholder="Tag Name" />
+              <div class="m-t-4" *ngIf="!tagname.valid && tagname.touched" >
+                <div *ngIf="tagname.errors.required;"  style="color: crimson" >Required !</div>
+              </div>
             </div>
           </div>
           <div class="form-group row m-b-15">
