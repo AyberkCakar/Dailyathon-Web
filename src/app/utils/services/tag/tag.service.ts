@@ -9,12 +9,20 @@ export class TagService {
   constructor(private _apiFetchService: ApiFetchService) {
   }
 
-async listAsync() {
+  async listAsync() {
     return await this._apiFetchService.requestAsync('GET','category-tag',null,true);
+  }
+
+  async findAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','tag-find',values,true);
   }
 
   async insertAsync(values) {
     return await this._apiFetchService.requestAsync('POST','tag',values,true);
+  }
+
+  async updateAsync(values) {
+    return await this._apiFetchService.requestAsync('PUT','tag',values,true);
   }
 
   async deleteAsync(values) {
