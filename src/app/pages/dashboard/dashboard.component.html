@@ -83,8 +83,20 @@
   <div class="col-xl-7 col-lg-6" >
     <div class="card bg-darker border-0 text-white mb-3 " style="height: 500px;">
       <div class="card-body">
-        <div class="mb-3 text-grey"><b>THE EIGHT MOST USED TAGS OF THE WEEKS</b></div>
-
+        <div class="row">
+          <div class="col-lg-8"><b>THE EIGHT MOST USED TAGS OF THE WEEKS</b>
+        </div>
+        <div class="col-lg-4">
+          <select #category class="form-control" style="background-color: #6363636c" (click)="data(category.value)"  >
+            <option value="0">This Week</option>
+            <option value="1">Last Week</option>
+            <option value="2">This Month</option>
+            <option value="3">Last Month</option>
+            <option value="4">This Year</option>
+            <option value="5">Last Year</option>
+          </select>
+      </div>
+      </div>
         <div class="height-sm m-b-30" style="color: white;margin-top: 50px">
           <ngx-charts-bar-vertical
             style="width: 500px; "

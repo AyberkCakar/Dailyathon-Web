@@ -1,4 +1,4 @@
-export class ThisweektagModel {
+export class TagstatisticModel {
   name: string;
   value: number;
 }

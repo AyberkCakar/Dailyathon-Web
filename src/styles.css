@@ -37,3 +37,7 @@
   background-position: right calc(.375em + .21875rem) center;
   background-size: calc(.75em + .4375rem) calc(.75em + .4375rem);
 }
+
+option{
+  background-color: #ccc9c900;
+}

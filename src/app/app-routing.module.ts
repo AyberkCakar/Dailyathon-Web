@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'announcement', component: AnnouncementComponent, data: { title: 'Announcement'} },
   { path: 'category', component: CategoryComponent, data: { title: 'Category'} },
   { path: 'tag', component: TagComponent, data: { title: 'Tag'} },
-  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard], data: { title: 'Dashboard'} },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: { title: 'Dashboard'} },
   { path: 'event', component: EventComponent, data: { title: 'Event'} },
   { path: 'adminlog', component: AdminlogComponent, data: { title: 'Admin Log'} },
   { path: 'servelog', component: ServelogComponent, data: { title: 'Serve Log'} },

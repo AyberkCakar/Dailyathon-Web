@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import * as global from '../../config/globals';
 import {DashboardService} from '../../utils/services';
 import {DashboardModel} from './dashboard.model';
-import {ThisweektagModel} from './thisweektag.model';
+import {TagstatisticModel} from './tagstatistic.model';
+import {SelectModel} from './select.model';
 
 @Component({
   selector: 'dashboard',
@@ -17,8 +18,8 @@ export class DashboardComponent {
   global = global;
   chartColor;
   dashboard: DashboardModel = new DashboardModel();
-  chartData:Array<ThisweektagModel>;
-
+  chartData:Array<TagstatisticModel>;
+  select: SelectModel = new SelectModel();
   constructor(private _dashboard: DashboardService){}
 
   async ngOnInit() {
@@ -26,8 +27,13 @@ export class DashboardComponent {
 
     try {
       this.dashboard = <DashboardModel>await this._dashboard.dashboardAsync();
-      this.chartData = <Array<ThisweektagModel>> await this._dashboard.thisweekTagAsync();
+      this.chartData = <Array<TagstatisticModel>> await this._dashboard.tagStatisticAsync(this.select);
     }catch (error) {
     }
+  }
+
+  async data(ID:number){
+    this.select.selectID=ID;
+    this.chartData = <Array<TagstatisticModel>> await this._dashboard.tagStatisticAsync(this.select);
   }
 }
