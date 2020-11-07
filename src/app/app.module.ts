@@ -47,6 +47,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SpreadsheetAllModule } from '@syncfusion/ej2-angular-spreadsheet';
 
 
 // Pages
@@ -82,6 +83,7 @@ import {LeagueUpdateComponent} from './pages/league/league-update/league-update.
 import {SurveyStatisticComponent} from './pages/survey/survey-statistic/survey-statistic.component';
 import {AnnouncementStatisticComponent} from './pages/announcement/announcement-statistic/announcement-statistic.component';
 import {TagUpdateComponent} from './pages/tag/tag-update/tag-update.component';
+import { SurveyDetailsComponent } from './pages/survey/survey-details/survey-details.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -168,7 +170,8 @@ const customNotifierOptions: NotifierOptions = {
     LeagueUpdateComponent,
     TagUpdateComponent,
     SurveyStatisticComponent,
-    AnnouncementStatisticComponent
+    AnnouncementStatisticComponent,
+    SurveyDetailsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -197,7 +200,8 @@ const customNotifierOptions: NotifierOptions = {
     SweetAlert2Module.forRoot(),
     TagInputModule,
     TrendModule,
-    HttpClientModule
+    HttpClientModule,
+    SpreadsheetAllModule
   ],
   providers: [ Title, {
     provide: PERFECT_SCROLLBAR_CONFIG,
