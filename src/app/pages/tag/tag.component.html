@@ -27,13 +27,12 @@
           <td>{{tag.CategoryName}}</td>
           <td class="text-center">
             <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a  class="btn btn-xs btn-warning">Delete</a>
+            <a (click)="open(modalDialog, tag.TagID )" class="btn btn-xs btn-warning">Delete</a>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
-    <!-- end table-responsive -->
   </panel>
 </div>
 
