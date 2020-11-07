@@ -25,8 +25,8 @@
           <td >{{tag.TagName}}</td>
           <td>{{tag.CategoryName}}</td>
           <td class="text-center">
-            <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a (click)="open(modalDialog, tag.TagID )" class="btn btn-xs btn-warning">Delete</a>
+            <button routerLink="/tagDetails/{{tag.TagID}}" class="btn btn-xs btn-success m-r-10 mb-0">Update</button>
+            <button (click)="open(modalDialog, tag.TagID )" class="btn btn-xs btn-warning">Delete</button>
           </td>
         </tr>
         </tbody>
