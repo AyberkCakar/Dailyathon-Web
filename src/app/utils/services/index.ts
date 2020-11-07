@@ -14,3 +14,4 @@ export * from './log/adminlog.service';
 export * from './log/servelog.service';
 export * from './log/databotlog.service';
 export * from './dashboard/dashboard.service';
+export * from './statistic/statistic.service';
