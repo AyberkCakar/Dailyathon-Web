@@ -84,6 +84,7 @@ import {SurveyStatisticComponent} from './pages/survey/survey-statistic/survey-s
 import {AnnouncementStatisticComponent} from './pages/announcement/announcement-statistic/announcement-statistic.component';
 import {TagUpdateComponent} from './pages/tag/tag-update/tag-update.component';
 import { SurveyDetailsComponent } from './pages/survey/survey-details/survey-details.component';
+import { UserStatisticComponent } from './pages/user/user-statistic/user-statistic.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -171,7 +172,8 @@ const customNotifierOptions: NotifierOptions = {
     TagUpdateComponent,
     SurveyStatisticComponent,
     AnnouncementStatisticComponent,
-    SurveyDetailsComponent
+    SurveyDetailsComponent,
+    UserStatisticComponent
   ],
   imports: [
     AppRoutingModule,

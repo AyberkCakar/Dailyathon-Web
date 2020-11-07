@@ -1,0 +1,136 @@
+<ol class="breadcrumb pull-right">
+  <li class="breadcrumb-item"><a href="javascript:;">User</a></li>
+  <li class="breadcrumb-item"><a href="javascript:;">Statistic</a></li>
+</ol>
+
+
+<h1 class="page-header">User Statistic Page</h1>
+<br>
+<div class="row">
+  <div class="col-xl-12">
+    <panel title=" ">
+      <form>
+        <fieldset>
+          <legend class="m-b-15">User Information</legend>
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="form-group row m-b-15">
+                <label class="col-md-3 col-form-label">User ID</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control input" value={{user.UserID}} placeholder="User ID" disabled />
+                </div>
+              </div>
+              <div class="form-group row m-b-15">
+                <label class="col-md-3 col-form-label">User Name</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control input" value={{user.UserName}} placeholder="User Name"
+                    disabled />
+                </div>
+              </div>
+              <div class="form-group row m-b-15">
+                <label class="col-md-3 col-form-label">User Surname</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control input" value={{user.UserSurname}} placeholder="User Surname"
+                    disabled />
+                </div>
+              </div>
+              <div class="form-group row m-b-15">
+                <label class="col-md-3 col-form-label">User Email</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control input" value={{user.UserMail}} placeholder="User Email"
+                    disabled />
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+
+              <div class="form-group row m-b-15">
+                <label class="col-md-3 col-form-label">User Profession</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control input" value={{user.UserProfession}}
+                    placeholder="User Profession" disabled />
+                </div>
+              </div>
+              <div class="form-group row m-b-15">
+                <label class="col-md-3 col-form-label">User City</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control input" value={{user.UserCity}} placeholder="User City"
+                    disabled />
+                </div>
+              </div>
+              <div class="form-group row m-b-15">
+                <label class="col-md-3 col-form-label">User Date</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control input" value={{user.UserDate}} placeholder="User Date"
+                    disabled />
+                </div>
+              </div>
+              <div class="form-group row m-b-15">
+                <label class="col-md-3 col-form-label">User RegDate</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control input" value={{user.RegDate}} placeholder="User RegDate"
+                    disabled />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </panel>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-xl-6">
+    <panel title="Survey List">
+      <div class=" m-r-10 m-l-10">
+        <div class="row">
+          <div class="col-lg-4">
+            <input *ngIf="config.filtering" placeholder="Filter all columns" [ngTableFiltering]="config.filtering"
+              class="form-control" (tableChanged)="onChangeTable(config)" />
+          </div>
+          <div class="col-lg-8 text-center">
+            <label class="col-form-label pt-2 pb-0 pt-xl-0 float-lg-right">Count: {{count}}</label>
+          </div>
+        </div>
+        <ng-container outsideBody>
+          <div class="table-responsive text-nowrap">
+            <ng-table [config]="config" (tableChanged)="onChangeTable(config)" [rows]="rows" [columns]="columns">
+            </ng-table>
+          </div>
+        </ng-container>
+        <ng-container footer>
+          <ngb-pagination *ngIf="config.paging" class="d-flex justify-content-center" [(page)]="page"
+            [maxSize]="maxSize" [boundaryLinks]="true" [collectionSize]="length" [rotate]="false"
+            (pageChange)="onChangeTable(config, $event)" (numPages)="numPages = $event"></ngb-pagination>
+        </ng-container>
+      </div>
+    </panel>
+  </div>
+  <div class="col-xl-6">
+    <panel title="Tag List">
+      <div class=" m-r-10 m-l-10">
+        <div class="row">
+          <div class="col-lg-4">
+            <input *ngIf="configTag.filtering" placeholder="Filter all columns" [ngTableFiltering]="configTag.filtering"
+              class="form-control" (tableChanged)="onChangeTableTag(configTag)" />
+          </div>
+          <div class="col-lg-8 text-center">
+            <label class="col-form-label pt-2 pb-0 pt-xl-0 float-lg-right">Count: {{countTag}}</label>
+          </div>
+        </div>
+        <ng-container outsideBody>
+          <div class="table-responsive text-nowrap">
+            <ng-table [config]="configTag" (tableChanged)="onChangeTableTag(configTag)" [rows]="rowsTag" [columns]="columnsTag">
+            </ng-table>
+          </div>
+        </ng-container>
+        <ng-container footer>
+          <ngb-pagination *ngIf="configTag.paging" class="d-flex justify-content-center" [(page)]="pageTag"
+            [maxSize]="maxSizeTag" [boundaryLinks]="true" [collectionSize]="lengthTag" [rotate]="false"
+            (pageChange)="onChangeTableTag(configTag, $event)" (numPages)="numPagesTag = $event"></ngb-pagination>
+        </ng-container>
+      </div>
+    </panel>
+  </div>
+</div>

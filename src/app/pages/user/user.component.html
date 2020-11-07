@@ -17,7 +17,7 @@
           <th>Surname</th>
           <th>Profession</th>
           <th>City</th>
-          <th class="width-200">Update / Delete / Statistic</th>
+          <th class="width-150">Statistic / Delete </th>
         </tr>
         </thead>
         <tbody>
@@ -28,8 +28,7 @@
           <td>{{user.UserProfession}}</td>
           <td>{{user.UserCity}}</td>
           <td class="text-center">
-            <a  class="btn btn-xs btn-primary m-r-10 mb-0">Statistic</a>
-            <a  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
+            <a routerLink="/userStatistic/{{user.UserID}}" class="btn btn-xs btn-primary m-r-10 mb-0">Statistic</a>
             <a  (click)="open(modalDialog, user.UserID )" class="btn btn-xs btn-warning  ">Delete</a>
           </td>
         </tr>

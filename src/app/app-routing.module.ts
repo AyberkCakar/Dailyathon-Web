@@ -39,6 +39,7 @@ import {SurveyStatisticComponent} from './pages/survey/survey-statistic/survey-s
 import {AnnouncementStatisticComponent} from './pages/announcement/announcement-statistic/announcement-statistic.component';
 import {TagUpdateComponent} from './pages/tag/tag-update/tag-update.component';
 import { SurveyDetailsComponent } from './pages/survey/survey-details/survey-details.component';
+import { UserStatisticComponent } from './pages/user/user-statistic/user-statistic.component';
 
 
 const routes: Routes = [
@@ -78,6 +79,7 @@ const routes: Routes = [
   { path: 'announcementStatistic/:id', component: AnnouncementStatisticComponent, data: { title: 'Announcement Statistic'} },
   { path: 'tagDetails/:id', component: TagUpdateComponent, data: { title: 'Tag Update'} },
   { path: 'surveyData/:id', component: SurveyDetailsComponent, data: { title: 'Survey Update'} },
+  { path: 'userStatistic/:id', component: UserStatisticComponent, data: { title: 'User Statistic'} },
 
 ];
 
