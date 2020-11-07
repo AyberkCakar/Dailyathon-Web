@@ -13,7 +13,6 @@ import { Router ,ActivatedRoute} from '@angular/router';
 export class TagUpdateComponent {
 
   model: TagModel = new TagModel();
-  tag: TagModel = new TagModel();
   category: Array<CategoryModel>;
   constructor(private _router: ActivatedRoute ,private router: Router , private notifier: NotifierService , private _tagService: TagService ,private _categoryService:CategoryService)
   {}
@@ -27,7 +26,6 @@ export class TagUpdateComponent {
       this.model.TagID = +this._router.snapshot.paramMap.get('id');
       this.category = <Array<CategoryModel>>await this._categoryService.listAsync();
       this.model = <TagModel>await this._tagService.findAsync(this.model);
-
     } catch (error) {
       this.showNotification( 'error', error.message )
     }
