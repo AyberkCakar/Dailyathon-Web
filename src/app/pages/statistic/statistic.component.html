@@ -5,3 +5,54 @@
 
 
 <h1 class="page-header">Statistic Page</h1>
+
+
+<div class="row m-t-40">
+  <div class=" col-lg-6">
+    <div class="card bg-darker border-0 text-white mb-3 " style="height: 600px;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-8"><b>User Age</b>
+          </div>
+
+          <div class="row" style="height: 100%;width: 100%;margin-top: 5%;">
+            <div class="col-lg-12">
+              <div class="height-sm m-b-30" style="color: white;margin-top: 50px">
+                <ngx-charts-bar-vertical style="width: 500px; " [scheme]="chartColor" [results]="chartData"
+                  [xAxis]="false" [yAxis]="true" [legend]="true" [barPadding]="10" [showXAxisLabel]="false"
+                  [showYAxisLabel]="false">
+                </ngx-charts-bar-vertical>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card bg-darker border-0 text-white mb-3 " style="height: 600px;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-8"><b>Tags Statistic</b>
+          </div>
+          <div class="col-lg-4">
+            <select #categoryID class="form-control" style="background-color: #6363636c"
+              (click)="getStatistic(categoryID.value)">
+              <option *ngFor="let cat of category" value="{{cat.CategoryID}}">{{cat.CategoryName}}</option>
+            </select>
+          </div>
+          <div class="row" style="height: 100%;width: 100%;margin-top: 5%;">
+            <div class="col-lg-12">
+              <div class="height-sm m-b-30" style="color: white;margin-top: 50px">
+                <ngx-charts-bar-vertical style="width: 500px; " [scheme]="chartColor" [results]="statistic"
+                  [xAxis]="false" [yAxis]="true" [legend]="true" [barPadding]="10" [showXAxisLabel]="false"
+                  [showYAxisLabel]="false">
+                </ngx-charts-bar-vertical>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
