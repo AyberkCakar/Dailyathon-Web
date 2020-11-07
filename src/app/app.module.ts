@@ -81,6 +81,7 @@ import {AdminUpdateComponent} from './pages/admin/admin-update/admin-update.comp
 import {LeagueUpdateComponent} from './pages/league/league-update/league-update.component';
 import {SurveyStatisticComponent} from './pages/survey/survey-statistic/survey-statistic.component';
 import {AnnouncementStatisticComponent} from './pages/announcement/announcement-statistic/announcement-statistic.component';
+import {TagUpdateComponent} from './pages/tag/tag-update/tag-update.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -165,6 +166,7 @@ const customNotifierOptions: NotifierOptions = {
     AnnouncementUpdateComponent,
     AdminUpdateComponent,
     LeagueUpdateComponent,
+    TagUpdateComponent,
     SurveyStatisticComponent,
     AnnouncementStatisticComponent
   ],
