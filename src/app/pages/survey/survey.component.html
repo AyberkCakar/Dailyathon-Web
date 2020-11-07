@@ -5,38 +5,44 @@
 
 <h1 class="page-header">Survey Page</h1>
 <br>
-<button type="submit" routerLink="/surveyAdd" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Survey Add</button>
+<button type="submit" routerLink="/surveyAdd" class="btn btn-success m-b-15"
+  style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Survey Add</button>
 <div>
   <panel title="Survey Table">
     <div class="table-responsive">
-      <table id="data-table-default"  class="table table-striped table-bordered table-td-valign-middle">
+      <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
         <thead>
-        <tr>
-          <th>#</th>
-          <th>Survey Name</th>
-          <th>Table Name</th>
-          <th class="width-200">Start Date</th>
-          <th class="width-200">Due Date</th>
-          <th class="width-150">Url</th>
-          <th class="width-200">User List / Update / Delete</th>
-        </tr>
+          <tr>
+            <th>#</th>
+            <th>Survey Name</th>
+            <th>Table Name</th>
+            <th class="width-100">Start Date</th>
+            <th class="width-100">Due Date</th>
+            <th class="width-150">Url</th>
+            <th class="width-300">DataTable / User List / Update / Delete</th>
+          </tr>
         </thead>
         <tbody>
-        <tr role="row" *ngFor="let survey of model">
-          <td>{{survey.SurveyListID}}</td>
-          <td >{{survey.SurveyName}}</td>
-          <td>{{survey.SurveyTableName}}</td>
-          <td>{{survey.SurveyStartDate}}</td>
-          <td >{{survey.SurveyDueDate}}</td>
-          <td class="text-center">
-            <a href="{{survey.SurveyUrl}}" class="btn btn-xs btn-info m-r-10 mb-0" style="padding:3px 25px;text-align: center"><span class="fab fa-google m-r-10"></span>Url</a>
-          </td>
-          <td class="text-center">
-            <a routerLink="/surveyStatistic/{{survey.SurveyListID}}" class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
-            <a routerLink="/surveyDetails/{{survey.SurveyListID}}"  class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a (click)="open(modalDialog, survey.SurveyListID )" class="btn btn-xs btn-warning">Delete</a>
-          </td>
-        </tr>
+          <tr role="row" *ngFor="let survey of model">
+            <td>{{survey.SurveyListID}}</td>
+            <td>{{survey.SurveyName}}</td>
+            <td>{{survey.SurveyTableName}}</td>
+            <td>{{survey.SurveyStartDate | date:'mediumDate'}}</td>
+            <td>{{survey.SurveyDueDate | date:'mediumDate'}}</td>
+            <td class="text-center">
+              <a href="{{survey.SurveyUrl}}" class="btn btn-xs btn-info m-r-10 mb-0"
+                style="padding:3px 25px;text-align: center"><span class="fab fa-google m-r-10"></span>Url</a>
+            </td>
+            <td class="text-center">
+              <a routerLink="/surveyData/{{survey.SurveyListID}}"
+                class="btn btn-xs btn-indigo m-r-10 mb-0">DataTable</a>
+              <a routerLink="/surveyStatistic/{{survey.SurveyListID}}" class="btn btn-xs btn-info m-r-10 mb-0">User
+                List</a>
+              <a routerLink="/surveyDetails/{{survey.SurveyListID}}"
+                class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
+              <button (click)="open(modalDialog, survey.SurveyListID )" class="btn btn-xs btn-warning">Delete</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -44,7 +50,7 @@
 </div>
 
 <ng-template #modalDialog let-c="close" let-d="dismiss">
-  <div class="modal-header" >
+  <div class="modal-header">
     <h4 class="modal-title">Survey Delete</h4>
     <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
   </div>

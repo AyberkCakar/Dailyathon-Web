@@ -1,0 +1,27 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a href="javascript:;">Survey</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">Data</a></li>
+</ol>
+
+
+<h1 class="page-header">Survey Datatable</h1>
+
+<div class="control-section m-t-40 m-r-40">
+    <ejs-spreadsheet #default [openUrl]="openUrl" [saveUrl]="saveUrl" (created)="created()">
+        <e-sheets>
+            <e-sheet name="Sheet">
+                <e-ranges>
+                    <e-range [dataSource]="datas['__zone_symbol__value']"></e-range>
+                </e-ranges>
+                <e-columns>
+                    <e-column [width]=180></e-column>
+                    <e-column [width]=130></e-column>
+                    <e-column [width]=130></e-column>
+                    <e-column [width]=180></e-column>
+                    <e-column [width]=130></e-column>
+                    <e-column [width]=120></e-column>
+                </e-columns>
+            </e-sheet>
+        </e-sheets>
+    </ejs-spreadsheet>
+</div>
