@@ -13,6 +13,10 @@ async listAsync() {
     return await this._apiFetchService.requestAsync('GET','survey',null,true);
   }
 
+  async surveyReadAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','survey-read-user-list',values,true);
+  }
+
   async insertAsync(values) {
     return await this._apiFetchService.requestAsync('POST','survey',values,true);
   }
