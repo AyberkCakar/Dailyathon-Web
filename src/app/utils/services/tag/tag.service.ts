@@ -13,6 +13,10 @@ export class TagService {
     return await this._apiFetchService.requestAsync('GET','category-tag',null,true);
   }
 
+  async userTagAsync(values) {
+    return await this._apiFetchService.requestAsync('POST','user-tag',values,true);
+  }
+
   async findAsync(values) {
     return await this._apiFetchService.requestAsync('POST','tag-find',values,true);
   }
