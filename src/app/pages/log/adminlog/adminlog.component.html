@@ -35,12 +35,11 @@
             <span *ngSwitchCase="0">Başarısız</span>
             <span *ngSwitchCase="1">Başarılı</span>
           </td>
-          <td>{{log.RegDate}}</td>
+          <td>{{log.RegDate | date:'M/dd/yyyy, HH:mm':'+0' }}</td>
         </tr>
         </tbody>
       </table>
     </div>
-    <!-- end table-responsive -->
   </panel>
 </div>
 

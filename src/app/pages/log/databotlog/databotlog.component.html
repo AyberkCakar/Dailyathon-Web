@@ -30,12 +30,11 @@
           <td>{{log.Url}}</td>
           <td>{{log.Message}}</td>
           <td >{{log.Exception}}</td>
-          <td>{{log.RegDate}}</td>
+          <td>{{log.RegDate | date:'M/dd/yyyy, HH:mm':'+0'}}</td>
         </tr>
         </tbody>
       </table>
     </div>
-    <!-- end table-responsive -->
   </panel>
 </div>
 

@@ -24,8 +24,8 @@
           <td >{{news.NewsTitle}}</td>
           <td>{{news.TagName}}
           <td class="text-center">
-          <a (click)="details(modalDialog2, news.NewsID )" class="btn btn-xs btn-info m-r-10 mb-0">Details</a>
-          <a (click)="open(modalDialog, news.NewsID )" class="btn btn-xs btn-warning">Delete</a>
+          <button (click)="details(modalDialog2, news.NewsID )" class="btn btn-xs btn-info m-r-10 mb-0">Details</button>
+          <button (click)="open(modalDialog, news.NewsID )" class="btn btn-xs btn-warning">Delete</button>
           </td>
         </tr>
         </tbody>

@@ -36,8 +36,8 @@
           <td>{{event.EntertainmentDistrict}}</td>
           <td>{{event.EntertainmentStartDate}}
           <td class="text-center">
-            <a (click)="details(modalDialog2,event.EntertainmentID)" class="btn btn-xs btn-info m-r-10 mb-0">Details</a>
-            <a (click)="open(modalDialog, event.EntertainmentID)" class="btn btn-xs btn-warning">Delete</a>
+            <button (click)="details(modalDialog2,event.EntertainmentID)" class="btn btn-xs btn-info m-r-10 mb-0">Details</button>
+            <button (click)="open(modalDialog, event.EntertainmentID)" class="btn btn-xs btn-warning">Delete</button>
           </td>
         </tr>
         </tbody>
