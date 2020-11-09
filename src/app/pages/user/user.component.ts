@@ -22,16 +22,12 @@ export class UserComponent {
     private notifier: NotifierService)
   {}
 
-  public showNotification( type: string, message: string ): void {
-    this.notifier.notify( type, message );
-  }
-
   async ngOnInit(){
     try {
       this.model = <Array<UserModel>>await this._userService.listAsync();
     } catch (error) {
       if(error['message'] == undefined){
-        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' )
         await delay(3000);
         await this.router.navigate(['/login']);
       }
@@ -45,12 +41,12 @@ export class UserComponent {
     this.user.UserID = this.deleteID;
     try {
       let response = await this._userService.deleteAsync(this.user);
-      await this.showNotification( 'success', response['message'] );
+      await this.showNotification( 'success', response['message'] )
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
       if(error['message'] == undefined){
-        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' )
         await delay(3000);
         await this.router.navigate(['/login']);
       }
@@ -76,6 +72,10 @@ export class UserComponent {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
   }
 }
 
