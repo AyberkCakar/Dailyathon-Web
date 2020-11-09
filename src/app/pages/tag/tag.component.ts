@@ -3,6 +3,7 @@ import {TagModel} from './tag.model';
 import { TagService } from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'tag',
@@ -14,13 +15,24 @@ export class TagComponent {
   tag: TagModel = new TagModel();
   closeResult: string;
   deleteID: number;
-  public constructor(private router: Router, private _tagService: TagService , private modalService: NgbModal  )
+  public constructor(private router: Router, private _tagService: TagService , private modalService: NgbModal , private notifier: NotifierService )
   {}
+
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
+  }
 
   async ngOnInit(){
     try {
       this.model = <Array<TagModel>>await this._tagService.listAsync();
     } catch (error) {
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );
     }
   };
 
@@ -28,11 +40,18 @@ export class TagComponent {
   {
     this.tag.TagID = this.deleteID;
     try {
-      await this._tagService.deleteAsync(this.tag);
+      let response = await this._tagService.deleteAsync(this.tag);
+      await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
-    }catch (e) {
-      console.log(e);
+    }catch (error) {
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message ); 
     };
   };
 
@@ -54,5 +73,8 @@ export class TagComponent {
       return  `with: ${reason}`;
     }
   }
+}
 
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

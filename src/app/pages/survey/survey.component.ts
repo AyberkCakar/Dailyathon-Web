@@ -25,12 +25,14 @@ export class SurveyComponent {
   async ngOnInit(){
     try {
       this.model = <Array<SurveyModel>>await this._surveyService.listAsync();
-      if (this.model == null)
-      {
-        this.showNotification( 'error', this.model['message'] );
-      }
     } catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );
     }
   };
 
@@ -38,11 +40,18 @@ export class SurveyComponent {
   {
     this.survey.SurveyListID = this.deleteID;
     try {
-      await this._surveyService.deleteAsync(this.survey);
+      let response = await this._surveyService.deleteAsync(this.survey);
+      await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );
     };
   };
 
@@ -66,3 +75,6 @@ export class SurveyComponent {
   }
 }
 
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}

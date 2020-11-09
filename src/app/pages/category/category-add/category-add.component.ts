@@ -24,10 +24,22 @@ export class CategoryAddComponent {
   {
     this.model.CategoryName = categoryname;
     try {
-      await this._categoryService.insertAsync(this.model);
-      await this.router.navigateByUrl('/category');
-    } catch (error) {
-      this.showNotification( 'error', error.message );
+      let response = await this._categoryService.insertAsync(this.model);
+      await this.showNotification( 'success', response['message'] );
+      await delay(4000);
+      await this.router.navigate(['/category']);
+      } catch (error) {
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );  
     }
   }
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

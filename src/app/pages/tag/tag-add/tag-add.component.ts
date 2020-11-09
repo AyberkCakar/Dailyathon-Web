@@ -25,7 +25,13 @@ export class TagAddComponent {
     try {
       this.category = <Array<CategoryModel>>await this._categoryService.listAsync()
     } catch (error) {
-      this.showNotification( 'error', error.message )
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );
     }
   }
   async tagAdd(tagname:string,categoryID:number)
@@ -33,10 +39,22 @@ export class TagAddComponent {
     this.model.TagName = tagname;
     this.model.CategoryID = categoryID
     try {
-      await this._tagService.insertAsync(this.model)
-      await this.router.navigateByUrl('/tag')
-    } catch (error) {
-      this.showNotification( 'error', error.message )
+      let response = await this._tagService.insertAsync(this.model)
+      await this.showNotification( 'success', response['message'] );
+      await delay(4000);
+      await this.router.navigate(['/tag']);
+      } catch (error) {
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );
     }
   }
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

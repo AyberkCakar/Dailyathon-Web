@@ -29,7 +29,13 @@ export class SportComponent {
         this.showNotification( 'error', this.model['message'] );
       }
     } catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );    
     }
   }
 
@@ -37,11 +43,18 @@ export class SportComponent {
   {
     this.sport.SportID = this.deleteID;
     try {
-      await this._sportService.deleteAsync(this.sport);
+      let response = await this._sportService.deleteAsync(this.sport);
+      await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );    
     };
   };
 
@@ -63,4 +76,8 @@ export class SportComponent {
       return  `with: ${reason}`;
     }
   }
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

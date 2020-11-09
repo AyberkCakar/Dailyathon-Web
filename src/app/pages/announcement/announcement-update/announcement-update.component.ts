@@ -26,7 +26,13 @@ export class AnnouncementUpdateComponent {
       this.model = <AnnouncementModel>await this._announcementService.findAsync(this.announcement);
     }
     catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );  
     }
   }
 
@@ -36,10 +42,23 @@ export class AnnouncementUpdateComponent {
     this.model.AnnouncementTitle = title;
     this.model.AnnouncementContent = content;
     try {
-      await this._announcementService.updateAsync(this.model);
-      await this.router.navigateByUrl('/announcement');
-    } catch (error) {
-      this.showNotification( 'error', error.message );
+      let response = await this._announcementService.updateAsync(this.model);
+      await this.showNotification( 'success', response['message'] );
+      await delay(4000);
+      await this.router.navigate(['/announcement']);
+      } catch (error) {
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );  
     }
   }
+}
+
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

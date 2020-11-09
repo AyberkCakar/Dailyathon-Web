@@ -27,7 +27,13 @@ export class LeagueUpdateComponent {
       this.league.LeagueID = +this._router.snapshot.paramMap.get('id');
       this.model = <LeagueModel>await this._leagueService.findAsync(this.league);
     } catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message ); 
     }
   }
 
@@ -40,10 +46,22 @@ export class LeagueUpdateComponent {
     this.model.SportID = sporID;
 
     try {
-      await this._leagueService.updateAsync(this.model);
-      await this.router.navigateByUrl('/league');
-    } catch (error) {
-      this.showNotification( 'error', error.message );
+      let response = await this._leagueService.updateAsync(this.model);
+      await this.showNotification( 'success', response['message'] );
+      await delay(4000);
+      await this.router.navigate(['/league']);
+      } catch (error) {
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message ); 
     }
   }
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

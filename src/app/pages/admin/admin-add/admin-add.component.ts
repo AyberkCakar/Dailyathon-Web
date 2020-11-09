@@ -15,9 +15,11 @@ export class AdminAddComponent {
 
   constructor(private router: Router, private _adminService: AdminService , private notifier: NotifierService)
   {}
+
   public showNotification( type: string, message: string ): void {
     this.notifier.notify( type, message );
   }
+
   async ngOnInit(){
   }
 
@@ -30,10 +32,22 @@ export class AdminAddComponent {
     this.model.AdminPosition = position;
     this.model.RegDate = this.date;
     try {
-      await this._adminService.insertAsync(this.model);
-      await this.router.navigateByUrl('/admin');
+      let response = await this._adminService.insertAsync(this.model);
+      await this.showNotification( 'success', response['message'] );
+      await delay(4000);
+      await this.router.navigate(['/admin']);
     } catch (error) {
-      this.showNotification( 'error', error.message );
-    }
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );    
+      }
   }
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

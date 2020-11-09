@@ -25,12 +25,14 @@ export class CategoryComponent {
   async ngOnInit(){
     try {
       this.model = <Array<CategoryModel>>await this._categoryService.listAsync();
-      if (this.model == null)
-      {
-        this.showNotification( 'error', this.model['message'] );
-      }
     } catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );   
     }
   };
 
@@ -38,11 +40,18 @@ export class CategoryComponent {
   {
     this.category.CategoryID = this.deleteID;
     try {
-        await this._categoryService.deleteAsync(this.category);
+        let response = await this._categoryService.deleteAsync(this.category);
+        await this.showNotification( 'success', response['message'] );
         this.ngOnInit();
         this.modalService.dismissAll();
     }catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );    
     };
   }
 
@@ -64,4 +73,8 @@ export class CategoryComponent {
       return  `with: ${reason}`;
     }
   }
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

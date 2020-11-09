@@ -27,11 +27,23 @@ export class AnnouncementAddComponent {
     this.model.AnnouncementContent = content;
     this.model.AnnouncementDate = this.date;
     try {
-      await this._announcementService.insertAsync(this.model);
-      await this.router.navigateByUrl('/announcement');
+      let response = await this._announcementService.insertAsync(this.model);
+      await this.showNotification( 'success', response['message'] );
+      await delay(4000);
+      await this.router.navigate(['/announcement']);
     } catch (error) {
-      this.showNotification( 'error', error.message );
-    }
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );        
+      }
   }
 
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

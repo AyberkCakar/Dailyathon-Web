@@ -25,11 +25,15 @@ export class NewsComponent {
   async ngOnInit(){
     try {
       this.model = <Array<NewsModel>>await this._newsService.listAsync();
-      if(this.model == null){
-        this.showNotification( 'error', this.model['message'] );
-      }
+
     } catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to login...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );
     }
   }
 
@@ -79,4 +83,10 @@ export class NewsComponent {
       this.showNotification( 'error', error.message );
     };
   };
+
+
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

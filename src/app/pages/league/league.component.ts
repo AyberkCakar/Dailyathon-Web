@@ -24,12 +24,14 @@ export class LeagueComponent {
   async ngOnInit(){
     try {
       this.model = <Array<LeagueModel>>await this._leagueService.listAsync();
-      if (this.model == null)
-      {
-        this.showNotification( 'error', this.model['message'] );
-      }
     } catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message ); 
     }
   }
 
@@ -41,11 +43,18 @@ export class LeagueComponent {
   {
     this.league.LeagueID = this.leagueID;
     try {
-      await this._leagueService.deleteAsync(this.league);
+      let response = await this._leagueService.deleteAsync(this.league);
+      await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message ); 
     };
   };
 
@@ -80,7 +89,17 @@ export class LeagueComponent {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
     }catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message ); 
     };
   };
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

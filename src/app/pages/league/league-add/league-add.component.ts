@@ -24,7 +24,13 @@ export class LeagueAddComponent {
     try {
       this.sportModel = <Array<SportModel>>await this._sportService.listAsync();
     } catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );  
     }
   }
   async leagueAdd( leaguename: string , leagueCountry: string, url: string, sportID: number)
@@ -34,10 +40,22 @@ export class LeagueAddComponent {
     this.model.LeagueUrl = url;
     this.model.SportID = sportID;
     try {
-      await this._leagueService.insertAsync(this.model);
-      await this.router.navigateByUrl('/league');
-    } catch (error) {
-      this.showNotification( 'error', error.message );
+      let response = await this._leagueService.insertAsync(this.model);
+      await this.showNotification( 'success', response['message'] );
+      await delay(4000);
+      await this.router.navigate(['/league']);
+      } catch (error) {
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );  
     }
   }
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

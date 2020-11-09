@@ -18,16 +18,23 @@ export class AdminComponent {
   async ngOnInit(){
     try {
       this.model = <Array<AdminModel>>await this._adminService.listAsync();
-      if (this.model == null)
-      {
-        this.showNotification( 'error', this.model['message'] );
-      }
     } catch (error) {
-      this.showNotification( 'error', error.message );
+      if(error['message'] == undefined){
+        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
+        await delay(3000);
+        await this.router.navigate(['/login']);
+      }
+      else
+        this.showNotification( 'error', error.message );      
     }
   }
 
   public showNotification( type: string, message: string ): void {
     this.notifier.notify( type, message );
   }
+}
+
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }
