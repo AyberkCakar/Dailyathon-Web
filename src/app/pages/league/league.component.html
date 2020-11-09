@@ -31,9 +31,9 @@
             <a href="{{league.LeagueUrl}}" class="btn btn-xs btn-info m-r-10 mb-0" style="padding:3px 25px;text-align: center"><span class="fab fa-google m-r-10"></span>Url</a>
           </td>
           <td class="text-center">
-            <a (click)="score(modalDialog2, league.LeagueID,league.SportID )"  class="btn btn-xs btn-indigo m-r-10 mb-0">Score Table</a>
-            <a routerLink="/leagueDetails/{{league.LeagueID}}" class="btn btn-xs btn-success m-r-10 mb-0">Update</a>
-            <a (click)="open(modalDialog, league.LeagueID )"  class="btn btn-xs btn-warning">Delete</a>
+            <button (click)="score(modalDialog2, league.LeagueID,league.SportID )"  class="btn btn-xs btn-indigo m-r-10 mb-0">Score Table</button>
+            <button routerLink="/leagueDetails/{{league.LeagueID}}" class="btn btn-xs btn-success m-r-10 mb-0">Update</button>
+            <button (click)="open(modalDialog, league.LeagueID )"  class="btn btn-xs btn-warning">Delete</button>
           </td>
         </tr>
         </tbody>
