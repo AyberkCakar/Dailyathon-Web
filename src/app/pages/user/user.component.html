@@ -28,8 +28,8 @@
           <td>{{user.UserProfession}}</td>
           <td>{{user.UserCity}}</td>
           <td class="text-center">
-            <a routerLink="/userStatistic/{{user.UserID}}" class="btn btn-xs btn-primary m-r-10 mb-0">Statistic</a>
-            <a  (click)="open(modalDialog, user.UserID )" class="btn btn-xs btn-warning  ">Delete</a>
+            <button routerLink="/userStatistic/{{user.UserID}}" class="btn btn-xs btn-primary m-r-10 mb-0">Statistic</button>
+            <button  (click)="open(modalDialog, user.UserID )" class="btn btn-xs btn-warning  ">Delete</button>
           </td>
         </tr>
         </tbody>
