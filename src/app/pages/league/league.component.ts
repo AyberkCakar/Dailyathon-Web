@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {LeagueModel} from './league.model';
 import {ScoreModel} from './score.model';
-import { LeagueService } from '../../utils/services';
+import { LeagueService,AdminlogService } from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
@@ -18,13 +18,20 @@ export class LeagueComponent {
   scores: Array<ScoreModel>;
   closeResult: string;
   leagueID: number;
-  constructor(private router: Router, private _leagueService: LeagueService , private modalService: NgbModal , private notifier: NotifierService )
+  constructor(
+    private router: Router, 
+    private _leagueService: LeagueService , 
+    private modalService: NgbModal , 
+    private notifier: NotifierService ,
+    private _logService: AdminlogService
+    )
   {}
 
   async ngOnInit(){
     try {
       this.model = <Array<LeagueModel>>await this._leagueService.listAsync();
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'League List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -44,10 +51,12 @@ export class LeagueComponent {
     this.league.LeagueID = this.leagueID;
     try {
       let response = await this._leagueService.deleteAsync(this.league);
+      await this._logService.createLogAsync(response['message'],'League Delete',1);
       await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'League Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -89,6 +98,7 @@ export class LeagueComponent {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'League Score',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);

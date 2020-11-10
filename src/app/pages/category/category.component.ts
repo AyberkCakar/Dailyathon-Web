@@ -49,7 +49,6 @@ export class CategoryComponent {
     try {
         let response = await this._categoryService.deleteAsync(this.category);
         await this._logService.createLogAsync(response['message'],'Category Delete',1);
-
         await this.showNotification( 'success', response['message'] );
         this.ngOnInit();
         this.modalService.dismissAll();

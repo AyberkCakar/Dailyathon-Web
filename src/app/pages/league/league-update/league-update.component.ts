@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {LeagueModel} from '../league.model';
 import {SportModel} from '../../sport/sport.model';
-import { LeagueService, SportService } from '../../../utils/services';
+import { LeagueService, SportService ,AdminlogService} from '../../../utils/services';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NotifierService} from 'angular-notifier';
 
@@ -14,7 +14,14 @@ export class LeagueUpdateComponent {
   model: LeagueModel = new LeagueModel();
   league: LeagueModel = new LeagueModel();
   sportModel:Array<SportModel>;
-  constructor(private router: Router, private _leagueService: LeagueService, private _sportService: SportService, private _router: ActivatedRoute , private notifier: NotifierService)
+  constructor(
+    private router: Router, 
+    private _leagueService: LeagueService, 
+    private _sportService: SportService, 
+    private _router: ActivatedRoute , 
+    private notifier: NotifierService,
+    private _logService: AdminlogService
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -27,6 +34,7 @@ export class LeagueUpdateComponent {
       this.league.LeagueID = +this._router.snapshot.paramMap.get('id');
       this.model = <LeagueModel>await this._leagueService.findAsync(this.league);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'League Update',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -47,9 +55,11 @@ export class LeagueUpdateComponent {
 
     try {
       let response = await this._leagueService.updateAsync(this.model);
+      await this._logService.createLogAsync(response['message'],'League Update',1);
       await this.router.navigate(['/league']);
       await this.showNotification( 'success', response['message'] );
       } catch (error) {
+        await this._logService.createLogAsync(error['message'],'League Update',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
