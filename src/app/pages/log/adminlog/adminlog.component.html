@@ -19,6 +19,7 @@
           <th>Auth</th>
           <th>Position</th>
           <th>Operation</th>
+          <th>Message</th>
           <th>isSuccess</th>
           <th class="width-200">RegDate</th>
 
@@ -31,11 +32,12 @@
           <td>{{log.AdminAuth}}</td>
           <td>{{log.AdminPosition}}</td>
           <td >{{log.Operation}}</td>
+          <td >{{log.message}}</td>
           <td [ngSwitch]="log.isSuccess">
             <span *ngSwitchCase="0">Başarısız</span>
             <span *ngSwitchCase="1">Başarılı</span>
           </td>
-          <td>{{log.RegDate | date:'M/dd/yyyy, HH:mm':'+0' }}</td>
+          <td>{{log.RegDate | date:'M/dd/yyyy, HH:mm':'+3' }}</td>
         </tr>
         </tbody>
       </table>

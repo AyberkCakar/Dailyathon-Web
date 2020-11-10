@@ -4,6 +4,7 @@ export class AdminlogModel{
   AdminAuth: string;
   AdminPosition: string;
   Operation: string;
-  isSuccess: boolean;
+  message: string;
+  isSuccess: number;
   RegDate: Date;
 }
