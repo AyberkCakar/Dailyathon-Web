@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import * as global from '../../config/globals';
 import { StatisticModel } from './statistic.model';
 import { CategoryStatisticModel } from './categoryStatistic.model';
-import { StatisticService, CategoryService } from '../../utils/services';
+import { StatisticService, CategoryService ,AdminlogService} from '../../utils/services';
 import { CategoryModel } from '../category/category.model'
 import { NotifierService } from 'angular-notifier';
 import { Router} from '@angular/router';
@@ -27,27 +27,12 @@ export class StatisticComponent {
     private _statisticService: StatisticService,
     private _categoryService: CategoryService,
     private notifier: NotifierService,
-    private router: Router
+    private router: Router,
+    private _logService: AdminlogService
   ) { }
 
   public showNotification(type: string, message: string): void {
     this.notifier.notify(type, message);
-  }
-
-  async getStatistic(ID: number) {
-    try {
-      this.categorySelect.CategoryID = ID;
-      this.statistic = <Array<CategoryStatisticModel>>await this._statisticService.categoryStatisticAsync(this.categorySelect);
-
-    } catch (error) {
-      if(error['message'] == undefined){
-        await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
-        await delay(3000);
-        await this.router.navigate(['/login']);
-      }
-      else
-        this.showNotification( 'error', error.message );
-    }
   }
 
   async ngOnInit() {
@@ -92,8 +77,9 @@ export class StatisticComponent {
           this.chartData.push(chart)
         }
       });
-
+      await this._logService.createLogAsync(null,'Statistic',1);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Statistic',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
