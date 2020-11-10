@@ -48,13 +48,13 @@ export class CategoryComponent {
     this.category.CategoryID = this.deleteID;
     try {
         let response = await this._categoryService.deleteAsync(this.category);
-        await this._logService.createLogAsync(response['message'],'Category List',1);
+        await this._logService.createLogAsync(response['message'],'Category Delete',1);
 
         await this.showNotification( 'success', response['message'] );
         this.ngOnInit();
         this.modalService.dismissAll();
     }catch (error) {
-      await this._logService.createLogAsync(error['message'],'Category List',0);
+      await this._logService.createLogAsync(error['message'],'Category Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
