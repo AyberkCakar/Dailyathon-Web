@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as global from '../../config/globals';
-import {DashboardService} from '../../utils/services';
+import {DashboardService,AdminlogService} from '../../utils/services';
 import {DashboardModel} from './dashboard.model';
 import {TagstatisticModel} from './tagstatistic.model';
 import {SelectModel} from './select.model';
@@ -20,7 +20,10 @@ export class DashboardComponent {
   dashboard: DashboardModel = new DashboardModel();
   chartData:Array<TagstatisticModel>;
   select: SelectModel = new SelectModel();
-  constructor(private _dashboard: DashboardService){}
+  constructor(
+    private _dashboard: DashboardService,
+    private _logService: AdminlogService
+    ){}
 
   async ngOnInit() {
     this.chartColor = { domain: [global.COLOR_BLUE, global.COLOR_GREEN, global.COLOR_PURPLE,global.COLOR_YELLOW_TRANSPARENT_1 ,  global.COLOR_BLACK, global.COLOR_RED, global.COLOR_RED_TRANSPARENT_1 , global.COLOR_ORANGE_LIGHTER] };
@@ -28,7 +31,9 @@ export class DashboardComponent {
     try {
       this.dashboard = <DashboardModel>await this._dashboard.dashboardAsync();
       this.chartData = <Array<TagstatisticModel>> await this._dashboard.tagStatisticAsync(this.select);
+      await this._logService.createLogAsync(null,'Dashboard',1);
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'Dashboard',0);
     }
   }
 

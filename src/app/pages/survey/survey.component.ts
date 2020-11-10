@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {SurveyModel} from './survey.model';
-import { SurveyService } from '../../utils/services';
+import { SurveyService,AdminlogService } from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
@@ -15,7 +15,13 @@ export class SurveyComponent {
   survey: SurveyModel = new SurveyModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _surveyService: SurveyService , private modalService: NgbModal , private notifier: NotifierService )
+  constructor(
+    private router: Router, 
+    private _surveyService: SurveyService , 
+    private modalService: NgbModal , 
+    private notifier: NotifierService ,
+    private _logService: AdminlogService,
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -25,7 +31,9 @@ export class SurveyComponent {
   async ngOnInit(){
     try {
       this.model = <Array<SurveyModel>>await this._surveyService.listAsync();
+      await this._logService.createLogAsync(null,'Survey List',1);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Survey List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -41,10 +49,12 @@ export class SurveyComponent {
     this.survey.SurveyListID = this.deleteID;
     try {
       let response = await this._surveyService.deleteAsync(this.survey);
+      await this._logService.createLogAsync(response['message'],'Survey Delete',1);
       await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'Survey Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EventModel } from '../event.model';
-import { EventService, TagService } from '../../../utils/services';
+import { EventService, TagService,AdminlogService } from '../../../utils/services';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { TagModel } from '../../tag/tag.model';
@@ -19,6 +19,7 @@ export class EventAddComponent {
     private _eventService: EventService,
     private notifier: NotifierService,
     private tagService: TagService,
+    private _logService: AdminlogService
   ) { }
 
   public showNotification(type: string, message: string): void {
@@ -27,7 +28,6 @@ export class EventAddComponent {
 
   async ngOnInit() {
     this.tags = <Array<TagModel>>await this.tagService.listAsync();
-
     this.tags.forEach((element, index) => {
       if (element.CategoryName == 'Eğlence') {
         this.events.push(element)
@@ -51,9 +51,11 @@ export class EventAddComponent {
     this.model.TagID = categoryID;
     try {
       let response = await this._eventService.insertAsync(this.model);
+      await this._logService.createLogAsync(response['message'],'Event Add',1);
       await this.router.navigate(['/event']);
       await this.showNotification('success', response['message']);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Event Add',0);
       if (error['message'] == undefined) {
         await this.showNotification('error', 'Token is invalid. You are redirecting to Login ...');
         await delay(3000);

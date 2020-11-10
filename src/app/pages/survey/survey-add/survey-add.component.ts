@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {SurveyModel} from '../survey.model';
-import { SurveyService } from '../../../utils/services';
+import { SurveyService ,AdminlogService} from '../../../utils/services';
 import { Router } from '@angular/router';
 import {NotifierService} from 'angular-notifier';
 
@@ -11,7 +11,12 @@ import {NotifierService} from 'angular-notifier';
 
 export class SurveyAddComponent {
   model: SurveyModel = new SurveyModel();
-  constructor(private router: Router, private _surveyService: SurveyService , private notifier: NotifierService )
+  constructor(
+    private router: Router, 
+    private _surveyService: SurveyService , 
+    private notifier: NotifierService ,
+    private _logService: AdminlogService
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -27,9 +32,11 @@ export class SurveyAddComponent {
     this.model.SurveyUrl = url;
     try {
       let response = await this._surveyService.insertAsync(this.model);
+      await this._logService.createLogAsync(response['message'],'Survey Add',1);
       await this.router.navigate(['/survey']);
       await this.showNotification( 'success', response['message'] );
       } catch (error) {
+        await this._logService.createLogAsync(error['message'],'Survey Add',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);

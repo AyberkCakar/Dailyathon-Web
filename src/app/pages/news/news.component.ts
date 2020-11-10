@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NewsModel} from './news.model';
-import {NewsService} from '../../utils/services';
+import {NewsService,AdminlogService} from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
@@ -15,7 +15,13 @@ export class NewsComponent {
   news: NewsModel = new NewsModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _newsService: NewsService , private modalService: NgbModal , private notifier: NotifierService )
+  constructor(
+    private router: Router, 
+    private _newsService: NewsService ,
+     private modalService: NgbModal , 
+     private notifier: NotifierService,
+     private _logService: AdminlogService
+     )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -25,8 +31,9 @@ export class NewsComponent {
   async ngOnInit(){
     try {
       this.model = <Array<NewsModel>>await this._newsService.listAsync();
-
+      await this._logService.createLogAsync(null,'News List',1);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'News List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to login...' );
         await delay(3000);
@@ -41,10 +48,13 @@ export class NewsComponent {
   {
     this.news.NewsID = this.deleteID;
     try {
-      await this._newsService.deleteAsync(this.news);
+      let response= await this._newsService.deleteAsync(this.news);
+      await this._logService.createLogAsync(response['message'],'News Delete',1);
+      await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'News Delete',0);
       this.showNotification( 'error', error.message );
     };
   };
@@ -79,6 +89,7 @@ export class NewsComponent {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'News Details',0);
       this.showNotification( 'error', error.message );
     };
   };

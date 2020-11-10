@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {CategoryModel} from '../category.model';
-import { CategoryService } from '../../../utils/services';
+import { CategoryService,AdminlogService } from '../../../utils/services';
 import { Router, ActivatedRoute } from '@angular/router';
 import {NotifierService} from 'angular-notifier';
 
@@ -13,7 +13,13 @@ export class CategoryUpdateComponent {
 
   model: CategoryModel = new CategoryModel();
   category: CategoryModel = new CategoryModel();
-  constructor(private router: Router, private _categoryService: CategoryService, private _router: ActivatedRoute , private notifier: NotifierService )
+  constructor(
+    private router: Router, 
+    private _categoryService: CategoryService, 
+    private _router: ActivatedRoute , 
+    private notifier: NotifierService ,
+    private _logService: AdminlogService
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -26,6 +32,7 @@ export class CategoryUpdateComponent {
       this.model = <CategoryModel>await this._categoryService.findAsync(this.category);
       }
     catch (error) {
+      await this._logService.createLogAsync(error['message'],'Category Update Find Category',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -42,9 +49,12 @@ export class CategoryUpdateComponent {
     this.model.CategoryName = categoryname;
     try {
       let response = await this._categoryService.updateAsync(this.model)
+      await this._logService.createLogAsync(response['message'],'Category Update',1);
       await this.router.navigate(['/admin']);
       await this.showNotification( 'success', response['message'] );
       } catch (error) {
+        await this._logService.createLogAsync(error['message'],'Category Update',0);
+
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);

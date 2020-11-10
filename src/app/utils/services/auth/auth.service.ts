@@ -20,6 +20,7 @@ export class AuthService {
         user
       );
       localStorage.setItem('token', respone.token);
+      localStorage.setItem('AdminID', respone.userInformation.AdminID);
       localStorage.setItem('AdminName', respone.userInformation.AdminName);
       localStorage.setItem('AdminAuth', respone.userInformation.AdminAuth);
       localStorage.setItem('AdminPosition', respone.userInformation.AdminPosition);

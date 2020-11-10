@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {CategoryModel} from './category.model';
-import { CategoryService } from '../../utils/services';
+import { CategoryService ,AdminlogService} from '../../utils/services';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
@@ -15,7 +15,13 @@ export class CategoryComponent {
   category: CategoryModel = new CategoryModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _categoryService: CategoryService , private modalService: NgbModal , private notifier: NotifierService )
+  constructor(
+    private router: Router, 
+    private _categoryService: CategoryService , 
+    private modalService: NgbModal , 
+    private notifier: NotifierService ,
+    private _logService: AdminlogService
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -25,7 +31,9 @@ export class CategoryComponent {
   async ngOnInit(){
     try {
       this.model = <Array<CategoryModel>>await this._categoryService.listAsync();
+      await this._logService.createLogAsync(null,'Category List',1);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Category List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -41,10 +49,12 @@ export class CategoryComponent {
     this.category.CategoryID = this.deleteID;
     try {
         let response = await this._categoryService.deleteAsync(this.category);
+        await this._logService.createLogAsync(response['message'],'Category Delete',1);
         await this.showNotification( 'success', response['message'] );
         this.ngOnInit();
         this.modalService.dismissAll();
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'Category Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);

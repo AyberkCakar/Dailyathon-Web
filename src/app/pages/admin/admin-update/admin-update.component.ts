@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {AdminModel} from '../admin.model';
-import { AdminService } from '../../../utils/services';
+import { AdminService ,AdminlogService} from '../../../utils/services';
 import { Router, ActivatedRoute } from '@angular/router';
 import {NotifierService} from 'angular-notifier';
 
@@ -12,7 +12,13 @@ import {NotifierService} from 'angular-notifier';
 export class AdminUpdateComponent {
   model: AdminModel = new AdminModel();
   admin: AdminModel = new AdminModel();
-  constructor(private router: Router, private _adminService: AdminService , private _router: ActivatedRoute , private notifier: NotifierService )
+  constructor(
+    private router: Router, 
+    private _adminService: AdminService , 
+    private _router: ActivatedRoute , 
+    private notifier: NotifierService ,
+    private _logService: AdminlogService
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -25,6 +31,7 @@ export class AdminUpdateComponent {
       this.model = <AdminModel>await this._adminService.findAsync(this.admin);
     }
     catch (error) {
+      await this._logService.createLogAsync(error['message'],'Admin Update Find Data',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -43,9 +50,11 @@ export class AdminUpdateComponent {
     this.admin.AdminPosition = position;
     try {
       let response = await this._adminService.updateAsync(this.admin);
+      await this._logService.createLogAsync(response['message'],'Admin Update',1);
       await this.router.navigate(['/admin']);    
       await this.showNotification( 'success', response['message'] );
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Admin Update',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);

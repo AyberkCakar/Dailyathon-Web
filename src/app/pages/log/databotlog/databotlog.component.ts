@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {DatabotlogModel} from './databotlog.model';
-import {DatabotlogService} from '../../../utils/services';
+import {DatabotlogService,AdminlogService} from '../../../utils/services';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 
@@ -11,7 +11,12 @@ import { NotifierService } from 'angular-notifier';
 
 export class DatabotlogComponent {
   model:Array<DatabotlogModel>;
-  constructor(private router: Router, private _databotlogService: DatabotlogService , private notifier: NotifierService)
+  constructor(
+    private router: Router, 
+    private _databotlogService: DatabotlogService , 
+    private notifier: NotifierService,
+    private _logService: AdminlogService
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -20,8 +25,10 @@ export class DatabotlogComponent {
 
   async ngOnInit(){
     try {
-      this.model = <Array<DatabotlogModel>>await this._databotlogService.listAsync()
+      this.model = <Array<DatabotlogModel>>await this._databotlogService.listAsync();
+      await this._logService.createLogAsync(null,'Databot Log List',1);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Databot Log List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -35,9 +42,11 @@ export class DatabotlogComponent {
   async logClear(){
     try {
       let response = await this._databotlogService.logClearAsync();
+      await this._logService.createLogAsync(response['message'],'Databot Log Delete',1);
       await this.showNotification( 'success', response['message'] );
       await this.ngOnInit();
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'Databot Log Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
