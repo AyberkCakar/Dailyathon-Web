@@ -72,10 +72,20 @@
               </div>
             </div>
           </div>
+          <div class="form-group row m-b-15">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-7">
+              <div class="checkbox checkbox-css checkbox-inline">
+                <input type="checkbox" [(ngModel)]="model.Visible" name="visible" id="inlineCssCheckbox1" #visible="ngModel" [checked]="model.Visible==1" />
+                <label for="inlineCssCheckbox1">Visible</label>
+              </div>
+            </div>
+          </div>
           <br>
           <div class="form-group row">
             <div class="col-md-7 offset-md-3">
-              <button type="submit" (click)="surveyUpdate( surveyID.value,surveyname.value,tablename.value,c1.value,c2.value,url.value)" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Update</button>
+              <button type="submit" (click)="surveyUpdate( surveyID.value,surveyname.value,tablename.value,c1.value,c2.value,url.value,visible.value)" class="btn btn-sm btn-primary m-r-5" style="padding: 5px 20px">Update</button>
               <button type="submit" class="btn btn-sm btn-default m-r-5" style="padding: 5px 20px" routerLink="/survey"> Cancel</button>
             </div>
           </div>

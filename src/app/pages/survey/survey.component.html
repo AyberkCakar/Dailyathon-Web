@@ -16,6 +16,7 @@
             <th>#</th>
             <th>Survey Name</th>
             <th>Table Name</th>
+            <th>Visible</th>
             <th class="width-100">Start Date</th>
             <th class="width-100">Due Date</th>
             <th class="width-150">Url</th>
@@ -27,6 +28,10 @@
             <td>{{survey.SurveyListID}}</td>
             <td>{{survey.SurveyName}}</td>
             <td>{{survey.SurveyTableName}}</td>
+            <td [ngSwitch]="survey.Visible">
+              <a *ngSwitchCase="0">Visible</a>
+              <a *ngSwitchCase="1">Unvisible</a>
+            </td>
             <td>{{survey.SurveyStartDate | date:'mediumDate'}}</td>
             <td>{{survey.SurveyDueDate | date:'mediumDate'}}</td>
             <td class="text-center">

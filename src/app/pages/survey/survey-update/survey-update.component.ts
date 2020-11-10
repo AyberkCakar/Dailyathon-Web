@@ -42,8 +42,9 @@ export class SurveyUpdateComponent {
     }
   }
 
-  async surveyUpdate(ID: number, name:string, tablename:string, startdate: Date, duedate: Date, url:string)
+  async surveyUpdate(ID: number, name:string, tablename:string, startdate: Date, duedate: Date, url:string,visible)
   {
+    console.log(visible);
     this.model.SurveyListID = ID;
     this.model.SurveyName = name;
     this.model.SurveyTableName = tablename;
