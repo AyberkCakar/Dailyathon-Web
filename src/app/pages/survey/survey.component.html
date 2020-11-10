@@ -29,8 +29,8 @@
             <td>{{survey.SurveyName}}</td>
             <td>{{survey.SurveyTableName}}</td>
             <td [ngSwitch]="survey.Visible">
-              <a *ngSwitchCase="0">Visible</a>
-              <a *ngSwitchCase="1">Unvisible</a>
+              <a *ngSwitchCase="1">Visible</a>
+              <a *ngSwitchCase="0">Unvisible</a>
             </td>
             <td>{{survey.SurveyStartDate | date:'mediumDate'}}</td>
             <td>{{survey.SurveyDueDate | date:'mediumDate'}}</td>

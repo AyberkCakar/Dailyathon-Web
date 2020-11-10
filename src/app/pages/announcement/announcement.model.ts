@@ -3,4 +3,5 @@ export class AnnouncementModel {
     AnnouncementContent: string;
     AnnouncementTitle: string;
     AnnouncementDate: Date;
+    Visible: number;
   }

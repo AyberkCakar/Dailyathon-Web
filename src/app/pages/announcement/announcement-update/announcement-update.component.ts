@@ -54,7 +54,6 @@ export class AnnouncementUpdateComponent {
       this.state=1;
       this.message= response['message'];
       await this.showNotification( 'success', response['message'] );
-      await delay(4000);
       await this.router.navigate(['/announcement']);
       } catch (error) {
         this.state=0;

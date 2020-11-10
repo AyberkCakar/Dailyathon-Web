@@ -15,6 +15,7 @@
         <tr>
           <th>#</th>
           <th>Title</th>
+          <th>Visible</th>
           <th>Date</th>
           <th class="width-200">User List / Update / Delete</th>
         </tr>
@@ -23,6 +24,10 @@
         <tr role="row" *ngFor="let announcement of model">
           <td>{{announcement.AnnouncementID}}</td>
           <td >{{announcement.AnnouncementTitle}}</td>
+          <td [ngSwitch]="announcement.Visible">
+            <a *ngSwitchCase="1">Visible</a>
+            <a *ngSwitchCase="0">Unvisible</a>
+          </td>
           <td>{{announcement.AnnouncementDate | date:'mediumDate'}}</td>
           <td class="text-center">
             <a routerLink="/announcementStatistic/{{announcement.AnnouncementID}}" class="btn btn-xs btn-info m-r-10 mb-0">User List</a>
