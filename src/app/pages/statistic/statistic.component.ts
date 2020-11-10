@@ -16,10 +16,9 @@ declare let d3: any;
 
 export class StatisticComponent {
   chartColor;
+  chartColor2;
   chartData = [];
   chartData2 = [];
-
-  data: StatisticModel = new StatisticModel();
   category: Array<CategoryModel>;
   statistic: Array<CategoryStatisticModel>;
   categorySelect: CategoryModel = new CategoryModel();
@@ -60,7 +59,7 @@ export class StatisticComponent {
       this.statistic = <Array<CategoryStatisticModel>>await this._statisticService.categoryStatisticAsync(this.categorySelect);
 
       this.chartData = <Array<StatisticModel>>await this._statisticService.categoryStatisticAsync(this.categorySelect);
-      this.chartColor = { domain: [global.COLOR_RED_TRANSPARENT_1, global.COLOR_ORANGE_LIGHTER, global.COLOR_YELLOW_TRANSPARENT_1, global.COLOR_BLUE, global.COLOR_RED, global.COLOR_BLACK, global.COLOR_PURPLE, global.COLOR_GREEN] };
+      this.chartColor2 = { domain: [global.COLOR_RED_TRANSPARENT_1, global.COLOR_ORANGE_LIGHTER, global.COLOR_YELLOW_TRANSPARENT_1, global.COLOR_BLUE, global.COLOR_RED, global.COLOR_BLACK, global.COLOR_PURPLE, global.COLOR_GREEN] };
 
       this.chartData.splice(0,9999999);
       this.response =JSON.stringify(response[0])
