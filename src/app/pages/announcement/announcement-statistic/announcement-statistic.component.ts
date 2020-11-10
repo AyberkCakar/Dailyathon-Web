@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {UserModel} from '../../user/user.model';
 import {AnnouncementModel} from '../announcement.model';
-import { AnnouncementService } from '../../../utils/services';
+import { AnnouncementService,AdminlogService } from '../../../utils/services';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -14,7 +14,12 @@ export class AnnouncementStatisticComponent {
   user: UserModel = new UserModel();
   announcement: AnnouncementModel = new AnnouncementModel();
   count;
-  public constructor(private router: Router, private _announcementService: AnnouncementService , private _router: ActivatedRoute  )
+  public constructor(
+    private router: Router, 
+    private _announcementService: AnnouncementService , 
+    private _router: ActivatedRoute ,
+    private _logService: AdminlogService
+    )
   {}
 
   async ngOnInit(){
@@ -24,6 +29,7 @@ export class AnnouncementStatisticComponent {
       this.count = this.data.length;
       await this.onChangeTable(this.config);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Admin Statistic',0);
     }
   };
 

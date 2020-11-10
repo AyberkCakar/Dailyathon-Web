@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {AnnouncementModel} from './announcement.model';
-import { AnnouncementService } from '../../utils/services';
+import { AnnouncementService ,AdminlogService} from '../../utils/services';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
@@ -12,12 +12,19 @@ import {NotifierService} from 'angular-notifier';
 })
 
 export class AnnouncementComponent {
-
   model:Array<AnnouncementModel>;
   announcement: AnnouncementModel = new AnnouncementModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _announcementService: AnnouncementService , private modalService: NgbModal , private notifier: NotifierService)
+  state: number;
+  message: string;
+  constructor(
+    private router: Router, 
+    private _announcementService: AnnouncementService , 
+    private modalService: NgbModal , 
+    private notifier: NotifierService,
+    private _logService: AdminlogService
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -32,6 +39,7 @@ export class AnnouncementComponent {
         this.showNotification( 'error', this.model['message'] );
       }
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Announcement List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -48,10 +56,14 @@ export class AnnouncementComponent {
     this.announcement.AnnouncementID = this.deleteID;
     try {
       let response = await this._announcementService.deleteAsync(this.announcement);
+      this.state=1;
+      this.message= response['message'];
       await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
+      this.state=0;
+      this.message= error['message'];
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -59,7 +71,10 @@ export class AnnouncementComponent {
       }
       else
         this.showNotification( 'error', error.message );  
-    };
+    }
+    finally{
+      await this._logService.createLogAsync(this.message,'Admin Update',this.state);
+    }
   };
 
   open(content, ID) {
