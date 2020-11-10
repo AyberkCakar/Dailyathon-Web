@@ -34,24 +34,8 @@
   <!-- end navbar-header -->
 
   <!-- begin header-nav -->
-  <ul class="navbar-nav navbar-right">
-    <li class="dropdown navbar-user" ngbDropdown>
-      <a href="javascript:;" class="dropdown-toggle" ngbDropdownToggle>
-        <img src="/assets/img/user/user-13.jpg" alt="" />
-        <span class="d-none d-md-inline">Dailyathon</span> <b class="caret"></b>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-        <div class="dropdown-divider"></div>
-        <a href="javascript:;" class="dropdown-item">Log Out</a>
-      </div>
-    </li>
-    <li class="divider d-none d-md-block" *ngIf="this.pageSidebarTwo"></li>
-    <li class="d-none d-md-block" *ngIf="this.pageSidebarTwo">
-      <a href="javascript:;" (click)="toggleSidebarRight()" class="f-s-14">
-        <i class="fa fa-th"></i>
-      </a>
-    </li>
+  <ul class="navbar-nav navbar-right m-r-20 m-t-10" style="font-size: 13px;">
+    <a (click)="onLogout()" type="button" class="button">Log Out</a>
   </ul>
-  <!-- end header navigation right -->
 </div>
 <!-- end #header -->

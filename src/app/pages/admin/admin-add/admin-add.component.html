@@ -41,10 +41,15 @@
           <div class="form-group row m-b-15">
             <label class="col-md-3 col-form-label">Auth</label>
             <div class="col-md-7">
-              <input type="text" class="form-control input" required  [(ngModel)]="model.AdminAuth" name="auth" #auth="ngModel"  placeholder="Auth" />
-              <div class="m-t-4" *ngIf="!auth.valid && auth.touched" >
-                <div *ngIf="auth.errors.required;"  style="color: crimson" >Required !</div>
-              </div>
+              <select #auth class="form-control" style="background-color: #636363" >
+                <option value="Owner">Owner</option>
+                <option value="Admin">Admin</option>
+                <option value="Sub Admin">Sub Admin</option>
+                <option value="S.Moderator">S.Moderator</option>
+                <option selected value="Moderator">Moderator</option>
+                <option value="Editor">Editor</option>
+                <option value="Technical Crew">Technical Crew</option>
+              </select>            
             </div>
           </div>
           <div class="form-group row m-b-15">
@@ -71,4 +76,3 @@
     </panel>
   </div>
 </div>
-<notifier-container></notifier-container>

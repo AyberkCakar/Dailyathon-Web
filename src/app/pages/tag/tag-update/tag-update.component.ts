@@ -43,9 +43,8 @@ export class TagUpdateComponent {
     this.model.CategoryID = categoryID
     try {
       let response = await this._tagService.updateAsync(this.model)
-      await this.showNotification( 'success', response['message'] );
-      await delay(4000);
       await this.router.navigate(['/tag']);
+      await this.showNotification( 'success', response['message'] );
       } catch (error) {
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );

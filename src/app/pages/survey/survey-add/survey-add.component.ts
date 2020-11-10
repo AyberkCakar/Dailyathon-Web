@@ -27,9 +27,8 @@ export class SurveyAddComponent {
     this.model.SurveyUrl = url;
     try {
       let response = await this._surveyService.insertAsync(this.model);
-      await this.showNotification( 'success', response['message'] );
-      await delay(4000);
       await this.router.navigate(['/survey']);
+      await this.showNotification( 'success', response['message'] );
       } catch (error) {
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );

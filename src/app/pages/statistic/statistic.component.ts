@@ -16,11 +16,13 @@ declare let d3: any;
 
 export class StatisticComponent {
   chartColor;
-  data: StatisticModel = new StatisticModel();
-  chartData: Array<StatisticModel>;
+  chartColor2;
+  chartData = [];
+  chartData2 = [];
   category: Array<CategoryModel>;
   statistic: Array<CategoryStatisticModel>;
   categorySelect: CategoryModel = new CategoryModel();
+  response: string;
   constructor(
     private _statisticService: StatisticService,
     private _categoryService: CategoryService,
@@ -52,22 +54,45 @@ export class StatisticComponent {
     this.categorySelect.CategoryID = 1;
     this.chartColor = { domain: [global.COLOR_BLUE, global.COLOR_GREEN, global.COLOR_PURPLE, global.COLOR_YELLOW_TRANSPARENT_1, global.COLOR_BLACK, global.COLOR_RED, global.COLOR_RED_TRANSPARENT_1, global.COLOR_ORANGE_LIGHTER] };
     try {
-      let response = <Array<StatisticModel>>await this._statisticService.ageStatisticAsync();
+      let response = await this._statisticService.ageStatisticAsync();
       this.category = <Array<CategoryModel>>await this._categoryService.listAsync();
       this.statistic = <Array<CategoryStatisticModel>>await this._statisticService.categoryStatisticAsync(this.categorySelect);
 
-      // Düzelt
       this.chartData = <Array<StatisticModel>>await this._statisticService.categoryStatisticAsync(this.categorySelect);
-      this.chartData[0].name = '0 - 13';
-      this.chartData[0].value = response[0]['age1'];
-      this.chartData[1].name = '14 - 21';
-      this.chartData[1].value = response[0]['age2'];
-      this.chartData[2].name = '21 - 35';
-      this.chartData[2].value = response[0]['age3'];
-      this.chartData[3].name = '35 - 55';
-      this.chartData[3].value = response[0]['age4'];
-      this.chartData[4].name = '55 - ';
-      this.chartData[4].value = response[0]['age5'];
+      this.chartColor2 = { domain: [global.COLOR_RED_TRANSPARENT_1, global.COLOR_ORANGE_LIGHTER, global.COLOR_YELLOW_TRANSPARENT_1, global.COLOR_BLUE, global.COLOR_RED, global.COLOR_BLACK, global.COLOR_PURPLE, global.COLOR_GREEN] };
+
+      this.chartData.splice(0,9999999);
+      this.response =JSON.stringify(response[0])
+      var splitted = this.response.split("{")
+      var splitted = String(splitted).split("}")
+      var splitted = String(splitted).split('"')
+      var splitted = String(splitted).split(":")
+      var splitted = String(splitted).split(",")
+
+      splitted.forEach((element,index)=>{
+        if(index == 4 )
+        {
+          let chart: obj = { name:'0-13' ,value:+element};
+          this.chartData.push(chart)
+        }
+        else if(index == 8){
+          let chart: obj = { name:'13-21' ,value:+element};
+          this.chartData.push(chart)
+        }
+        else if(index == 12){
+          let chart: obj = { name:'21-35' ,value:+element};
+          this.chartData.push(chart)
+        }
+        else if(index == 16){
+          let chart: obj = { name:'35-55' ,value:+element};
+          this.chartData.push(chart)
+        }
+        else if(index == 20){
+          let chart: obj = { name:'55-' ,value:+element};
+          this.chartData.push(chart)
+        }
+      });
+
     } catch (error) {
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
@@ -82,4 +107,9 @@ export class StatisticComponent {
 
 function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+interface obj {
+  name: string;
+  value: number;
 }

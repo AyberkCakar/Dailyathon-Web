@@ -48,7 +48,7 @@
             <label class="col-md-3 col-form-label">Sport Name</label>
             <div class="col-md-7">
               <select #sportID class="form-control" style="background-color: #636363" >
-                <option *ngFor="let sport of sportModel" value="{{sport.SportID}}">{{sport.SportName}}</option>
+                <option *ngFor="let sport of sportModel" value="{{sport.SportID}}" [selected]="sport.SportID==model.SportID">{{sport.SportName}}</option>
               </select>
             </div>
           </div>
@@ -64,5 +64,3 @@
     </panel>
   </div>
 </div>
-
-<notifier-container></notifier-container>

@@ -71,7 +71,6 @@ export class NewsComponent {
   async details(content, ID)
   {
     this.news.NewsID = ID;
-
     try {
       this.news = <NewsModel>await this._newsService.detailsAsync(this.news);
       await  this.modalService.open(content).result.then((result) => {
@@ -83,8 +82,6 @@ export class NewsComponent {
       this.showNotification( 'error', error.message );
     };
   };
-
-
 }
 
 function delay(ms: number) {

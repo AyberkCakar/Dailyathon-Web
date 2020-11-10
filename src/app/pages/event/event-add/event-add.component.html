@@ -130,10 +130,8 @@
             <label class="col-md-3 col-form-label">Event Category</label>
             <div class="col-md-7">
               <select #category class="form-control" style="background-color: #636363" >
-                <option value="1">Tiyatro</option>
-                <option value="11">Konser</option>
-                <option value="21">Stand-up</option>
-              </select>
+                <option *ngFor="let event of events" value="{{event.TagID}}">{{event.TagName}}</option>
+                </select>
             </div>
           </div>
           <br>
@@ -151,5 +149,3 @@
     </panel>
   </div>
 </div>
-
-<notifier-container></notifier-container>
