@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.model.Password = _password;
     try {
       const response = await this._authService.login(this.model);
+      this.showNotification( 'success', 'Login Successful !' );
       if(response.userInformation == null)
       {
         this.showNotification( 'error', response.message );

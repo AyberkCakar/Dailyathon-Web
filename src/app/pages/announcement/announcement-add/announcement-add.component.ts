@@ -4,7 +4,6 @@ import { AnnouncementService } from '../../../utils/services';
 import { Router } from '@angular/router';
 import {NotifierService} from 'angular-notifier';
 
-
 @Component({
   selector: 'announcement-add',
   templateUrl: './announcement-add.component.html'
@@ -28,9 +27,8 @@ export class AnnouncementAddComponent {
     this.model.AnnouncementDate = this.date;
     try {
       let response = await this._announcementService.insertAsync(this.model);
-      await this.showNotification( 'success', response['message'] );
-      await delay(4000);
       await this.router.navigate(['/announcement']);
+      await this.showNotification( 'success', response['message'] );
     } catch (error) {
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
@@ -41,7 +39,6 @@ export class AnnouncementAddComponent {
         this.showNotification( 'error', error.message );        
       }
   }
-
 }
 
 function delay(ms: number) {
