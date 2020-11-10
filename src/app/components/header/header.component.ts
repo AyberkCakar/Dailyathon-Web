@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, Renderer2, OnDestroy } from '@angular/core';
 import pageSettings from '../../config/page-settings';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'header',
@@ -35,7 +36,15 @@ export class HeaderComponent implements OnDestroy {
 	  this.pageSettings.pageMobileMegaMenuToggled = false;
 	}
 
-  constructor(private renderer: Renderer2) {
+	async onLogout()
+	{
+		await localStorage.clear();
+        await this.router.navigate(['/login']);
+	}
 
+  constructor(
+	private renderer: Renderer2,
+	private router: Router	 
+  ) {
   }
 }
