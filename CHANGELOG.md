@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.12.0...v1.13.0) (2020-11-10)
+
+
+### Features
+
+* added  cancel button to survey pages ([ad28862](https://github.com/AyberkCakar/Dailyathon-Web/commit/ad28862d744ef21d136cccbb714c6219dfd0af6d))
+* added add event ,event category list ([2d58260](https://github.com/AyberkCakar/Dailyathon-Web/commit/2d5826013aa4e6d65744c3d6113022ebe4bbe63f))
+* added admin auth combobox ([b25e922](https://github.com/AyberkCakar/Dailyathon-Web/commit/b25e92205e0720e0c2af925af4e6b0919063e4a9))
+* added admin log ([ee61938](https://github.com/AyberkCakar/Dailyathon-Web/commit/ee61938fcd7753b16b6fc58b633881f143d008a4))
+* added admin logout operation ([302ed46](https://github.com/AyberkCakar/Dailyathon-Web/commit/302ed460f033fc3a13aaf3782dd4c04ae3edefff))
+* added adminlog log creation ([bae0713](https://github.com/AyberkCakar/Dailyathon-Web/commit/bae0713ff40b133eb9dead5df2b55c3d15754b3c))
+* added announcement log creation ([8473173](https://github.com/AyberkCakar/Dailyathon-Web/commit/847317331370d699f9e4a5ad540f272a1aa25502))
+* added category log creation ([7a08834](https://github.com/AyberkCakar/Dailyathon-Web/commit/7a08834ba811ec67ac23703e8ba304d216922e88))
+* added dashboard log creation ([039e527](https://github.com/AyberkCakar/Dailyathon-Web/commit/039e5270f8b1db4a84b5e3c464c70544767b5262))
+* added databotlog log creation ([7772dfd](https://github.com/AyberkCakar/Dailyathon-Web/commit/7772dfd78df26baa0d9a62fe309d77e874754ca2))
+* added event log creation ([8d8c341](https://github.com/AyberkCakar/Dailyathon-Web/commit/8d8c34132ab1d91756aa3eb3bb9f8ffc4c86f8b8))
+* added league log creation ([3be9fde](https://github.com/AyberkCakar/Dailyathon-Web/commit/3be9fde7a028d1755471848807db39e2e139241c))
+* added login log creation ([a5877c8](https://github.com/AyberkCakar/Dailyathon-Web/commit/a5877c811665a76da5b375dd2647c0652afa7827))
+* added news log creation ([f5a4935](https://github.com/AyberkCakar/Dailyathon-Web/commit/f5a4935a6c723e5ba504b1442401baf7cc420ee7))
+* added notification to all pages ([6844461](https://github.com/AyberkCakar/Dailyathon-Web/commit/6844461617d5185fdaeae6c7da93bc8ab2f8637b))
+* added servelog log creation ([b94622a](https://github.com/AyberkCakar/Dailyathon-Web/commit/b94622a3cdf7ffbfb66c27e3334a8990a1f96f02))
+* added sport log creation ([8662790](https://github.com/AyberkCakar/Dailyathon-Web/commit/86627907f1737955eff74a98d7ce24bcb121ccc0))
+* added sruvey log creation ([a42cc9b](https://github.com/AyberkCakar/Dailyathon-Web/commit/a42cc9b68646eb83028b9f3ce5f71319f2f6d68d))
+* added statistic log creation ([b789992](https://github.com/AyberkCakar/Dailyathon-Web/commit/b789992e6b58f91def36d4203d323dc3aab400ab))
+* added tag log creation ([b770cf5](https://github.com/AyberkCakar/Dailyathon-Web/commit/b770cf5bccb4b57fa88623af5a09ca614ef81e8e))
+* added user log creation ([f941f07](https://github.com/AyberkCakar/Dailyathon-Web/commit/f941f0708c11fdf96906f0e7a8dd84f1bce8477f))
+
+
+### Bug Fixes
+
+* fix admin log ([e837a45](https://github.com/AyberkCakar/Dailyathon-Web/commit/e837a456f4eb2d140a3a32950dd8219156999fd1))
+* fix admin log table ([e871f2e](https://github.com/AyberkCakar/Dailyathon-Web/commit/e871f2eeac5d717f5677e57b2d49f4428057f3e0))
+* fix announcement log ([e6bd38c](https://github.com/AyberkCakar/Dailyathon-Web/commit/e6bd38c98d03265d9657ef8c4d30ae6825cd95e6))
+* fix event date pipe ([f006a65](https://github.com/AyberkCakar/Dailyathon-Web/commit/f006a65c30afaf5605e651109db2d826b0de9555))
+* fix league - sport combobox selected ([b8410ff](https://github.com/AyberkCakar/Dailyathon-Web/commit/b8410ffb63c817f1696522b32fb83c26b903f597))
+* fix log operations ([f198ca6](https://github.com/AyberkCakar/Dailyathon-Web/commit/f198ca6876f6b5097346a06c3aca41db277b3227))
+* fix login notification ([f77be8c](https://github.com/AyberkCakar/Dailyathon-Web/commit/f77be8cd3fe81a2d68015461810bedc2c2caa42e))
+* fix logs and user notification ([b9a7044](https://github.com/AyberkCakar/Dailyathon-Web/commit/b9a7044664f9b6e959c4c54b66a38b691f40ae9b))
+* fix notification to for all pages ([4e43824](https://github.com/AyberkCakar/Dailyathon-Web/commit/4e43824364b6ffea4bdad476bdbd892172ba9658))
+* fix user age statistic ([4365e35](https://github.com/AyberkCakar/Dailyathon-Web/commit/4365e359d6550bbf0c263377fa7a15a04dff7f56))
+
 ## [1.12.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.11.0...v1.12.0) (2020-11-07)
 
 
