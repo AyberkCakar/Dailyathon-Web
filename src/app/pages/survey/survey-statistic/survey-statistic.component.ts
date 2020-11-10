@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {UserModel} from '../../user/user.model';
 import {SurveyModel} from '../survey.model';
-import { SurveyService } from '../../../utils/services';
+import { SurveyService ,AdminlogService} from '../../../utils/services';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -14,7 +14,12 @@ export class SurveyStatisticComponent {
   user: UserModel = new UserModel();
   survey: SurveyModel = new SurveyModel();
   count;
-  public constructor(private router: Router, private _surveyService: SurveyService , private _router: ActivatedRoute  )
+  public constructor(
+    private router: Router, 
+    private _surveyService: SurveyService , 
+    private _router: ActivatedRoute ,
+    private _logService: AdminlogService
+    )
   {}
 
   async ngOnInit(){
@@ -22,8 +27,10 @@ export class SurveyStatisticComponent {
       this.survey.SurveyListID = +this._router.snapshot.paramMap.get('id');
       this.data = <Array<UserModel>>await this._surveyService.statisticAsync(this.survey);
       this.count = this.data.length;
+      await this._logService.createLogAsync(null,'Survey Statistic',1);
       await this.onChangeTable(this.config);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Survey Statistic',0);
     }
   };
 
