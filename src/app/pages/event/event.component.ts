@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {EventModel} from './event.model';
-import {EventService} from '../../utils/services';
+import {EventService,AdminlogService} from '../../utils/services';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
@@ -15,7 +15,13 @@ export class EventComponent {
   event: EventModel = new EventModel();
   closeResult: string;
   deleteID: number;
-  constructor(private router: Router, private _eventService: EventService , private modalService: NgbModal , private notifier: NotifierService )
+  constructor(
+    private router: Router, 
+    private _eventService: EventService , 
+    private modalService: NgbModal ,
+    private notifier: NotifierService,
+    private _logService: AdminlogService
+    )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -26,6 +32,7 @@ export class EventComponent {
     try {
       this.model = <Array<EventModel>>await this._eventService.listAsync();
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Event List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -41,10 +48,12 @@ export class EventComponent {
     this.event.EntertainmentID = this.deleteID;
     try {
       let response= await this._eventService.deleteAsync(this.event);
+      await this._logService.createLogAsync(response['message'],'Event Delete',1);
       await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'Event Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -85,6 +94,7 @@ export class EventComponent {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'Event Details',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
