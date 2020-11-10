@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {TagModel} from './tag.model';
-import { TagService } from '../../utils/services';
+import { TagService ,AdminlogService} from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { NotifierService } from 'angular-notifier';
@@ -15,7 +15,12 @@ export class TagComponent {
   tag: TagModel = new TagModel();
   closeResult: string;
   deleteID: number;
-  public constructor(private router: Router, private _tagService: TagService , private modalService: NgbModal , private notifier: NotifierService )
+  public constructor(
+    private router: Router, 
+    private _tagService: TagService , 
+    private modalService: NgbModal , 
+    private _logService: AdminlogService,
+    private notifier: NotifierService )
   {}
 
   public showNotification( type: string, message: string ): void {
@@ -25,7 +30,9 @@ export class TagComponent {
   async ngOnInit(){
     try {
       this.model = <Array<TagModel>>await this._tagService.listAsync();
+      await this._logService.createLogAsync(null,'Tag List',1);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'Tag List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -41,10 +48,12 @@ export class TagComponent {
     this.tag.TagID = this.deleteID;
     try {
       let response = await this._tagService.deleteAsync(this.tag);
+      await this._logService.createLogAsync(response['message'],'Tag Delete',1);
       await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'Tag Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);

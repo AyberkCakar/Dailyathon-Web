@@ -31,6 +31,7 @@ export class SurveyComponent {
   async ngOnInit(){
     try {
       this.model = <Array<SurveyModel>>await this._surveyService.listAsync();
+      await this._logService.createLogAsync(null,'Survey List',1);
     } catch (error) {
       await this._logService.createLogAsync(error['message'],'Survey List',0);
       if(error['message'] == undefined){
