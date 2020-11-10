@@ -34,7 +34,7 @@
           </td>
           <td>{{event.EntertainmentCity}}</td>
           <td>{{event.EntertainmentDistrict}}</td>
-          <td>{{event.EntertainmentStartDate}}
+          <td>{{event.EntertainmentStartDate | date:'mediumDate'}}
           <td class="text-center">
             <button (click)="details(modalDialog2,event.EntertainmentID)" class="btn btn-xs btn-info m-r-10 mb-0">Details</button>
             <button (click)="open(modalDialog, event.EntertainmentID)" class="btn btn-xs btn-warning">Delete</button>
