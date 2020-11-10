@@ -32,7 +32,7 @@ export class CategoryComponent {
     try {
       this.model = <Array<CategoryModel>>await this._categoryService.listAsync();
     } catch (error) {
-      await this._logService.createLogAsync(error['message'],'Category List',1);
+      await this._logService.createLogAsync(error['message'],'Category List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
