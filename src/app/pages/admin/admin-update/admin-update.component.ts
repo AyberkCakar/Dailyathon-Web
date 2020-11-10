@@ -12,8 +12,6 @@ import {NotifierService} from 'angular-notifier';
 export class AdminUpdateComponent {
   model: AdminModel = new AdminModel();
   admin: AdminModel = new AdminModel();
-  state: number;
-  message: string;
   constructor(
     private router: Router, 
     private _adminService: AdminService , 
@@ -52,13 +50,11 @@ export class AdminUpdateComponent {
     this.admin.AdminPosition = position;
     try {
       let response = await this._adminService.updateAsync(this.admin);
-      this.state=1;
-      this.message= response['message'];
+      await this._logService.createLogAsync(response['message'],'Admin Update',1);
       await this.router.navigate(['/admin']);    
       await this.showNotification( 'success', response['message'] );
     } catch (error) {
-      this.state=0;
-      this.message= error['message'];
+      await this._logService.createLogAsync(error['message'],'Admin Update',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -66,9 +62,6 @@ export class AdminUpdateComponent {
       }
       else
         this.showNotification( 'error', error.message );      
-      }
-      finally{
-        await this._logService.createLogAsync(this.message,'Admin Update',this.state);
       }
   }
 }

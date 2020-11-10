@@ -13,8 +13,6 @@ import {LogModel} from '../../log/log.model';
 export class AdminAddComponent {
   date: Date = new Date();
   model: AdminModel = new AdminModel();
-  state: number;
-  message: string;
   constructor(
     private router: Router, 
     private _adminService: AdminService , 
@@ -40,13 +38,11 @@ export class AdminAddComponent {
     this.model.RegDate = this.date;
     try {
       let response = await this._adminService.insertAsync(this.model);
-      this.state=1;
-      this.message= response['message'];
+      await this._logService.createLogAsync(response['message'],'Admin Add',1);
       await this.router.navigate(['/admin']);
       await this.showNotification( 'success', response['message'] );
     } catch (error) {
-      this.state=0;
-      this.message= error['message'];
+      await this._logService.createLogAsync(error['message'],'Admin Add',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -54,9 +50,6 @@ export class AdminAddComponent {
       }
       else
         this.showNotification( 'error', error.message );    
-      }
-      finally{
-        await this._logService.createLogAsync(this.message,'Admin Update',this.state);
       }
   }
 }
