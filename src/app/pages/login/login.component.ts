@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import pageSettings from '../../config/page-settings';
-import { AuthService } from '../../utils/services';
+import { AuthService ,AdminlogService} from '../../utils/services';
 import { LoginModel } from './login.model';
 import {NotifierService} from 'angular-notifier';
 
@@ -16,7 +16,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   app;
   pageSettings = pageSettings;
 
-  constructor(private router: Router,  private _authService: AuthService , private notifier: NotifierService ) {
+  constructor(
+    private router: Router,  
+    private _authService: AuthService , 
+    private notifier: NotifierService,
+    private _logService: AdminlogService
+    ) {
     this.pageSettings.pageEmpty = true;
   }
   model: LoginModel = new LoginModel();
@@ -40,12 +45,15 @@ export class LoginComponent implements OnInit, OnDestroy {
       if(response.status!=404)
       {
         await this.showNotification( 'success', 'Login Successful !' );
+        await this._logService.createLogAsync(response['message'],'Login',1);
+
       }
       if(response.userInformation == null)
       {
         this.showNotification( 'error', response.message );
       }
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'Login',0);
       this.showNotification( 'error', error.message );
     }
   }
