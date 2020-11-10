@@ -24,7 +24,8 @@ export class AdminlogComponent {
 
   async ngOnInit(){
     try {
-      this.model = <Array<AdminlogModel>>await this._adminlogService.listAsync()
+      this.model = <Array<AdminlogModel>>await this._adminlogService.listAsync();
+      await this._adminlogService.createLogAsync(null,'Admin Log List',1);
     } catch (error) {
       await this._adminlogService.createLogAsync(error['message'],'Admin Log List',0);
       if(error['message'] == undefined){

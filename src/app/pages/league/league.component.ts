@@ -30,6 +30,7 @@ export class LeagueComponent {
   async ngOnInit(){
     try {
       this.model = <Array<LeagueModel>>await this._leagueService.listAsync();
+      await this._logService.createLogAsync(null,'League List',1);
     } catch (error) {
       await this._logService.createLogAsync(error['message'],'League List',0);
       if(error['message'] == undefined){

@@ -25,9 +25,10 @@ export class DatabotlogComponent {
 
   async ngOnInit(){
     try {
-      this.model = <Array<DatabotlogModel>>await this._databotlogService.listAsync()
+      this.model = <Array<DatabotlogModel>>await this._databotlogService.listAsync();
+      await this._logService.createLogAsync(null,'Databot Log List',1);
     } catch (error) {
-      await this._logService.createLogAsync(error['message'],'Databot List',0);
+      await this._logService.createLogAsync(error['message'],'Databot Log List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);

@@ -25,7 +25,8 @@ export class ServelogComponent {
 
   async ngOnInit(){
     try {
-      this.model = <Array<ServelogModel>>await this._servelogService.listAsync()
+      this.model = <Array<ServelogModel>>await this._servelogService.listAsync();
+      await this._logService.createLogAsync(null,'Serve Log List',1);
     } catch (error) {
       if(error['message'] == undefined){
         await this._logService.createLogAsync(error['message'],'Serve Log List',0);

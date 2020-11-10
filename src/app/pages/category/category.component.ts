@@ -31,6 +31,7 @@ export class CategoryComponent {
   async ngOnInit(){
     try {
       this.model = <Array<CategoryModel>>await this._categoryService.listAsync();
+      await this._logService.createLogAsync(null,'Category List',1);
     } catch (error) {
       await this._logService.createLogAsync(error['message'],'Category List',0);
       if(error['message'] == undefined){

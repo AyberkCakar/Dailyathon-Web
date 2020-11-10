@@ -32,6 +32,7 @@ export class AnnouncementComponent {
   async ngOnInit(){
     try {
       this.model = <Array<AnnouncementModel>>await this._announcementService.listAsync();
+      await this._logService.createLogAsync(null,'Announcement List',1);
       if (this.model == null)
       {
         this.showNotification( 'error', this.model['message'] );

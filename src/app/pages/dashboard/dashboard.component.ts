@@ -31,6 +31,7 @@ export class DashboardComponent {
     try {
       this.dashboard = <DashboardModel>await this._dashboard.dashboardAsync();
       this.chartData = <Array<TagstatisticModel>> await this._dashboard.tagStatisticAsync(this.select);
+      await this._logService.createLogAsync(null,'Dashboard',1);
     }catch (error) {
       await this._logService.createLogAsync(error['message'],'Dashboard',0);
     }

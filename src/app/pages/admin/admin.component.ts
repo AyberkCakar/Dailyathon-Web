@@ -23,9 +23,10 @@ export class AdminComponent {
   async ngOnInit(){
     try {
       this.model = <Array<AdminModel>>await this._adminService.listAsync();
+      await this._logService.createLogAsync(null,'Admin List',1);
     } catch (error) {
       if(error['message'] == undefined){
-        await this._logService.createLogAsync(error['message'],'Admin List Data',0);
+        await this._logService.createLogAsync(error['message'],'Admin List',0);
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
         await this.router.navigate(['/login']);

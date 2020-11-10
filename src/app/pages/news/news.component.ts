@@ -31,7 +31,7 @@ export class NewsComponent {
   async ngOnInit(){
     try {
       this.model = <Array<NewsModel>>await this._newsService.listAsync();
-
+      await this._logService.createLogAsync(null,'News List',1);
     } catch (error) {
       await this._logService.createLogAsync(error['message'],'News List',0);
       if(error['message'] == undefined){

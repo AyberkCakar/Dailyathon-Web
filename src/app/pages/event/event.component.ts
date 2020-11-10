@@ -31,6 +31,7 @@ export class EventComponent {
   async ngOnInit(){
     try {
       this.model = <Array<EventModel>>await this._eventService.listAsync();
+      await this._logService.createLogAsync(null,'Event List',1);
     } catch (error) {
       await this._logService.createLogAsync(error['message'],'Event List',0);
       if(error['message'] == undefined){
