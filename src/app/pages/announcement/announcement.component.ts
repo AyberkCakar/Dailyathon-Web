@@ -16,8 +16,6 @@ export class AnnouncementComponent {
   announcement: AnnouncementModel = new AnnouncementModel();
   closeResult: string;
   deleteID: number;
-  state: number;
-  message: string;
   constructor(
     private router: Router, 
     private _announcementService: AnnouncementService , 
@@ -56,14 +54,12 @@ export class AnnouncementComponent {
     this.announcement.AnnouncementID = this.deleteID;
     try {
       let response = await this._announcementService.deleteAsync(this.announcement);
-      this.state=1;
-      this.message= response['message'];
+      await this._logService.createLogAsync(response['message'],'Announcement Delete',1);
       await this.showNotification( 'success', response['message'] );
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
-      this.state=0;
-      this.message= error['message'];
+      await this._logService.createLogAsync(error['message'],'Announcement Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -71,9 +67,6 @@ export class AnnouncementComponent {
       }
       else
         this.showNotification( 'error', error.message );  
-    }
-    finally{
-      await this._logService.createLogAsync(this.message,'Admin Update',this.state);
     }
   };
 

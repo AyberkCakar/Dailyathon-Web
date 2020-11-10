@@ -10,8 +10,6 @@ import {NotifierService} from 'angular-notifier';
 })
 
 export class AnnouncementAddComponent {
-  state: number;
-  message: string;
   model: AnnouncementModel = new AnnouncementModel();
   date = new Date();
   constructor(
@@ -33,13 +31,11 @@ export class AnnouncementAddComponent {
     this.model.AnnouncementDate = this.date;
     try {
       let response = await this._announcementService.insertAsync(this.model);
-      this.state=1;
-      this.message= response['message'];
+      await this._logService.createLogAsync(response['message'],'Announcement Add',1);
       await this.router.navigate(['/announcement']);
       await this.showNotification( 'success', response['message'] );
     } catch (error) {
-      this.state=0;
-      this.message= error['message'];
+      await this._logService.createLogAsync(error['message'],'Announcement Add',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' );
         await delay(3000);
@@ -48,9 +44,7 @@ export class AnnouncementAddComponent {
       else
         this.showNotification( 'error', error.message );        
       }
-      finally{
-        await this._logService.createLogAsync(this.message,'Announcement Add',this.state);
-      }
+
   }
 }
 
