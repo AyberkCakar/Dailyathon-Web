@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {UserModel} from './user.model';
-import { UserService } from '../../utils/services';
+import { UserService,AdminlogService } from '../../utils/services';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { NotifierService } from 'angular-notifier';
@@ -19,13 +19,17 @@ export class UserComponent {
     private router: Router, 
     private _userService: UserService , 
     private modalService: NgbModal, 
-    private notifier: NotifierService)
+    private notifier: NotifierService,
+    private _logService: AdminlogService,
+    )
   {}
 
   async ngOnInit(){
     try {
       this.model = <Array<UserModel>>await this._userService.listAsync();
+      await this._logService.createLogAsync(null,'User List',1);
     } catch (error) {
+      await this._logService.createLogAsync(error['message'],'User List',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' )
         await delay(3000);
@@ -41,10 +45,12 @@ export class UserComponent {
     this.user.UserID = this.deleteID;
     try {
       let response = await this._userService.deleteAsync(this.user);
+      await this._logService.createLogAsync(response['message'],'User Delete',1);
       await this.showNotification( 'success', response['message'] )
       this.ngOnInit();
       this.modalService.dismissAll();
     }catch (error) {
+      await this._logService.createLogAsync(error['message'],'User Delete',0);
       if(error['message'] == undefined){
         await this.showNotification( 'error', 'Token is invalid. You are redirecting to Login ...' )
         await delay(3000);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TagService,UserService,SurveyService} from '../../../utils/services'
+import {TagService,UserService,SurveyService,AdminlogService} from '../../../utils/services'
 import {SurveyModel} from '../../survey/survey.model';
 import {TagModel} from '../../tag/tag.model';
 import {UserModel} from '../../user/user.model';
@@ -22,7 +22,8 @@ export class UserStatisticComponent implements OnInit {
     private _tagService: TagService,
     private _userService: UserService,
     private _surveyService: SurveyService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private _logService: AdminlogService
   ) { }
 
   async ngOnInit() {
@@ -38,8 +39,7 @@ export class UserStatisticComponent implements OnInit {
       await this.onChangeTableTag(this.configTag);
 
     } catch (error) {
-      console.log(error);
-
+      await this._logService.createLogAsync(error['message'],'User Statistic',0);
     }
   }
 
