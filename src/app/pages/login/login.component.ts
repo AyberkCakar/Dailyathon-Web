@@ -42,16 +42,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.model.Password = _password;
     try {
       const response = await this._authService.login(this.model);
-      if(response.status!=404)
+      if(response.information != null)
       {
         await this.showNotification( 'success', 'Login Successful !' );
         await this._logService.createLogAsync(response['message'],'Login',1);
-
       }
-      if(response.userInformation == null)
-      {
+      else
         this.showNotification( 'error', response.message );
-      }
     }catch (error) {
       await this._logService.createLogAsync(error['message'],'Login',0);
       this.showNotification( 'error', error.message );
