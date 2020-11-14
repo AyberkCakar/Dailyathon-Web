@@ -13,6 +13,7 @@ import {NotifierService} from 'angular-notifier';
 export class EventComponent {
   model:Array<EventModel>;
   event: EventModel = new EventModel();
+  eventDetails: EventModel = new EventModel();
   closeResult: string;
   deleteID: number;
   constructor(
@@ -88,7 +89,7 @@ export class EventComponent {
   {
     this.event.EntertainmentID = ID;
     try {
-      this.event = <EventModel>await this._eventService.detailsAsync(this.event);
+      this.eventDetails = <EventModel>await this._eventService.detailsAsync(this.event);
       await  this.modalService.open(content).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
