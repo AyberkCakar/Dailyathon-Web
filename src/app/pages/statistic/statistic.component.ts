@@ -89,6 +89,17 @@ export class StatisticComponent {
         this.showNotification( 'error', error.message );
     }
   }
+
+  async getStatistic(ID: number)
+  {
+    try {
+      this.categorySelect.CategoryID=ID;
+      this.statistic = <Array<CategoryStatisticModel>>await this._statisticService.categoryStatisticAsync(this.categorySelect);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }  
 }
 
 function delay(ms: number) {
