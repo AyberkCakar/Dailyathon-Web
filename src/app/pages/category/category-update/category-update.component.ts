@@ -50,7 +50,7 @@ export class CategoryUpdateComponent {
     try {
       let response = await this._categoryService.updateAsync(this.model)
       await this._logService.createLogAsync(response['message'],'Category Update',1);
-      await this.router.navigate(['/admin']);
+      await this.router.navigate(['/category']);
       await this.showNotification( 'success', response['message'] );
       } catch (error) {
         await this._logService.createLogAsync(error['message'],'Category Update',0);
