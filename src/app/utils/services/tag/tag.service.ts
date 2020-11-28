@@ -14,7 +14,7 @@ export class TagService {
   }
 
   async userTagAsync(values) {
-    return await this._apiFetchService.requestAsync('POST','user-tag',values,true);
+    return await this._apiFetchService.requestAsync('POST','user-tag-list',values,true);
   }
 
   async findAsync(values) {
