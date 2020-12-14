@@ -6,7 +6,6 @@
 
 <h1 class="page-header">Event Page</h1>
 <br>
-<button type="submit" routerLink="/eventAdd" class="btn btn-success m-b-15" style="height: 30px ;text-align: center ;padding-bottom: 20px;padding-top: 5px">Event Add</button>
 <div>
   <panel title="Event Table">
     <div class="table-responsive">
@@ -15,19 +14,17 @@
         <tr>
           <th>#</th>
           <th>Event Name</th>
-          <th>Performer</th>
           <th>isFree</th>
           <th>City</th>
           <th>District</th>
           <th class="width-200">Event Date</th>
-          <th class="width-200">Details / Delete</th>
+          <th class="width-100">Details</th>
         </tr>
         </thead>
         <tbody>
         <tr role="row" *ngFor="let event of model">
           <td>{{event.EntertainmentID}}</td>
           <td >{{event.EntertainmentName}}</td>
-          <td>{{event.EntertainmentPerformer}}</td>
           <td [ngSwitch]="event.EntertainmentisFree">
             <span *ngSwitchCase=0>Ücretsiz</span>
             <span *ngSwitchCase=1>Ücretli</span>
@@ -37,7 +34,6 @@
           <td>{{event.EntertainmentStartDate | date:'mediumDate'}}
           <td class="text-center">
             <button (click)="details(modalDialog2,event.EntertainmentID)" class="btn btn-xs btn-info m-r-10 mb-0">Details</button>
-            <button (click)="open(modalDialog, event.EntertainmentID)" class="btn btn-xs btn-warning">Delete</button>
           </td>
         </tr>
         </tbody>
@@ -47,21 +43,6 @@
 </div>
 
 
-<ng-template #modalDialog let-c="close" let-d="dismiss">
-  <div class="modal-header" >
-    <h4 class="modal-title">Event Delete</h4>
-    <button type="button" style="color: white" class="close" (click)="d('Cross click')">×</button>
-  </div>
-  <div class="modal-body">
-    <p style="font-size: 14px">
-      You have made a Event deletion request. Are you sure you want to continue ?
-    </p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-white" (click)="c('Close click')">Close</button>
-    <button (click)="deleteEvent()" class="btn btn-danger">Delete</button>
-  </div>
-</ng-template>
 
 
 <ng-template #modalDialog2 let-c="close" let-d="dismiss">
@@ -77,13 +58,7 @@
           <div class="col-md-7">
             <input type="text" class="form-control" value="{{eventDetails.EntertainmentID}}" placeholder="Event Name"  disabled/>
           </div>
-        </div>
-        <div class="form-group row m-b-15">
-          <label class="col-md-3 col-form-label">Event Content</label>
-          <div class="col-md-7">
-            <input type="text" class="form-control" value="{{eventDetails.EntertainmentContent}}" placeholder="Event Content"  disabled/>
-          </div>
-        </div>
+        </div>   
         <div class="form-group row m-b-15">
           <label class="col-md-3 col-form-label">Start Date</label>
           <div class="col-md-7">
@@ -130,12 +105,6 @@
           <label class="col-md-3 col-form-label">Venue</label>
           <div class="col-md-7">
             <input type="text" class="form-control" value="{{eventDetails.EntertainmentVenue}}" placeholder="Venue" disabled />
-          </div>
-        </div>
-        <div class="form-group row m-b-15">
-          <label class="col-md-3 col-form-label">Performer</label>
-          <div class="col-md-7">
-            <input type="text" class="form-control" value="{{eventDetails.EntertainmentPerformer}}" placeholder="Performer" disabled />
           </div>
         </div>
         <div class="form-group row m-b-15">

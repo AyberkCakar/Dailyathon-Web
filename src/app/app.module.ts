@@ -73,7 +73,6 @@ import {AnnouncementAddComponent} from './pages/announcement/announcement-add/an
 import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component';
 import {SportAddComponent} from './pages/sport/sport-add/sport-add.component';
 import {LeagueAddComponent} from './pages/league/league-add/league-add.component';
-import {EventAddComponent} from './pages/event/event-add/event-add.component';
 import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
 import {CategoryUpdateComponent} from './pages/category/category-update/category-update.component';
 import {SurveyUpdateComponent} from './pages/survey/survey-update/survey-update.component';
@@ -161,7 +160,6 @@ const customNotifierOptions: NotifierOptions = {
     SurveyAddComponent,
     SportAddComponent,
     LeagueAddComponent,
-    EventAddComponent,
     AdminAddComponent,
 
     CategoryUpdateComponent,

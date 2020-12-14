@@ -27,7 +27,6 @@ import {AnnouncementAddComponent} from './pages/announcement/announcement-add/an
 import {SurveyAddComponent} from './pages/survey/survey-add/survey-add.component';
 import {SportAddComponent} from './pages/sport/sport-add/sport-add.component';
 import {LeagueAddComponent} from './pages/league/league-add/league-add.component';
-import {EventAddComponent} from './pages/event/event-add/event-add.component';
 import {AdminAddComponent} from './pages/admin/admin-add/admin-add.component';
 
 import {CategoryUpdateComponent} from './pages/category/category-update/category-update.component';
@@ -67,7 +66,6 @@ const routes: Routes = [
   { path: 'surveyAdd', component: SurveyAddComponent, data: { title: 'Survey Add'} },
   { path: 'sportAdd', component: SportAddComponent, data: { title: 'Sport Add'} },
   { path: 'leagueAdd', component: LeagueAddComponent, data: { title: 'League Add'} },
-  { path: 'eventAdd', component: EventAddComponent, data: { title: 'Event Add'} },
   { path: 'adminAdd', component: AdminAddComponent, data: { title: 'Admin Add'} },
 
   { path: 'categoryDetails/:id', component: CategoryUpdateComponent, data: { title: 'Category Update'} },

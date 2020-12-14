@@ -1,6 +1,5 @@
 export class EventModel{
   EntertainmentID: number;
-  EntertainmentContent: string;
   EntertainmentName: string;
   EntertainmentStartDate: Date;
   EntertainmentDueDate: Date;
@@ -10,7 +9,6 @@ export class EventModel{
   EntertainmentCity: string;
   EntertainmentDistrict: string;
   EntertainmentVenue: string;
-  EntertainmentPerformer: string;
   TagID: number;
   TagName: string;
 }

@@ -13,15 +13,8 @@ export class EventService {
     return await this._apiFetchService.requestAsync('GET','entertainment',null,true);
   }
 
-  async insertAsync(values) {
-    return await this._apiFetchService.requestAsync('POST','entertainment',values,true);
-  }
-
   async detailsAsync(values) {
     return await this._apiFetchService.requestAsync('POST','entertainment-find',values,true);
   }
 
-  async deleteAsync(values) {
-    return await this._apiFetchService.requestAsync('DELETE','entertainment',values,true);
-  }
 }
