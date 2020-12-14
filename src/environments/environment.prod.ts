@@ -1,4 +1,4 @@
 export const environment = {
-	apiUrl: 'https://dailyathon-serve.ayberkcakar.xyz/'
+	apiUrl: 'https://serve-dailyathon.ayberkcakar.xyz/',
   production: true
 };

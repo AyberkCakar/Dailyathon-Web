@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://dailyathon-serve.ayberkcakar.xyz/'
+  apiUrl: 'https://serve-dailyathon.ayberkcakar.xyz/'
 };
