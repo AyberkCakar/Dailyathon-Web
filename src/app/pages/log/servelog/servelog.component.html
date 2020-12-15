@@ -17,10 +17,11 @@
           <th>#</th>
           <th>Router Name</th>
           <th>Router Type</th>
+          <th>Status Code</th>
+          <th>Status Message</th>
           <th>Message</th>
           <th>Exception</th>
           <th class="width-200">RegDate</th>
-
         </tr>
         </thead>
         <tbody>
@@ -28,6 +29,8 @@
           <td>{{log.LogID}}</td>
           <td >{{log.RouterName}}</td>
           <td>{{log.RouterType}}</td>
+          <td>{{log.StatusCode}}</td>
+          <td>{{log.StatusMessage}}</td>
           <td>{{log.Message}}</td>
           <td >{{log.Exception}}</td>
           <td>{{log.RegDate | date:'M/dd/yyyy, HH:mm':'+0'}}</td>
