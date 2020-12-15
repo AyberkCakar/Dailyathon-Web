@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.13.0...v2.1.0) (2020-12-15)
+
+
+### Features
+
+* added announcement visible checkbox ([843caf6](https://github.com/AyberkCakar/Dailyathon-Web/commit/843caf622f613e06ce364ef14ea08c9a17dc68d6))
+* added docker ([fc4c0ec](https://github.com/AyberkCakar/Dailyathon-Web/commit/fc4c0ec81089c1ee9a417c8c8a288ff8c45e2fce))
+* added survey visible checkbox ([97d619b](https://github.com/AyberkCakar/Dailyathon-Web/commit/97d619b16204c84728c9fe9c869199aa1cd65bd4))
+
+
+### Bug Fixes
+
+* fix docker delete ([46d5ba1](https://github.com/AyberkCakar/Dailyathon-Web/commit/46d5ba1ac1d85f89203dedc185da935909705f52))
+* fix environment ([a944124](https://github.com/AyberkCakar/Dailyathon-Web/commit/a944124175df6c7204ee6fd465c226a1fc79115f))
+* fix event details bug ([a6f5101](https://github.com/AyberkCakar/Dailyathon-Web/commit/a6f51012919905c332e7f00df27c1abcd9d7c5ce))
+* fix event page design ([6c6895f](https://github.com/AyberkCakar/Dailyathon-Web/commit/6c6895f89630f6b04ff797a9674231578ce231fa))
+* fix login error message controls ([7d477df](https://github.com/AyberkCakar/Dailyathon-Web/commit/7d477dff294442992da88cb9869361d9e6359fb0))
+* fix news details bug ([22f8207](https://github.com/AyberkCakar/Dailyathon-Web/commit/22f82072cb5216c7c68980400655131a9f0931d2))
+* fix project version ([fc4e0cd](https://github.com/AyberkCakar/Dailyathon-Web/commit/fc4e0cdaad13ec6f8543f4cb09c730cd25cbbb01))
+* fix servelog page design ([1ed03c0](https://github.com/AyberkCakar/Dailyathon-Web/commit/1ed03c0dfa1465dc52c66cb55c942c12481f3314))
+* fix servelog page design ([d037462](https://github.com/AyberkCakar/Dailyathon-Web/commit/d03746205e89f387832cf0998a076cab81cfaf07))
+* fix statistics page bug ([c2654ab](https://github.com/AyberkCakar/Dailyathon-Web/commit/c2654abad1cb26411951c4262a5f21be9fd42887))
+* fix tag service api ([f39575b](https://github.com/AyberkCakar/Dailyathon-Web/commit/f39575bf2b6bf2f551858f4a6aa0fd5017d2610c))
+
 ## [2.0.0](https://github.com/AyberkCakar/Dailyathon-Web/compare/v1.12.0...v2.0.0) (2020-11-10)
 
 
