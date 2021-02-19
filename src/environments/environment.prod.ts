@@ -1,4 +1,4 @@
 export const environment = {
-	apiUrl: 'https://serve-dailyathon.ayberkcakar.xyz/',
+	apiUrl: 'https://dailyathon.herokuapp.com/',
   production: true
 };
